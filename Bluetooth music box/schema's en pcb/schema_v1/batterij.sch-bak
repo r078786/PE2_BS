@@ -278,7 +278,7 @@ L Device:R R1
 U 1 1 603FB1D8
 P 2125 975
 F 0 "R1" H 2195 1021 50  0000 L CNN
-F 1 "10k" H 2195 930 50  0000 L CNN
+F 1 "1k" H 2195 930 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 2055 975 50  0001 C CNN
 F 3 "~" H 2125 975 50  0001 C CNN
 	1    2125 975 
@@ -708,4 +708,6 @@ Text Notes 6100 5200 0    50   ~ 0
 Power ok LED
 Text HLabel 8775 1950 2    50   Output ~ 0
 BAT_ADC
+Text Notes 4475 2200 0    50   ~ 0
+https://www.batterijenhuis.nl/nitecore-18650-li-ion-nl1834-3400mah
 $EndSCHEMATC

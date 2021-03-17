@@ -417,7 +417,6 @@ $EndComp
 NoConn ~ 5500 3100
 NoConn ~ 5500 3200
 NoConn ~ 5500 3300
-NoConn ~ 5500 4800
 NoConn ~ 5500 4400
 NoConn ~ 5500 4300
 NoConn ~ 5500 4200
@@ -461,4 +460,8 @@ Wire Wire Line
 	5400 4700 5500 4700
 Text HLabel 5400 3500 0    50   Input ~ 0
 BATTERY
+Text HLabel 5400 4800 0    50   Output ~ 0
+LedData
+Wire Wire Line
+	5500 4800 5400 4800
 $EndSCHEMATC

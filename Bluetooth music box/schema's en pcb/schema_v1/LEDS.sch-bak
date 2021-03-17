@@ -1264,7 +1264,7 @@ Wire Wire Line
 Text Notes 2950 6400 0    50   ~ 0
 3.3v to 5v level shifter\n
 Text HLabel 3650 7000 0    50   Input ~ 0
-D_LEDS
+LedData
 Wire Wire Line
 	4800 7000 5100 7000
 Text Label 5100 7000 2    50   ~ 0
