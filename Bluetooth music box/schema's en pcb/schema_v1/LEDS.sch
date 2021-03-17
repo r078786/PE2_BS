@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 4
+Sheet 2 7
 Title ""
 Date ""
 Rev ""
@@ -325,12 +325,6 @@ F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7600 4025 50  0001 
 	1    7500 4400
 	1    0    0    -1  
 $EndComp
-Text HLabel 10550 3850 0    50   Input ~ 0
-+5V
-Text HLabel 1000 1350 0    50   Input ~ 0
-Din
-Text HLabel 8500 6200 0    50   Input ~ 0
-GND
 Wire Wire Line
 	2250 1600 2750 1600
 Wire Wire Line
@@ -474,8 +468,6 @@ Wire Wire Line
 Connection ~ 7500 6050
 Wire Wire Line
 	7500 6050 8000 6050
-Wire Wire Line
-	8550 6200 8500 6200
 Wire Wire Line
 	1950 1300 1950 1100
 Wire Wire Line
@@ -1203,24 +1195,132 @@ Connection ~ 3600 3900
 $Comp
 L Device:CP1 C?
 U 1 1 60A1B3C1
-P 1250 1750
+P 900 1550
 AR Path="/6074CBC7/60A1B3C1" Ref="C?"  Part="1" 
 AR Path="/5F33610A/60A1B3C1" Ref="C3"  Part="1" 
-F 0 "C3" H 1365 1796 50  0000 L CNN
-F 1 "100µF" H 1365 1705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_Elec_8x10.2" H 1250 1750 50  0001 C CNN
-F 3 "~" H 1250 1750 50  0001 C CNN
-	1    1250 1750
+F 0 "C3" H 1015 1596 50  0000 L CNN
+F 1 "100µF" H 1015 1505 50  0000 L CNN
+F 2 "Capacitor_SMD:C_Elec_8x10.2" H 900 1550 50  0001 C CNN
+F 3 "~" H 900 1550 50  0001 C CNN
+	1    900  1550
+	1    0    0    -1  
+$EndComp
+Connection ~ 1950 1900
+Connection ~ 1950 1100
+$Comp
+L Logic_LevelTranslator:SN74LVC1T45DBV U?
+U 1 1 6074FFD6
+P 4400 7000
+AR Path="/6074FFD6" Ref="U?"  Part="1" 
+AR Path="/5F33610A/6074FFD6" Ref="U2"  Part="1" 
+F 0 "U2" H 4800 6650 50  0000 L CNN
+F 1 "SN74LVC1T45DBV" H 4600 6550 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 4400 6550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/sn74lvc1t45.pdf" H 3500 6350 50  0001 C CNN
+	1    4400 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 6074FFDC
+P 4300 6500
+AR Path="/6074FFDC" Ref="#PWR?"  Part="1" 
+AR Path="/5F33610A/6074FFDC" Ref="#PWR0108"  Part="1" 
+F 0 "#PWR0108" H 4300 6350 50  0001 C CNN
+F 1 "+3V3" H 4315 6673 50  0000 C CNN
+F 2 "" H 4300 6500 50  0001 C CNN
+F 3 "" H 4300 6500 50  0001 C CNN
+	1    4300 6500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1000 1350 1250 1350
+	4300 6500 4300 6550
+$Comp
+L power:+5V #PWR?
+U 1 1 6074FFE3
+P 4500 6500
+AR Path="/6074FFE3" Ref="#PWR?"  Part="1" 
+AR Path="/5F33610A/6074FFE3" Ref="#PWR0109"  Part="1" 
+F 0 "#PWR0109" H 4500 6350 50  0001 C CNN
+F 1 "+5V" H 4515 6673 50  0000 C CNN
+F 2 "" H 4500 6500 50  0001 C CNN
+F 3 "" H 4500 6500 50  0001 C CNN
+	1    4500 6500
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	1250 1350 1250 1600
+	4500 6600 4500 6500
 Wire Wire Line
-	1650 1600 1250 1600
-Connection ~ 1250 1600
+	4000 7200 3800 7200
 Wire Wire Line
-	1250 1900 1950 1900
-Connection ~ 1950 1900
+	3800 7200 3800 6550
+Wire Wire Line
+	3800 6550 4300 6550
+Connection ~ 4300 6550
+Wire Wire Line
+	4300 6550 4300 6600
+Wire Wire Line
+	4000 7000 3650 7000
+Text Notes 2950 6400 0    50   ~ 0
+3.3v to 5v level shifter\n
+Text HLabel 3650 7000 0    50   Input ~ 0
+D_LEDS
+Wire Wire Line
+	4800 7000 5100 7000
+Text Label 5100 7000 2    50   ~ 0
+FirstLED
+Text Label 1300 1600 0    50   ~ 0
+FirstLED
+Wire Wire Line
+	900  1400 900  1100
+Wire Wire Line
+	900  1100 1950 1100
+Wire Wire Line
+	900  1900 900  1700
+Wire Wire Line
+	900  1900 1950 1900
+Wire Wire Line
+	1300 1600 1650 1600
+$Comp
+L power:+5V #PWR?
+U 1 1 607C1650
+P 10550 750
+AR Path="/607C1650" Ref="#PWR?"  Part="1" 
+AR Path="/5F33610A/607C1650" Ref="#PWR0110"  Part="1" 
+F 0 "#PWR0110" H 10550 600 50  0001 C CNN
+F 1 "+5V" H 10565 923 50  0000 C CNN
+F 2 "" H 10550 750 50  0001 C CNN
+F 3 "" H 10550 750 50  0001 C CNN
+	1    10550 750 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10550 800  10550 750 
+Connection ~ 10550 800 
+$Comp
+L power:GND #PWR?
+U 1 1 607D85FD
+P 4400 7400
+AR Path="/607D85FD" Ref="#PWR?"  Part="1" 
+AR Path="/5F33610A/607D85FD" Ref="#PWR0114"  Part="1" 
+F 0 "#PWR0114" H 4400 7150 50  0001 C CNN
+F 1 "GND" H 4405 7227 50  0000 C CNN
+F 2 "" H 4400 7400 50  0001 C CNN
+F 3 "" H 4400 7400 50  0001 C CNN
+	1    4400 7400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 607F04B5
+P 8550 6200
+AR Path="/607F04B5" Ref="#PWR?"  Part="1" 
+AR Path="/5F33610A/607F04B5" Ref="#PWR0115"  Part="1" 
+F 0 "#PWR0115" H 8550 5950 50  0001 C CNN
+F 1 "GND" H 8555 6027 50  0000 C CNN
+F 2 "" H 8550 6200 50  0001 C CNN
+F 3 "" H 8550 6200 50  0001 C CNN
+	1    8550 6200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
