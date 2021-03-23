@@ -1,0 +1,2 @@
+Lichteffecten verbeteren:
+	raster?

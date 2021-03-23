@@ -1,0 +1,107 @@
+13:18:19 **** Incremental Build of configuration Debug for project Robbe ****
+make -j16 all 
+Building file: ../Core/Src/ILI9341_GFX.c
+Building file: ../Core/Src/ILI9341_STM32_Driver.c
+Building file: ../Core/Src/ILI9341_Touchscreen.c
+Invoking: MCU GCC Compiler
+Invoking: MCU GCC Compiler
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Robbe\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ILI9341_GFX.d" -MT"Core/Src/ILI9341_GFX.o" -o "Core/Src/ILI9341_GFX.o" "../Core/Src/ILI9341_GFX.c"
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Robbe\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ILI9341_STM32_Driver.d" -MT"Core/Src/ILI9341_STM32_Driver.o" -o "Core/Src/ILI9341_STM32_Driver.o" "../Core/Src/ILI9341_STM32_Driver.c"
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Robbe\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ILI9341_Touchscreen.d" -MT"Core/Src/ILI9341_Touchscreen.o" -o "Core/Src/ILI9341_Touchscreen.o" "../Core/Src/ILI9341_Touchscreen.c"
+In file included from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:235:0,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:30,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:29,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc/stm32l4xx_hal_conf.h:257,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc/ILI9341_STM32_Driver.h:87,
+                 from ../Core/Src/ILI9341_STM32_Driver.c:84:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:637:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_Init(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+In file included from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:235:0,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:30,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:29,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc/stm32l4xx_hal_conf.h:257,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc/ILI9341_STM32_Driver.h:87,
+                 from ../Core/Src/ILI9341_GFX.c:48:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:637:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_Init(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+In file included from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:235:0,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:30,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:29,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc/stm32l4xx_hal_conf.h:257,
+                 from C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Core/Inc/ILI9341_Touchscreen.h:85,
+                 from ../Core/Src/ILI9341_Touchscreen.c:82:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:637:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_Init(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:638:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_DeInit(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:638:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_DeInit(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:638:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_DeInit(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:641:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:641:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:641:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_InitTick (uint32_t TickPriority);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:656:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef  HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:656:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef  HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:656:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef  HAL_SetTickFreq(HAL_TickFreqTypeDef Freq);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:700:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_SYSCFG_EnableVREFBUF(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:700:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_SYSCFG_EnableVREFBUF(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Robbe/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:700:1: error: unknown type name 'HAL_StatusTypeDef'; did you mean 'HAL_TickFreqTypeDef'?
+ HAL_StatusTypeDef HAL_SYSCFG_EnableVREFBUF(void);
+ ^~~~~~~~~~~~~~~~~
+ HAL_TickFreqTypeDef
+../Core/Src/ILI9341_STM32_Driver.c: In function 'ILI9341_SPI_Init':
+../Core/Src/ILI9341_STM32_Driver.c:94:1: warning: implicit declaration of function 'MX_GPIO_Init'; did you mean 'HAL_GPIO_Init'? [-Wimplicit-function-declaration]
+ MX_GPIO_Init();                       //GPIO INIT
+ ^~~~~~~~~~~~
+ HAL_GPIO_Init
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/ILI9341_Touchscreen.o' failed
+make: *** [Core/Src/ILI9341_Touchscreen.o] Error 1
+make: *** Waiting for unfinished jobs....
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/ILI9341_GFX.o' failed
+make: *** [Core/Src/ILI9341_GFX.o] Error 1
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/ILI9341_STM32_Driver.o' failed
+make: *** [Core/Src/ILI9341_STM32_Driver.o] Error 1
+
+13:18:20 Build Finished (took 617ms)
+
