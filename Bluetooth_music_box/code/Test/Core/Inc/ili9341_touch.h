@@ -28,7 +28,7 @@ extern SPI_HandleTypeDef ILI9341_TOUCH_SPI_PORT;
 // call before initializing any SPI devices
 void ILI9341_TouchUnselect();
 
-bool ILI9341_TouchPressed();
-bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y);
+bool LCD_TPressed();
+bool LCD_TGetC(uint16_t* x, uint16_t* y);
 
 #endif // __ILI9341_TOUCH_H__

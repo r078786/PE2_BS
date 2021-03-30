@@ -15,11 +15,11 @@ void ILI9341_TouchUnselect() {
     HAL_GPIO_WritePin(ILI9341_TOUCH_CS_GPIO_Port, ILI9341_TOUCH_CS_Pin, GPIO_PIN_SET);
 }
 
-bool ILI9341_TouchPressed() {
+bool LCD_TPressed() {
     return HAL_GPIO_ReadPin(ILI9341_TOUCH_IRQ_GPIO_Port, ILI9341_TOUCH_IRQ_Pin) == GPIO_PIN_RESET;
 }
 
-bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
+bool LCD_TGetC(uint16_t* x, uint16_t* y) {
     static const uint8_t cmd_read_x[] = { READ_X };
     static const uint8_t cmd_read_y[] = { READ_Y };
     static const uint8_t zeroes_tx[] = { 0x00, 0x00 };
@@ -30,7 +30,7 @@ bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
     uint32_t avg_y = 0;
     uint8_t nsamples = 0;
     for(uint8_t i = 0; i < 16; i++) {
-        if(!ILI9341_TouchPressed())
+        if(!LCD_TPressed())
             break;
 
         nsamples++;

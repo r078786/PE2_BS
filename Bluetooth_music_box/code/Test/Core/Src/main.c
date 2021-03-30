@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "ili9341.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -114,6 +115,86 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	  //alles initialiseren
+	  ILI9341_Unselect();
+	  //ILI9341_TouchUnselect();
+	  ILI9341_LCD_Init();
+
+	  //testcode voor lcd functies
+	  LCD_FillScreen(LCD_BLACK);
+
+	  for(int i = 0; i < ILI9341_WIDTH; i++) {
+		  LCD_DrawPixel(i, 0, LCD_RED);
+		  LCD_DrawPixel(i, ILI9341_HEIGHT-1, LCD_RED);
+	  }
+	  for(int j = 0; j < ILI9341_HEIGHT; j++) {
+		  LCD_DrawPixel(0, j, LCD_RED);
+		  LCD_DrawPixel(ILI9341_WIDTH-1, j, LCD_RED);
+	  }
+	  HAL_Delay(3000);
+
+	  //fonts controleren
+	  // Check fonts
+	  LCD_FillScreen(LCD_BLACK);
+	  LCD_WriteString(0, 0, "Font_7x10, red on black, lorem ipsum dolor sit amet", Font_7x10, LCD_RED, LCD_BLACK);
+	  LCD_WriteString(0, 3*10, "Font_11x18, green, lorem ipsum dolor sit amet", Font_11x18, LCD_GREEN, LCD_BLACK);
+	  LCD_WriteString(0, 3*10+3*18, "Font_16x26, blue, lorem ipsum dolor sit amet", Font_16x26, LCD_BLUE, LCD_BLACK);
+
+	  HAL_Delay(1000);
+	  LCD_InvertColors(true);
+	  HAL_Delay(1000);
+	  LCD_InvertColors(false);
+
+	  HAL_Delay(5000);
+
+	  //colors controleren
+	  LCD_FillScreen(LCD_WHITE);
+	  LCD_WriteString(0, 0, "WHITE", Font_11x18, LCD_BLACK, LCD_WHITE);
+	  HAL_Delay(500);
+
+	  LCD_FillScreen(LCD_BLUE);
+	  LCD_WriteString(0, 0, "BLUE", Font_11x18, LCD_BLACK, LCD_BLUE);
+	  HAL_Delay(500);
+
+	  LCD_FillScreen(LCD_RED);
+	  LCD_WriteString(0, 0, "RED", Font_11x18, LCD_BLACK, LCD_RED);
+	  HAL_Delay(500);
+
+	  LCD_FillScreen(LCD_GREEN);
+	  LCD_WriteString(0, 0, "GREEN", Font_11x18, LCD_BLACK, LCD_GREEN);
+	  HAL_Delay(500);
+
+	  LCD_FillScreen(LCD_CYAN);
+	  LCD_WriteString(0, 0, "CYAN", Font_11x18, LCD_BLACK, LCD_CYAN);
+	  HAL_Delay(500);
+
+	  LCD_FillScreen(LCD_MAGENTA);
+	  LCD_WriteString(0, 0, "MAGENTA", Font_11x18, LCD_BLACK, LCD_MAGENTA);
+	  HAL_Delay(500);
+
+	  LCD_FillScreen(LCD_YELLOW);
+	  LCD_WriteString(0, 0, "YELLOW", Font_11x18, LCD_BLACK, LCD_YELLOW);
+	  HAL_Delay(500);
+
+	  LCD_FillScreen(LCD_BLACK);
+	  LCD_WriteString(0, 0, "BLACK", Font_11x18, LCD_WHITE, LCD_BLACK);
+	  HAL_Delay(500);
+
+	  //touchpad controleren
+	  LCD_WriteString(0, 0, "Touchpad test.  Draw something!", Font_11x18, LCD_WHITE, LCD_BLACK);
+	  HAL_Delay(1000);
+	  LCD_FillScreen(LCD_BLACK);
+
+	  int npoints = 0;
+	  while(npoints < 10000) { // 10.000 pixels kunnen tekenen
+		  uint16_t x, y; // voor x en y coordinaten v/d punten
+
+	      if(LCD_TGetC(&x, &y)) { // nakijken of er is gedrukt op de touchpad
+	    	  LCD_DrawPixel(x, 320-y, LCD_WHITE); // witte pixel tekenen waar er is gedrukt
+	    	  npoints++; // aantal getekende pixels optellen
+	      }
+	  }
   }
   /* USER CODE END 3 */
 }

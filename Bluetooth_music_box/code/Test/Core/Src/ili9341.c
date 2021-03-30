@@ -53,7 +53,7 @@ static void ILI9341_SetAddressWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint
     ILI9341_WriteCommand(0x2C); // RAMWR
 }
 
-void ILI9341_Init() {
+void ILI9341_LCD_Init() {
     ILI9341_Select();
     ILI9341_Reset();
 
@@ -208,7 +208,7 @@ void ILI9341_Init() {
     ILI9341_Unselect();
 }
 
-void ILI9341_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
+void LCD_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
     if((x >= ILI9341_WIDTH) || (y >= ILI9341_HEIGHT))
         return;
 
@@ -221,7 +221,7 @@ void ILI9341_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
     ILI9341_Unselect();
 }
 
-static void ILI9341_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uint16_t color, uint16_t bgcolor) {
+static void LCD_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uint16_t color, uint16_t bgcolor) {
     uint32_t i, b, j;
 
     ILI9341_SetAddressWindow(x, y, x+font.width-1, y+font.height-1);
@@ -240,7 +240,7 @@ static void ILI9341_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uin
     }
 }
 
-void ILI9341_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor) {
+void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor) {
     ILI9341_Select();
 
     while(*str) {
@@ -258,7 +258,7 @@ void ILI9341_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, 
             }
         }
 
-        ILI9341_WriteChar(x, y, *str, font, color, bgcolor);
+        LCD_WriteChar(x, y, *str, font, color, bgcolor);
         x += font.width;
         str++;
     }
@@ -266,7 +266,7 @@ void ILI9341_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, 
     ILI9341_Unselect();
 }
 
-void ILI9341_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
+void LCD_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
     // clipping
     if((x >= ILI9341_WIDTH) || (y >= ILI9341_HEIGHT)) return;
     if((x + w - 1) >= ILI9341_WIDTH) w = ILI9341_WIDTH - x;
@@ -286,11 +286,11 @@ void ILI9341_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint1
     ILI9341_Unselect();
 }
 
-void ILI9341_FillScreen(uint16_t color) {
-    ILI9341_FillRectangle(0, 0, ILI9341_WIDTH, ILI9341_HEIGHT, color);
+void LCD_FillScreen(uint16_t color) {
+    LCD_FillRectangle(0, 0, ILI9341_WIDTH, ILI9341_HEIGHT, color);
 }
 
-void ILI9341_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data) {
+void LCD_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data) {
     if((x >= ILI9341_WIDTH) || (y >= ILI9341_HEIGHT)) return;
     if((x + w - 1) >= ILI9341_WIDTH) return;
     if((y + h - 1) >= ILI9341_HEIGHT) return;
@@ -301,7 +301,7 @@ void ILI9341_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uin
     ILI9341_Unselect();
 }
 
-void ILI9341_InvertColors(bool invert) {
+void LCD_InvertColors(bool invert) {
     ILI9341_Select();
     ILI9341_WriteCommand(invert ? 0x21 /* INVON */ : 0x20 /* INVOFF */);
     ILI9341_Unselect();
