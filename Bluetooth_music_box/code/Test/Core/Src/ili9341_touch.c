@@ -1,6 +1,7 @@
 /* vim: set ai et ts=4 sw=4: */
 
-#include "stm32l4xx_hal_conf.h"
+//#include "stm32l4xx_hal_conf.h"
+#include "main.h"
 #include "ili9341_touch.h"
 
 #define READ_X 0xD0
