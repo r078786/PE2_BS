@@ -1,33 +1,6 @@
-17:48:40 **** Incremental Build of configuration Debug for project Test ****
+17:52:23 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
-Building file: ../Core/Src/ili9341_touch.c
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ili9341_touch.d" -MT"Core/Src/ili9341_touch.o" -o "Core/Src/ili9341_touch.o" "../Core/Src/ili9341_touch.c"
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:193:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) { // nakijken of er is gedrukt op de touchpad
-           ^~~~~~~~~
-Finished building: ../Core/Src/ili9341_touch.c
- 
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
-  26920	     56	   2104	  29080	   7198	Test.elf
- 
+make: Nothing to be done for 'all'.
 
-17:48:41 Build Finished (took 1s.412ms)
+17:52:24 Build Finished (took 823ms)
 

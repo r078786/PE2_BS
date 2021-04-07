@@ -120,7 +120,7 @@ int main(void)
 	  //ILI9341_TouchUnselect();
 	  ILI9341_LCD_Init();
 
-	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_RESET);
 
 
 	  //testcode voor lcd functies
