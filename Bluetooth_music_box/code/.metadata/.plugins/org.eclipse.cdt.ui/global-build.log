@@ -1,36 +1,20 @@
-17:37:19 **** Incremental Build of configuration Debug for project Test ****
+21:04:20 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 make: Nothing to be done for 'all'.
-17:37:23 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:37:42 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:38:48 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:39:06 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:40:11 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:40:35 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:40:45 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:41:01 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-17:42:25 **** Incremental Build of configuration Debug for project Test ****
+21:04:24 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
 C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:143:26: warning: passing argument 3 of 'LCD_WriteString' makes pointer from integer without a cast [-Wint-conversion]
+    LCD_WriteString(0, 0, battery, Font_7x10, LCD_WHITE, LCD_BLACK);
+                          ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:73:6: note: expected 'const char *' but argument is of type 'char'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
 Finished building: ../Core/Src/main.c
  
 Building target: Test.elf
@@ -43,74 +27,17 @@ Generating hex and Printing size information:
 arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
 arm-none-eabi-size "Test.elf"
    text	   data	    bss	    dec	    hex	filename
-  25720	     56	   2104	  27880	   6ce8	Test.elf
+  24904	     56	   2104	  27064	   69b8	Test.elf
  
-17:43:11 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
-  25720	     56	   2104	  27880	   6ce8	Test.elf
- 
-17:51:55 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
-  25720	     56	   2104	  27880	   6ce8	Test.elf
- 
-17:52:15 **** Incremental Build of configuration Debug for project Test ****
+21:05:13 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 make: Nothing to be done for 'all'.
-17:52:23 **** Incremental Build of configuration Debug for project Test ****
+21:05:18 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 make: Nothing to be done for 'all'.
-22:38:24 **** Incremental Build of configuration Debug for project Test ****
+21:05:22 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
-  25720	     56	   2104	  27880	   6ce8	Test.elf
- 
-22:39:16 **** Incremental Build of configuration Debug for project Test ****
+make: Nothing to be done for 'all'.
+21:05:25 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 make: Nothing to be done for 'all'.

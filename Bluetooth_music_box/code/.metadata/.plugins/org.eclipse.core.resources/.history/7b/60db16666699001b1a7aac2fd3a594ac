@@ -122,7 +122,7 @@ int main(void)
 
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
 
-	  char battery = HAL_GPIO_ReadPin(BATTERY_GPIO_Port, BATTERY_Pin);
+
 	  //testcode voor lcd functies
 	  /*
 	  LCD_FillScreen(LCD_BLACK);
@@ -140,9 +140,9 @@ int main(void)
 	  //fonts controleren
 	  // Check fonts
 	  LCD_FillScreen(LCD_BLACK);
-	  LCD_WriteString(0, 0, battery, Font_7x10, LCD_WHITE, LCD_BLACK);
-	  //LCD_WriteString(0, 3*10, "Font_11x18, green, lorem ipsum dolor sit amet", Font_11x18, LCD_GREEN, LCD_BLACK);
-	  //LCD_WriteString(0, 3*10+3*18, "Font_16x26, blue, lorem ipsum dolor sit amet", Font_16x26, LCD_BLUE, LCD_BLACK);
+	  LCD_WriteString(0, 0, "Font_7x10, red on black, lorem ipsum dolor sit amet", Font_7x10, LCD_RED, LCD_BLACK);
+	  LCD_WriteString(0, 3*10, "Font_11x18, green, lorem ipsum dolor sit amet", Font_11x18, LCD_GREEN, LCD_BLACK);
+	  LCD_WriteString(0, 3*10+3*18, "Font_16x26, blue, lorem ipsum dolor sit amet", Font_16x26, LCD_BLUE, LCD_BLACK);
 
 	  /*HAL_Delay(1000);
 	  LCD_InvertColors(true);
