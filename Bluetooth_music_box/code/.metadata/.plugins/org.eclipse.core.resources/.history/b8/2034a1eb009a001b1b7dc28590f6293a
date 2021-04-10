@@ -199,7 +199,7 @@ int main(void)
 	  LCD_WriteString(50, 100, "3", Font_11x18, LCD_BLACK, LCD_WHITE);
 	  HAL_Delay(1000);*/
 
-	  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,0xf1);
+	  HAL_GPIO_WritePin(1,GPIO_PIN_13,GPIOB);
 
 	  LCD_FillScreen(LCD_BLACK);
 	  LCD_WriteString(0, 0, "Draw something", Font_11x18, LCD_WHITE, LCD_BLACK);

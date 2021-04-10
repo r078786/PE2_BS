@@ -68,10 +68,10 @@ void Error_Handler(void);
 #define LCD_RST_GPIO_Port GPIOA
 #define BATTERY_Pin GPIO_PIN_0
 #define BATTERY_GPIO_Port GPIOB
-#define BACKLIGHT_Pin GPIO_PIN_1
-#define BACKLIGHT_GPIO_Port GPIOB
-#define TOUCH_CS_Pin GPIO_PIN_2
+#define TOUCH_CS_Pin GPIO_PIN_1
 #define TOUCH_CS_GPIO_Port GPIOB
+#define BACKLIGHT_Pin GPIO_PIN_2
+#define BACKLIGHT_GPIO_Port GPIOB
 #define TOUCH_IRQ_Pin GPIO_PIN_10
 #define TOUCH_IRQ_GPIO_Port GPIOB
 #define LCD_CS_Pin GPIO_PIN_11

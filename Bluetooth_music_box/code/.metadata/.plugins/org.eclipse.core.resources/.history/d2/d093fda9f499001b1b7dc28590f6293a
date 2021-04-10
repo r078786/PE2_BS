@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ili9341.h"
-//#include "ili9341_touch.h";
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,13 +117,12 @@ int main(void)
 
 	  //alles initialiseren
 	  ILI9341_Unselect();
-	  ILI9341_TouchUnselect();
+	  //ILI9341_TouchUnselect();
 	  ILI9341_LCD_Init();
-	  //ILI9341_TouchSelect();
 
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
 
-	  int battery = "54.89%";
+	  int battery = "54";
 	  //testcode voor lcd functies
 
 	  LCD_FillScreen(LCD_BLACK);
@@ -141,7 +139,7 @@ int main(void)
 
 	  //fonts controleren
 	  // Check fonts
-	  /*LCD_FillScreen(LCD_BLACK);
+	  LCD_FillScreen(LCD_BLACK);
 	  LCD_WriteString(200, 150, battery, Font_7x10, LCD_WHITE, LCD_BLACK);
 	  LCD_WriteString(0, 3*10, "Font_11x18, green, lorem ipsum dolor sit amet", Font_11x18, LCD_GREEN, LCD_BLACK);
 	  LCD_WriteString(0, 3*10+3*18, "Font_16x26, blue, lorem ipsum dolor sit amet", Font_16x26, LCD_BLUE, LCD_BLACK);
@@ -197,23 +195,7 @@ int main(void)
 	  HAL_Delay(1000);
 	  LCD_FillScreen(LCD_WHITE);
 	  LCD_WriteString(50, 100, "3", Font_11x18, LCD_BLACK, LCD_WHITE);
-	  HAL_Delay(1000);*/
-
-	  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,0xf1);
-
-	  LCD_FillScreen(LCD_BLACK);
-	  LCD_WriteString(0, 0, "Draw something", Font_11x18, LCD_WHITE, LCD_BLACK);
-	  HAL_Delay(500);
-
-	  int npoints = 0;
-	  while(npoints < 10000) {
-	      uint16_t x, y;
-	      LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
-	      if(LCD_TGetC(&x, &y)) {
-	    	  LCD_DrawPixel(x, 320-y, LCD_YELLOW);
-	          npoints++;
-	      }
-	  }
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
