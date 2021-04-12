@@ -34,14 +34,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define GRB_WORD(R, G, B) (((G) << 16) | ((R) << 8) | (B))
-//800kHz signal @48MHZ timer -> 59pulses
-#define ONECODE		(38)
-#define ZEROCODE	(19)
-#define NUMLEDS		(24)
-#define COLORS		(3)	//R G B
-#define BYTECOUNT	(NUMLEDS*COLORS)
-#define BITCOUNT	(BYTECOUNT*8)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -55,31 +47,24 @@ ADC_HandleTypeDef hadc1;
 SPI_HandleTypeDef hspi1;
 
 TIM_HandleTypeDef htim1;
-DMA_HandleTypeDef hdma_tim1_ch1;
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-//led array
-uint8_t ledArray[BYTECOUNT];
-//array for DMA
-uint8_t dmaArray[BITCOUNT];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
-static void setLED(uint8_t index, uint8_t r, uint8_t g, uint8_t b);
-static void updateDMABuffer(void);
-static void send2LEDS(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -116,7 +101,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   MX_ADC1_Init();
@@ -555,22 +539,6 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -632,106 +600,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/*void led_fill_buffer(uint32_t offset, uint32_t length) {
-  for (uint32_t i = offset; i < length; i++) {
-    uint32_t grb_i = grb_offset + (i / LED_BPP);
 
-    if (grb_i >= LED_COUNT) {
-      // Pad anything outside of the GRB buffer range with resets (0% duty).
-      buffer[i] = DUTY_RESET;
-    } else {
-      // Since the LEDs expect MSB-first, we need to do some fiddling to fire
-      // that out first.
-      uint32_t grb_value = grb[grb_i];
-      uint8_t grb_bit_offset = 23 - (i % 24);
-      uint8_t grb_bit = (grb_value >> grb_bit_offset) & 1;
-
-      if (grb_bit == 1) {
-        buffer[i] = DUTY_1;
-      } else {
-        buffer[i] = DUTY_0;
-      }
-    }
-  }
-}
-
-void DMA1_Channel4_5_IRQHandler() {
-  if (LL_DMA_IsActiveFlag_HT5(DMA1)) {
-    // We're half-way through.
-
-    // Fill the lower half of the buffer as the top half is now being read.
-    led_fill_buffer(BUFFER_L_OFFSET, BUFFER_LEN_HALF);
-    rgb_offset += BUFFER_LED_COUNT_HALF;
-
-    LL_DMA_ClearFlag_HT5(DMA1);
-  } else if (LL_DMA_IsActiveFlag_TC5(DMA1)) {
-    // We're at the end. DMA is about to circle round.
-
-    // Only disable the counter if we've completed at least half a cycle beyond
-    // the LED count. This means we'll get a whole buffer's worth of reset,
-    // even in the case where the buffer is a perfect fit or more for the
-    // number of LEDs.
-    if (rgb_offset > LED_COUNT) {
-      LL_TIM_DisableCounter(TIM1);
-    }
-
-    // Fill the upper half of the buffer as the lower half is now being read.
-    led_fill_buffer(BUFFER_H_OFFSET, BUFFER_LEN_HALF);
-    rgb_offset += BUFFER_LED_COUNT_HALF;
-
-    LL_DMA_ClearFlag_TC5(DMA1);
-  }
-}
-
-void led_update() {
-  rgb_offset = 0;
-
-  // Fill up the buffer completely!
-  led_fill_buffer(BUFFER_L_OFFSET, BUFFER_LEN);
-  rgb_offset = BUFFER_LED_COUNT;
-
-  // Reset the DMA channel to point at the start of the buffer.
-  LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_5);
-  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_5, (uint32_t)buffer);
-  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_5, BUFFER_LEN);
-  LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_5, LL_DMA_MODE_CIRCULAR);
-  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_5);
-
-  LL_TIM_EnableCounter(TIM1);
-}*/
-
-static void setLED(uint8_t index, uint8_t r, uint8_t g, uint8_t b)
-{
-	//color format: grb-24bits
-	ledArray[index] = g;
-	ledArray[index+1] = r;
-	ledArray[index+2] = b;
-}
-
-static void updateDMABuffer(void)
-{
-	//loop trough every led
-	for(uint8_t led = 0; led < NUMLEDS; led++)
-	{
-		//for every color
-		for(uint8_t color = 0; color < COLORS; color++)
-		{
-			dmaArray[color+led	] = ledArray[color+led]&0x80 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+1] = ledArray[color+led]&0x40 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+2] = ledArray[color+led]&0x20 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+3] = ledArray[color+led]&0x40 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+4] = ledArray[color+led]&0x08 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+5] = ledArray[color+led]&0x04 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+6] = ledArray[color+led]&0x02 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+7] = ledArray[color+led]&0x01 ? ONECODE : ZEROCODE;
-		}
-	}
-}
-
-static void send2LEDS(void)
-{
-
-}
 /* USER CODE END 4 */
 
 /**

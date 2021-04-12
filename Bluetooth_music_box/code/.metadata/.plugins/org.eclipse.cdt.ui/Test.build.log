@@ -1,25 +1,186 @@
-14:01:10 **** Incremental Build of configuration Debug for project Test ****
+21:26:18 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
+Building file: ../Core/Src/WS2812.c
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/WS2812.d" -MT"Core/Src/WS2812.o" -o "Core/Src/WS2812.o" "../Core/Src/WS2812.c"
 C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/WS2812.c:64:49: warning: "/*" within comment [-Wcomment]
+     if (is_updating) {                          /* Check if update in progress already *
+                                                  
+../Core/Src/WS2812.c:67:49: warning: "/*" within comment [-Wcomment]
+     is_updating = 1;                            /* We are now updating *
+                                                  
+../Core/Src/WS2812.c:69:49: warning: "/*" within comment [-Wcomment]
+     led_start_reset_pulse(1);                   /* Start reset pulse *
+                                                  
+../Core/Src/WS2812.c:71:49: warning: "/*" within comment [-Wcomment]
+         while (!led_is_update_finished());      /* Wait to finish *
+                                                  
+../Core/Src/WS2812.c:114:49: warning: "/*" within comment [-Wcomment]
+     tc = !!tc;                                  /* Convert to 1 or 0 value only */
+                                                  
+../Core/Src/WS2812.c:117:49: warning: "/*" within comment [-Wcomment]
+     if (is_reset_pulse == 2) {                  /* Check for reset pulse at the end *
+                                                  
+../Core/Src/WS2812.c:118:61: warning: "/*" within comment [-Wcomment]
+         LL_TIM_CC_DisableChannel(TIM2, LL_TIM_CHANNEL_CH2); /* Disable channel *
+                                                              
+../Core/Src/WS2812.c:119:57: warning: "/*" within comment [-Wcomment]
+         LL_DMA_DisableStream(DMA1, LL_DMA_STREAM_6);    /* Disable DMA stream *
+                                                          
+../Core/Src/WS2812.c:121:49: warning: "/*" within comment [-Wcomment]
+         is_updating = 0;                        /* We are not updating anymore *
+                                                  
+../Core/Src/WS2812.c:125:5: warning: "/*" within comment [-Wcomment]
+     /* Check for reset pulse on beginning of PWM stream *
+      
+../Core/Src/WS2812.c:126:49: warning: "/*" within comment [-Wcomment]
+     if (is_reset_pulse == 1) {                  /* Check if we finished with reset pulse *
+                                                  
+../Core/Src/WS2812.c:127:9: warning: "/*" within comment [-Wcomment]
+         /*
+          
+../Core/Src/WS2812.c:131:49: warning: "/*" within comment [-Wcomment]
+         if (!tc) {                              /* We must wait for transfer complete *
+                                                  
+../Core/Src/WS2812.c:132:49: warning: "/*" within comment [-Wcomment]
+             return;                             /* Return and wait to finish *
+                                                  
+../Core/Src/WS2812.c:135:9: warning: "/*" within comment [-Wcomment]
+         /* Disable timer output and disable DMA stream *
+          
+../Core/Src/WS2812.c:136:61: warning: "/*" within comment [-Wcomment]
+         LL_TIM_CC_DisableChannel(TIM2, LL_TIM_CHANNEL_CH2); /* Disable channel *
+                                                              
+../Core/Src/WS2812.c:139:49: warning: "/*" within comment [-Wcomment]
+         is_reset_pulse = 0;                     /* Not in reset pulse anymore *
+                                                  
+../Core/Src/WS2812.c:140:49: warning: "/*" within comment [-Wcomment]
+         current_led = 0;                        /* Reset current led *
+                                                  
+../Core/Src/WS2812.c:142:9: warning: "/*" within comment [-Wcomment]
+         /*
+          
+../Core/Src/WS2812.c:146:49: warning: "/*" within comment [-Wcomment]
+         current_led++;                          /* Go to next LED *
+                                                  
+../Core/Src/WS2812.c:149:5: warning: "/*" within comment [-Wcomment]
+     /*
+      
+../Core/Src/WS2812.c:154:9: warning: "/*" within comment [-Wcomment]
+         /*
+          
+../Core/Src/WS2812.c:169:9: warning: "/*" within comment [-Wcomment]
+         /*
+          
+../Core/Src/WS2812.c:177:49: warning: "/*" within comment [-Wcomment]
+             current_led++;                      /* Go to next LED *
+                                                  
+../Core/Src/WS2812.c:178:93: warning: "/*" within comment [-Wcomment]
+             led_fill_led_pwm_data(current_led, &tmp_led_data[LED_CFG_RAW_BYTES_PER_LED]);   /* Prepare second LED too */
+                                                                                              
+../Core/Src/WS2812.c:181:75: warning: "/*" within comment [-Wcomment]
+             LL_DMA_SetMode(DMA1, LL_DMA_STREAM_6, LL_DMA_MODE_CIRCULAR);  /* Go to non-circular mode
+                                                                            
+../Core/Src/WS2812.c:185:13: warning: "/*" within comment [-Wcomment]
+             /* Clear DMA flags *
+              
+../Core/Src/WS2812.c:190:65: warning: "/*" within comment [-Wcomment]
+             LL_TIM_CC_EnableChannel(TIM2, LL_TIM_CHANNEL_CH2);  /* Enable channel *
+                                                                  
+../Core/Src/WS2812.c:193:5: warning: "/*" within comment [-Wcomment]
+     /*
+      
+../Core/Src/WS2812.c:200:61: warning: "/*" within comment [-Wcomment]
+         LL_TIM_CC_DisableChannel(TIM2, LL_TIM_CHANNEL_CH2); /* Disable channel *
+                                                              
+../Core/Src/WS2812.c:203:9: warning: "/*" within comment [-Wcomment]
+         /* It is time to send final reset pulse, 50us at least *
+          
+../Core/Src/WS2812.c:204:50: warning: "/*" within comment [-Wcomment]
+         led_start_reset_pulse(2);                /* Start reset pulse at the end *
+                                                   
+../Core/Src/WS2812.c:208:1: warning: "/*" within comment [-Wcomment]
+ /**
+  
+../Core/Src/WS2812.c:214:49: warning: "/*" within comment [-Wcomment]
+     is_reset_pulse = num;                       /* Set reset pulse flag *
+                                                  
+../Core/Src/WS2812.c:216:54: warning: "/*" within comment [-Wcomment]
+     memset(tmp_led_data, 0, sizeof(tmp_led_data));   /* Set all bytes to 0 to achieve 50us pulse *
+                                                       
+../Core/Src/WS2812.c:222:5: warning: "/*" within comment [-Wcomment]
+     /* Set DMA to normal mode, set memory to beginning of data and length to 40 elements */
+      
+../Core/Src/WS2812.c:224:65: warning: "/*" within comment [-Wcomment]
+     LL_DMA_SetMode(DMA1, LL_DMA_STREAM_6, LL_DMA_MODE_NORMAL);  /* Go to non-circular mode *
+                                                                  
+../Core/Src/WS2812.c:228:5: warning: "/*" within comment [-Wcomment]
+     /* Reset DMA configuration and enable stream *
+      
+../Core/Src/WS2812.c:235:57: warning: "/*" within comment [-Wcomment]
+     LL_TIM_CC_EnableChannel(TIM2, LL_TIM_CHANNEL_CH2);  /* Enable channel for timer *
+                                                          
+../Core/Src/WS2812.c:236:49: warning: "/*" within comment [-Wcomment]
+     LL_TIM_EnableCounter(TIM2);                 /* Start timer counter *
+                                                  
+../Core/Src/WS2812.c:241:1: warning: "/*" within comment [-Wcomment]
+ /**
+  
+../Core/Src/WS2812.c:246:49: warning: "/*" within comment [-Wcomment]
+     if (LL_DMA_IsActiveFlag_HT6(DMA1)) {        /* Check for HT event *
+                                                  
+../Core/Src/WS2812.c:248:49: warning: "/*" within comment [-Wcomment]
+         led_update_sequence(0);                 /* Call update sequence as HT event *
+                                                  
+../Core/Src/WS2812.c:249:49: warning: "/*" within comment [-Wcomment]
+     } else if (LL_DMA_IsActiveFlag_TC6(DMA1)) { /* Check for TC event *
+                                                  
+../Core/Src/WS2812.c:251:49: warning: "/*" within comment [-Wcomment]
+         led_update_sequence(1);                 /* Call update sequence as TC event *
+                                                  
+../Core/Src/WS2812.c:83:1: warning: 'led_fill_led_pwm_data' defined but not used [-Wunused-function]
+ led_fill_led_pwm_data(size_t ledx, uint32_t* ptr) {
+ ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/WS2812.c:2:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:11:17: warning: 'current_led' defined but not used [-Wunused-variable]
+ static uint32_t current_led;        /*!< Current LED number we are sending */
+                 ^~~~~~~~~~~
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:9:16: warning: 'is_reset_pulse' defined but not used [-Wunused-variable]
+ static uint8_t is_reset_pulse;     /*!< Status if we are sending reset pulse or led data */
+                ^~~~~~~~~~~~~~
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:7:17: warning: 'tmp_led_data' defined but not used [-Wunused-variable]
+ static uint32_t tmp_led_data[2 * LED_CFG_RAW_BYTES_PER_LED]; // temp array
+                 ^~~~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:123:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+../Core/Src/main.c:139:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
     ILI9341_TouchUnselect();
     ^~~~~~~~~~~~~~~~~~~~~
     ILI9341_Unselect
-../Core/Src/main.c:147:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+../Core/Src/main.c:163:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
     int battery = "54.89%";
                   ^~~~~~~~
-../Core/Src/main.c:232:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+../Core/Src/main.c:248:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
         if(LCD_TGetC(&x, &y)) {
            ^~~~~~~~~
-../Core/Src/main.c:147:8: warning: unused variable 'battery' [-Wunused-variable]
+../Core/Src/main.c:163:8: warning: unused variable 'battery' [-Wunused-variable]
     int battery = "54.89%";
         ^~~~~~~
-In file included from ../Core/Src/main.c:26:0:
 At top level:
+../Core/Src/main.c:731:13: warning: 'send2LEDS' defined but not used [-Wunused-function]
+ static void send2LEDS(void)
+             ^~~~~~~~~
+../Core/Src/main.c:711:13: warning: 'updateDMABuffer' defined but not used [-Wunused-function]
+ static void updateDMABuffer(void)
+             ^~~~~~~~~~~~~~~
+../Core/Src/main.c:703:13: warning: 'setLED' defined but not used [-Wunused-function]
+ static void setLED(uint8_t index, uint8_t r, uint8_t g, uint8_t b)
+             ^~~~~~
+In file included from ../Core/Src/main.c:26:0:
 C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:11:17: warning: 'current_led' defined but not used [-Wunused-variable]
  static uint32_t current_led;        /*!< Current LED number we are sending */
                  ^~~~~~~~~~~
@@ -32,16 +193,17 @@ C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/c
 C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:6:16: warning: 'leds_colors' defined but not used [-Wunused-variable]
  static uint8_t leds_colors[LED_CFG_BYTES_PER_LED * LED_CFG_LEDS_CNT];
                 ^~~~~~~~~~~
+Finished building: ../Core/Src/WS2812.c
+ 
 Finished building: ../Core/Src/main.c
  
 Building target: Test.elf
 Invoking: MCU GCC Linker
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Core/Src/WS2812.o: In function `led_update':
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug/../Core/Src/WS2812.c:69: undefined reference to `led_start_reset_pulse'
+Core/Src/stm32l4xx_hal_msp.o: file not recognized: File truncated
 collect2.exe: error: ld returned 1 exit status
-makefile:35: recipe for target 'Test.elf' failed
 make: *** [Test.elf] Error 1
+makefile:35: recipe for target 'Test.elf' failed
 
-14:01:12 Build Finished (took 2s.308ms)
+21:26:19 Build Finished (took 934ms)
 

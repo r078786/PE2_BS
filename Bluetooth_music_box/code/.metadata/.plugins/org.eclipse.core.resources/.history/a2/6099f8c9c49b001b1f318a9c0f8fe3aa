@@ -38,7 +38,7 @@
 //800kHz signal @48MHZ timer -> 59pulses
 #define ONECODE		(38)
 #define ZEROCODE	(19)
-#define NUMLEDS		(24)
+#define NUMLEDS		(5)
 #define COLORS		(3)	//R G B
 #define BYTECOUNT	(NUMLEDS*COLORS)
 #define BITCOUNT	(BYTECOUNT*8)
@@ -61,10 +61,7 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-//led array
-uint8_t ledArray[BYTECOUNT];
-//array for DMA
-uint8_t dmaArray[BITCOUNT];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -77,9 +74,7 @@ static void MX_ADC1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
-static void setLED(uint8_t index, uint8_t r, uint8_t g, uint8_t b);
-static void updateDMABuffer(void);
-static void send2LEDS(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -632,7 +627,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/*void led_fill_buffer(uint32_t offset, uint32_t length) {
+void led_fill_buffer(uint32_t offset, uint32_t length) {
   for (uint32_t i = offset; i < length; i++) {
     uint32_t grb_i = grb_offset + (i / LED_BPP);
 
@@ -698,39 +693,6 @@ void led_update() {
   LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_5);
 
   LL_TIM_EnableCounter(TIM1);
-}*/
-
-static void setLED(uint8_t index, uint8_t r, uint8_t g, uint8_t b)
-{
-	//color format: grb-24bits
-	ledArray[index] = g;
-	ledArray[index+1] = r;
-	ledArray[index+2] = b;
-}
-
-static void updateDMABuffer(void)
-{
-	//loop trough every led
-	for(uint8_t led = 0; led < NUMLEDS; led++)
-	{
-		//for every color
-		for(uint8_t color = 0; color < COLORS; color++)
-		{
-			dmaArray[color+led	] = ledArray[color+led]&0x80 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+1] = ledArray[color+led]&0x40 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+2] = ledArray[color+led]&0x20 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+3] = ledArray[color+led]&0x40 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+4] = ledArray[color+led]&0x08 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+5] = ledArray[color+led]&0x04 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+6] = ledArray[color+led]&0x02 ? ONECODE : ZEROCODE;
-			dmaArray[color+led+7] = ledArray[color+led]&0x01 ? ONECODE : ZEROCODE;
-		}
-	}
-}
-
-static void send2LEDS(void)
-{
-
 }
 /* USER CODE END 4 */
 

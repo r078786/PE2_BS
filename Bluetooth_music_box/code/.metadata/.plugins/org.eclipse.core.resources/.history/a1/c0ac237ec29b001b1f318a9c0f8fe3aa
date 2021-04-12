@@ -58,20 +58,20 @@ led_is_update_finished(void) {
  * \brief           Start LEDs update procedure
  * \param[in]       block: Set to `1` to block for update process until finished
  * \return          `1` if update started, `0` otherwise
- *
+ */
 uint8_t
 led_update(uint8_t block) {
-    if (is_updating) {                          /* Check if update in progress already *
+    if (is_updating) {                          /* Check if update in progress already */
         return 0;
     }
-    is_updating = 1;                            /* We are now updating *
+    is_updating = 1;                            /* We are now updating */
 
-    led_start_reset_pulse(1);                   /* Start reset pulse *
+    led_start_reset_pulse(1);                   /* Start reset pulse */
     if (block) {
-        while (!led_is_update_finished());      /* Wait to finish *
+        while (!led_is_update_finished());      /* Wait to finish */
     }
     return 1;
-}*/
+}
 
 /**
  * \brief           Prepares data from memory for PWM output for timer

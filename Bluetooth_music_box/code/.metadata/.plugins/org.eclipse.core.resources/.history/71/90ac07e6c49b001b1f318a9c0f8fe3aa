@@ -47,7 +47,7 @@ uint8_t led_start_reset_pulse(uint8_t num);
 uint32_t grb[LED_COUNT];
 
 // Offset into the GRB array as we output the LEDs.
-//uint16_t grb_offset = 0;
+uint16_t grb_offset = 0;
 
 // This buffer is used for DMA. Each element represents a duty cycle for that
 // timer period index.
