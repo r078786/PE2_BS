@@ -127,16 +127,16 @@ int main(void)
 	  led_set_color_all(0x16, 0x1B, 0x9A); // kleur instellen vr alle leds - donkerblauw
 	  led_update(1);
 	  for (i = 0; i < LED_CFG_LEDS_CNT; i++) {
-	  	  led_set_color((i + 0) % LED_CFG_LEDS_CNT, 0x1F, 0, 0);
-	      led_set_color((i + 1) % LED_CFG_LEDS_CNT, 0x1F, 0, 0);
-	      led_set_color((i + 2) % LED_CFG_LEDS_CNT, 0, 0x1F, 0);
-	      led_set_color((i + 3) % LED_CFG_LEDS_CNT, 0, 0x1F, 0);
-	      led_set_color((i + 4) % LED_CFG_LEDS_CNT, 0, 0, 0x1F);
-	      led_set_color((i + 5) % LED_CFG_LEDS_CNT, 0, 0, 0x1F);
-	      //led_set_color((i + 6) % LED_CFG_LEDS_CNT, 0, 0, 0, 0x1F);
-	      //led_set_color((i + 7) % LED_CFG_LEDS_CNT, 0, 0, 0, 0x1F);
+	  	  led_set_color((i + 0) % LED_CFG_LEDS_CNT, 0x1F, 0, 0, 0);
+	      led_set_color((i + 1) % LED_CFG_LEDS_CNT, 0x1F, 0, 0, 0);
+	      led_set_color((i + 2) % LED_CFG_LEDS_CNT, 0, 0x1F, 0, 0);
+	      led_set_color((i + 3) % LED_CFG_LEDS_CNT, 0, 0x1F, 0, 0);
+	      led_set_color((i + 4) % LED_CFG_LEDS_CNT, 0, 0, 0x1F, 0);
+	      led_set_color((i + 5) % LED_CFG_LEDS_CNT, 0, 0, 0x1F, 0);
+	      led_set_color((i + 6) % LED_CFG_LEDS_CNT, 0, 0, 0, 0x1F);
+	      led_set_color((i + 7) % LED_CFG_LEDS_CNT, 0, 0, 0, 0x1F);
 	      led_update(1);
-	      led_set_color_all(0, 0, 0);
+	      led_set_color_all(0, 0, 0, 0);
 
 	      timeout = 0x7FFFF;
 	      while (--timeout) {}

@@ -1,0 +1,13 @@
+uint8_t
+led_update(uint8_t block) {
+    if (is_updating) {                          /* Check if update in progress already */
+        return 0;
+    }
+    is_updating = 1;                            /* We are now updating */
+
+    led_start_reset_pulse(1);                   /* Start reset pulse */
+    if (block) {
+        while (!led_is_update_finished());      /* Wait to finish */
+    }
+    return 1;
+}

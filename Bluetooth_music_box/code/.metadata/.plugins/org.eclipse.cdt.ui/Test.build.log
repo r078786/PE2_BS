@@ -1,37 +1,47 @@
-15:31:03 **** Incremental Build of configuration Debug for project Test ****
+14:01:10 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
 C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:121:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+../Core/Src/main.c:123:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
     ILI9341_TouchUnselect();
     ^~~~~~~~~~~~~~~~~~~~~
     ILI9341_Unselect
-../Core/Src/main.c:127:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+../Core/Src/main.c:147:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
     int battery = "54.89%";
                   ^~~~~~~~
-../Core/Src/main.c:212:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+../Core/Src/main.c:232:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
         if(LCD_TGetC(&x, &y)) {
            ^~~~~~~~~
-../Core/Src/main.c:127:8: warning: unused variable 'battery' [-Wunused-variable]
+../Core/Src/main.c:147:8: warning: unused variable 'battery' [-Wunused-variable]
     int battery = "54.89%";
         ^~~~~~~
+In file included from ../Core/Src/main.c:26:0:
+At top level:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:11:17: warning: 'current_led' defined but not used [-Wunused-variable]
+ static uint32_t current_led;        /*!< Current LED number we are sending */
+                 ^~~~~~~~~~~
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:9:16: warning: 'is_reset_pulse' defined but not used [-Wunused-variable]
+ static uint8_t is_reset_pulse;     /*!< Status if we are sending reset pulse or led data */
+                ^~~~~~~~~~~~~~
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:7:17: warning: 'tmp_led_data' defined but not used [-Wunused-variable]
+ static uint32_t tmp_led_data[2 * LED_CFG_RAW_BYTES_PER_LED]; // temp array
+                 ^~~~~~~~~~~~
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/WS2812.h:6:16: warning: 'leds_colors' defined but not used [-Wunused-variable]
+ static uint8_t leds_colors[LED_CFG_BYTES_PER_LED * LED_CFG_LEDS_CNT];
+                ^~~~~~~~~~~
 Finished building: ../Core/Src/main.c
  
 Building target: Test.elf
 Invoking: MCU GCC Linker
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
-  26336	     56	   2104	  28496	   6f50	Test.elf
- 
+Core/Src/WS2812.o: In function `led_update':
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug/../Core/Src/WS2812.c:69: undefined reference to `led_start_reset_pulse'
+collect2.exe: error: ld returned 1 exit status
+makefile:35: recipe for target 'Test.elf' failed
+make: *** [Test.elf] Error 1
 
-15:31:04 Build Finished (took 1s.419ms)
+14:01:12 Build Finished (took 2s.308ms)
 

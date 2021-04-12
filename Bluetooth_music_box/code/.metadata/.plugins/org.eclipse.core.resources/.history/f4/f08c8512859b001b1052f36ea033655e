@@ -63,6 +63,28 @@ static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
+
+#define LED_CFG_USE_RGBW 0 // 1=RGBW leds ----  0=ws2812 leds
+#define LED_CFG_LEDS_CNT 24 // aantal leds in een strip
+#define LED_CFG_BYTES_PER_LED 3
+#define LED_CFG_RAW_BYTES_PER_LED (LED_CFG_BYTES_PER_LED * 8)
+
+static uint8_t leds_colors[LED_CFG_BYTES_PER_LED * LED_CFG_LEDS_CNT];
+static uint32_t tmp_led_data[2 * LED_CFG_RAW_BYTES_PER_LED]; // temp array
+
+static uint8_t is_reset_pulse;     /*!< Status if we are sending reset pulse or led data */
+static volatile uint8_t is_updating;        /*!< Is updating in progress? */
+static uint32_t current_led;        /*!< Current LED number we are sending */
+
+void led_init(void);
+uint8_t led_update(uint8_t block);
+uint8_t led_set_color(size_t index, uint8_t r, uint8_t g, uint8_t b);
+uint8_t led_set_color_all(uint8_t r, uint8_t g, uint8_t b);
+uint8_t led_set_color_rgb(size_t index, uint32_t rgb);
+uint8_t led_set_color_all_rgb(uint32_t rgb);
+
+uint8_t led_is_update_finished(void);
+uint8_t led_start_reset_pulse(uint8_t num);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -80,7 +102,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
   size_t i;
-  volatile uint32_t timeout;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -123,25 +144,7 @@ int main(void)
 	  ILI9341_TouchUnselect();
 	  ILI9341_LCD_Init();
 	  //ILI9341_TouchSelect();
-
-	  led_set_color_all(0x16, 0x1B, 0x9A); // kleur instellen vr alle leds - donkerblauw
-	  led_update(1);
-	  for (i = 0; i < LED_CFG_LEDS_CNT; i++) {
-	  	  led_set_color((i + 0) % LED_CFG_LEDS_CNT, 0x1F, 0, 0);
-	      led_set_color((i + 1) % LED_CFG_LEDS_CNT, 0x1F, 0, 0);
-	      led_set_color((i + 2) % LED_CFG_LEDS_CNT, 0, 0x1F, 0);
-	      led_set_color((i + 3) % LED_CFG_LEDS_CNT, 0, 0x1F, 0);
-	      led_set_color((i + 4) % LED_CFG_LEDS_CNT, 0, 0, 0x1F);
-	      led_set_color((i + 5) % LED_CFG_LEDS_CNT, 0, 0, 0x1F);
-	      //led_set_color((i + 6) % LED_CFG_LEDS_CNT, 0, 0, 0, 0x1F);
-	      //led_set_color((i + 7) % LED_CFG_LEDS_CNT, 0, 0, 0, 0x1F);
-	      led_update(1);
-	      led_set_color_all(0, 0, 0);
-
-	      timeout = 0x7FFFF;
-	      while (--timeout) {}
-	  }
-
+	  led_set_color_all(0x01, 0x00, 0x00, 0x00); // kleur instellen vr alle leds
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
 
 	  int battery = "54.89%";
