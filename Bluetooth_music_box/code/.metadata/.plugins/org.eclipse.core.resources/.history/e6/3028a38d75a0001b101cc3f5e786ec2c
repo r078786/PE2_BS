@@ -37,8 +37,8 @@
 #define PWM_LO (19)
 
 // LED parameters
-#define NUM_BPP (3)
-#define NUM_PIXELS (24)
+#define NUM_BPP (4)
+#define NUM_PIXELS (8)
 #define NUM_BYTES (NUM_BPP * NUM_PIXELS)
 /* USER CODE END PD */
 
@@ -160,8 +160,7 @@ int main(void)
 		  LCD_DrawPixel(0, j, LCD_RED);
 		  LCD_DrawPixel(ILI9341_WIDTH-1, j, LCD_RED);
 	  }
-	  led_set_all_RGBW( 255, 0, 0, 0 );
-	  led_render( );
+	  led_set_all_RGBW( 255, 0, 0 );
 	  HAL_Delay(3000);
 
 	  //fonts controleren
@@ -233,9 +232,9 @@ int main(void)
 	  int npoints = 0;
 	  while(npoints < 10000) {
 	      uint16_t x, y;
-	      //LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
+	      LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
 	      if(LCD_TGetC(&x, &y)) {
-	    	  LCD_DrawPixel(y, x, LCD_YELLOW);
+	    	  LCD_DrawPixel(x, 320-y, LCD_YELLOW);
 	          npoints++;
 	      }
 	  }
@@ -386,7 +385,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -426,7 +425,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 60-1;
+  htim1.Init.Period = 65535;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -608,17 +607,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : TOUCH_IRQ_Pin */
-  GPIO_InitStruct.Pin = TOUCH_IRQ_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(TOUCH_IRQ_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : EVENT_Pin */
-  GPIO_InitStruct.Pin = EVENT_Pin;
+  /*Configure GPIO pins : TOUCH_IRQ_Pin EVENT_Pin */
+  GPIO_InitStruct.Pin = TOUCH_IRQ_Pin|EVENT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(EVENT_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : WAKE_Pin */
   GPIO_InitStruct.Pin = WAKE_Pin;
@@ -668,7 +661,7 @@ void led_render() {
     wr_buf[i + 56] = PWM_LO << (((rgb_arr[7] << i) & 0x80) > 0);
   }
 
-  HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *)wr_buf, WRITE_BUF_LEN);
+  HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *)wr_buf, WR_BUF_LEN);
   wr_buf_p = 2; // Since we're ready for the next buffer
 }
 
@@ -686,7 +679,7 @@ void HAL_TIM_PWM_PulseFinishedHalfCpltCallback(TIM_HandleTypeDef *htim) {
   } else if (wr_buf_p < NUM_PIXELS + 2) {
     // Last two transfers are resets. 64 * 1.25 us = 80 us == good enough reset
     // First half reset zero fill
-    for(uint8_t i = 0; i < WRITE_BUF_LEN / 2; ++i) wr_buf[i] = 0;
+    for(uint8_t i = 0; i < WR_BUF_LEN / 2; ++i) wr_buf[i] = 0;
     wr_buf_p++;
   }
 }

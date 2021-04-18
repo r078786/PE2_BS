@@ -235,7 +235,7 @@ int main(void)
 	      uint16_t x, y;
 	      //LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
 	      if(LCD_TGetC(&x, &y)) {
-	    	  LCD_DrawPixel(y, x, LCD_YELLOW);
+	    	  LCD_DrawPixel(x, 320-y, LCD_YELLOW);
 	          npoints++;
 	      }
 	  }
