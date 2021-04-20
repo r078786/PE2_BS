@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ili9341.h"
+#include "test.h"
+#include "connect.h"
 //#include "ili9341_touch.h";
 /* USER CODE END Includes */
 
@@ -149,7 +151,7 @@ int main(void)
 
 	  int battery = "54.89%";
 	  //testcode voor lcd functies
-
+	  /*
 	  LCD_FillScreen(LCD_BLACK);
 
 	  for(int i = 0; i < ILI9341_WIDTH; i++) {
@@ -162,11 +164,11 @@ int main(void)
 	  }
 	  led_set_all_RGBW( 255, 0, 0, 0 );
 	  led_render( );
-	  HAL_Delay(3000);
+	  HAL_Delay(1000);
 
 	  //fonts controleren
 	  // Check fonts
-	  /*LCD_FillScreen(LCD_BLACK);
+	  LCD_FillScreen(LCD_BLACK);
 	  LCD_WriteString(200, 150, battery, Font_7x10, LCD_WHITE, LCD_BLACK);
 	  LCD_WriteString(0, 3*10, "Font_11x18, green, lorem ipsum dolor sit amet", Font_11x18, LCD_GREEN, LCD_BLACK);
 	  LCD_WriteString(0, 3*10+3*18, "Font_16x26, blue, lorem ipsum dolor sit amet", Font_16x26, LCD_BLUE, LCD_BLACK);
@@ -176,8 +178,17 @@ int main(void)
 	  HAL_Delay(1000);
 	  LCD_InvertColors(false);
 
-	  HAL_Delay(5000);
+	  HAL_Delay(1000);
+*/
+	  //test image
+	  //LCD_DrawImage((ILI9341_WIDTH - 240) / 2, (ILI9341_HEIGHT - 240) / 2, 240, 240, (const uint16_t*)image_data_test);
+	  //HAL_Delay(2000);
+	  //HAL_Delay(1000);
+	  //LCD_FillScreen(LCD_BLACK);
+	  LCD_DrawImage((ILI9341_WIDTH - 240) / 2, (ILI9341_HEIGHT - 240) / 2, 240, 240, (const uint16_t*)image_data_connect);
+	  HAL_Delay(2000);
 
+/*
 	  //colors controleren
 	  LCD_FillScreen(LCD_WHITE);
 	  LCD_WriteString(0, 0, "WHITE", Font_11x18, LCD_BLACK, LCD_WHITE);
@@ -222,14 +233,14 @@ int main(void)
 	  HAL_Delay(1000);
 	  LCD_FillScreen(LCD_WHITE);
 	  LCD_WriteString(50, 100, "3", Font_11x18, LCD_BLACK, LCD_WHITE);
-	  HAL_Delay(1000);*/
+	  HAL_Delay(1000);
 
 	  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,0xf1);
 
 	  LCD_FillScreen(LCD_BLACK);
 	  LCD_WriteString(0, 0, "Draw something", Font_11x18, LCD_WHITE, LCD_BLACK);
 	  HAL_Delay(500);
-
+*/
 	  int npoints = 0;
 	  while(npoints < 10000) {
 	      uint16_t x, y;
