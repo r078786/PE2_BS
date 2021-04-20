@@ -318,7 +318,7 @@ void LCD_DrawVLine(uint16_t x, uint16_t y,uint16_t x_, uint16_t y_, uint16_t col
 void LCD_DrawHLine(uint16_t x, uint16_t y,uint16_t x_, uint16_t y_, uint16_t color){
 	uint16_t result = x_ - x;
 	for(result; result > 0; result--){
-		LCD_DrawPixel(x+result, y, color);
+		LCD_DrawPixel(result, y, color);
 	}
 	//LCD_DrawPixel(x, y, color);
 }

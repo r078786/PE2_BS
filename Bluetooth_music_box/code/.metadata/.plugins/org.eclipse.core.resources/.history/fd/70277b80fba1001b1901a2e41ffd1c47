@@ -58,7 +58,6 @@ extern SPI_HandleTypeDef ILI9341_SPI_PORT;
 #define	LCD_BLACK   0x0000
 #define	LCD_BLUE    0x001F
 #define	LCD_RED     0xF800
-#define LCD_ORANGE  0xFB60
 #define	LCD_GREEN   0x07E0
 #define LCD_CYAN    0x07FF
 #define LCD_MAGENTA 0xF81F
