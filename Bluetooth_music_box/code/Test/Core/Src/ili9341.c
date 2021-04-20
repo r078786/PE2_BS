@@ -245,8 +245,8 @@ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint
 
     while(*str) {
         if(x + font.width >= ILI9341_WIDTH) {
-            x = 0;
-            y += font.height;
+            x = 4;
+            y = y + font.height + 9;
             if(y + font.height >= ILI9341_HEIGHT) {
                 break;
             }
@@ -305,4 +305,20 @@ void LCD_InvertColors(bool invert) {
     ILI9341_Select();
     ILI9341_WriteCommand(invert ? 0x21 /* INVON */ : 0x20 /* INVOFF */);
     ILI9341_Unselect();
+}
+
+void LCD_DrawVLine(uint16_t x, uint16_t y,uint16_t x_, uint16_t y_, uint16_t color){
+	uint16_t result = y_ - y;
+	for(result; result > 0; result--){
+		LCD_DrawPixel(x, y+result, color);
+	}
+	//LCD_DrawPixel(x, y, color);
+}
+
+void LCD_DrawHLine(uint16_t x, uint16_t y,uint16_t x_, uint16_t y_, uint16_t color){
+	uint16_t result = x_ - x;
+	for(result; result > 0; result--){
+		LCD_DrawPixel(result, y, color);
+	}
+	//LCD_DrawPixel(x, y, color);
 }

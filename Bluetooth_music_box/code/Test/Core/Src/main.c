@@ -149,20 +149,39 @@ int main(void)
 
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
 
-	  int battery = "54.89%";
+	  //int battery = "54.89%";
 	  //testcode voor lcd functies
-	  /*
-	  LCD_FillScreen(LCD_BLACK);
 
-	  for(int i = 0; i < ILI9341_WIDTH; i++) {
-		  LCD_DrawPixel(i, 0, LCD_RED);
-		  LCD_DrawPixel(i, ILI9341_HEIGHT-1, LCD_RED);
+	  LCD_FillScreen(LCD_BLACK);
+	  while(1){
+		  for(int i = 0; i < ILI9341_WIDTH; i++) {
+			  LCD_DrawPixel(i, 0, LCD_YELLOW);
+			  LCD_DrawPixel(i, ILI9341_HEIGHT-1, LCD_YELLOW);
+		  }
+		  for(int j = 0; j < ILI9341_HEIGHT; j++) {
+			  LCD_DrawPixel(0, j, LCD_YELLOW);
+			  LCD_DrawPixel(ILI9341_WIDTH-1, j, LCD_YELLOW);
+		  }
+		  //LCD_FillRectangle(0,0,60,30,LCD_YELLOW);
+		  //LCD_FillRectangle(1,1,59,29,LCD_BLACK);
+		  LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
+		  LCD_DrawHLine(0,28,59,28,LCD_YELLOW);
+		  LCD_WriteString(4, 6, "Song:", Font_11x18, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(65, 6, "Life is a Highway - Rascal Flatts", Font_11x18, LCD_WHITE, LCD_BLACK);
+		  LCD_DrawHLine(0,80,320,80,LCD_YELLOW);
+		  LCD_DrawVLine(86,80,86,160,LCD_YELLOW);
+		  LCD_DrawVLine(244,80,244,160,LCD_YELLOW);
+		  LCD_DrawHLine(0,160,320,160,LCD_YELLOW);
+		  LCD_WriteString(35, 105, "+", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(95, 105, "Battery", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(273, 108, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(40, 190, "<<", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(143, 190, "||", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(247, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
 	  }
-	  for(int j = 0; j < ILI9341_HEIGHT; j++) {
-		  LCD_DrawPixel(0, j, LCD_RED);
-		  LCD_DrawPixel(ILI9341_WIDTH-1, j, LCD_RED);
-	  }
-	  led_set_all_RGBW( 255, 0, 0, 0 );
+
+
+	  /*led_set_all_RGBW( 255, 0, 0, 0 );
 	  led_render( );
 	  HAL_Delay(1000);
 
@@ -179,16 +198,6 @@ int main(void)
 	  LCD_InvertColors(false);
 
 	  HAL_Delay(1000);
-*/
-	  //test image
-	  //LCD_DrawImage((ILI9341_WIDTH - 240) / 2, (ILI9341_HEIGHT - 240) / 2, 240, 240, (const uint16_t*)image_data_test);
-	  //HAL_Delay(2000);
-	  //HAL_Delay(1000);
-	  //LCD_FillScreen(LCD_BLACK);
-	  LCD_DrawImage((ILI9341_WIDTH - 240) / 2, (ILI9341_HEIGHT - 240) / 2, 240, 240, (const uint16_t*)image_data_connect);
-	  HAL_Delay(2000);
-
-/*
 	  //colors controleren
 	  LCD_FillScreen(LCD_WHITE);
 	  LCD_WriteString(0, 0, "WHITE", Font_11x18, LCD_BLACK, LCD_WHITE);
@@ -240,7 +249,7 @@ int main(void)
 	  LCD_FillScreen(LCD_BLACK);
 	  LCD_WriteString(0, 0, "Draw something", Font_11x18, LCD_WHITE, LCD_BLACK);
 	  HAL_Delay(500);
-*/
+
 	  int npoints = 0;
 	  while(npoints < 10000) {
 	      uint16_t x, y;
@@ -249,7 +258,7 @@ int main(void)
 	    	  LCD_DrawPixel(y, x, LCD_YELLOW);
 	          npoints++;
 	      }
-	  }
+	  }*/
   }
   /* USER CODE END 3 */
 }

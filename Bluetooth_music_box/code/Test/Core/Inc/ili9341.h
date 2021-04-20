@@ -75,5 +75,7 @@ void LCD_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t 
 void LCD_FillScreen(uint16_t color);
 void LCD_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data);
 void LCD_InvertColors(bool invert);
+void LCD_DrawHLine(uint16_t x, uint16_t y,uint16_t x_, uint16_t y_, uint16_t color);
+void LCD_DrawVLine(uint16_t x, uint16_t y,uint16_t x_, uint16_t y_, uint16_t color);
 
 #endif // __ILI9341_H__

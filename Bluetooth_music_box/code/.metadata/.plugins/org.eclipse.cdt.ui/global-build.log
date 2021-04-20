@@ -1,250 +1,4 @@
-12:19:12 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-12:19:15 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-make: Nothing to be done for 'all'.
-12:20:14 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:145:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:151:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:242:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:151:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c:104:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:103:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
- 
-12:20:56 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:145:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:151:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:242:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:151:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c:104:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:103:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
- 
-12:23:23 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:145:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:151:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:242:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:151:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c:104:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:103:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
- 
-12:23:47 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:145:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:151:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:242:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:151:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c:104:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:103:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
- 
-12:24:13 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:145:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:151:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:242:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:151:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c:104:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:103:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
- 
-12:24:37 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:145:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:151:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:242:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:151:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c:104:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:103:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
- 
-12:48:28 **** Incremental Build of configuration Debug for project Test ****
+15:33:47 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
@@ -255,51 +9,6 @@ arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DU
     ILI9341_TouchUnselect();
     ^~~~~~~~~~~~~~~~~~~~~
     ILI9341_Unselect
-../Core/Src/main.c:152:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:248:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:152:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld.exe: Test.elf section `.rodata' will not fit in region `FLASH'
-c:/ac6/systemworkbench/plugins/fr.ac6.mcu.externaltools.arm-none.win32_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld.exe: region `FLASH' overflowed by 61896 bytes
-collect2.exe: error: ld returned 1 exit status
-make: *** [Test.elf] Error 1
-makefile:35: recipe for target 'Test.elf' failed
-12:49:01 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:152:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:248:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:152:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
 ../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
    volatile uint32_t timeout;
                      ^~~~~~~
@@ -318,9 +27,23 @@ Generating hex and Printing size information:
 arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
 arm-none-eabi-size "Test.elf"
    text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
+  26288	     56	   2272	  28616	   6fc8	Test.elf
  
-12:50:17 **** Incremental Build of configuration Debug for project Test ****
+15:33:51 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26288	     56	   2272	  28616	   6fc8	Test.elf
+ 
+15:34:10 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
@@ -331,15 +54,6 @@ arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DU
     ILI9341_TouchUnselect();
     ^~~~~~~~~~~~~~~~~~~~~
     ILI9341_Unselect
-../Core/Src/main.c:152:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:248:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:152:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
 ../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
    volatile uint32_t timeout;
                      ^~~~~~~
@@ -358,9 +72,9 @@ Generating hex and Printing size information:
 arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
 arm-none-eabi-size "Test.elf"
    text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
+  26288	     56	   2272	  28616	   6fc8	Test.elf
  
-12:51:08 **** Incremental Build of configuration Debug for project Test ****
+15:34:27 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
@@ -371,15 +85,6 @@ arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DU
     ILI9341_TouchUnselect();
     ^~~~~~~~~~~~~~~~~~~~~
     ILI9341_Unselect
-../Core/Src/main.c:152:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:248:11: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-        if(LCD_TGetC(&x, &y)) {
-           ^~~~~~~~~
-../Core/Src/main.c:152:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
 ../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
    volatile uint32_t timeout;
                      ^~~~~~~
@@ -398,5 +103,1019 @@ Generating hex and Printing size information:
 arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
 arm-none-eabi-size "Test.elf"
    text	   data	    bss	    dec	    hex	filename
- 170176	     32	   2272	 172480	  2a1c0	Test.elf
+  26288	     56	   2272	  28616	   6fc8	Test.elf
+ 
+15:34:51 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26288	     56	   2272	  28616	   6fc8	Test.elf
+ 
+15:37:38 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26352	     56	   2272	  28680	   7008	Test.elf
+ 
+15:40:12 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/ili9341.c
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ili9341.d" -MT"Core/Src/ili9341.o" -o "Core/Src/ili9341.o" "../Core/Src/ili9341.c"
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/ili9341.c: In function 'LCD_DrawVLine':
+../Core/Src/ili9341.c:312:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/ili9341.c: In function 'LCD_DrawHLine':
+../Core/Src/ili9341.c:320:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/ili9341.c
+ 
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26344	     56	   2272	  28672	   7000	Test.elf
+ 
+15:40:29 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26360	     56	   2272	  28688	   7010	Test.elf
+ 
+15:40:55 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26360	     56	   2272	  28688	   7010	Test.elf
+ 
+15:43:01 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/ili9341.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ili9341.d" -MT"Core/Src/ili9341.o" -o "Core/Src/ili9341.o" "../Core/Src/ili9341.c"
+../Core/Src/ili9341.c: In function 'LCD_DrawVLine':
+../Core/Src/ili9341.c:312:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/ili9341.c: In function 'LCD_DrawHLine':
+../Core/Src/ili9341.c:320:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+Finished building: ../Core/Src/ili9341.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26360	     56	   2272	  28688	   7010	Test.elf
+ 
+15:44:11 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26360	     56	   2272	  28688	   7010	Test.elf
+ 
+15:47:09 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26376	     56	   2272	  28704	   7020	Test.elf
+ 
+15:49:14 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     56	   2272	  28728	   7038	Test.elf
+ 
+15:52:13 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/ili9341.c
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ili9341.d" -MT"Core/Src/ili9341.o" -o "Core/Src/ili9341.o" "../Core/Src/ili9341.c"
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/ili9341.c: In function 'LCD_DrawVLine':
+../Core/Src/ili9341.c:312:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/ili9341.c: In function 'LCD_DrawHLine':
+../Core/Src/ili9341.c:320:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/ili9341.c
+ 
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     56	   2272	  28728	   7038	Test.elf
+ 
+15:53:18 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/ili9341.c
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ili9341.d" -MT"Core/Src/ili9341.o" -o "Core/Src/ili9341.o" "../Core/Src/ili9341.c"
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/ili9341.c: In function 'LCD_DrawVLine':
+../Core/Src/ili9341.c:312:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/ili9341.c: In function 'LCD_DrawHLine':
+../Core/Src/ili9341.c:320:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/ili9341.c
+ 
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26408	     56	   2272	  28736	   7040	Test.elf
+ 
+15:54:05 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/ili9341.c
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/ili9341.d" -MT"Core/Src/ili9341.o" -o "Core/Src/ili9341.o" "../Core/Src/ili9341.c"
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/ili9341.c: In function 'LCD_DrawVLine':
+../Core/Src/ili9341.c:312:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/ili9341.c: In function 'LCD_DrawHLine':
+../Core/Src/ili9341.c:320:2: warning: statement with no effect [-Wunused-value]
+  for(result; result > 0; result--){
+  ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/ili9341.c
+ 
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26408	     56	   2272	  28736	   7040	Test.elf
+ 
+15:54:07 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26408	     56	   2272	  28736	   7040	Test.elf
+ 
+15:54:44 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26424	     56	   2272	  28752	   7050	Test.elf
+ 
+15:57:05 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26512	     56	   2272	  28840	   70a8	Test.elf
+ 
+15:57:39 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26512	     56	   2272	  28840	   70a8	Test.elf
+ 
+15:58:22 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26504	     56	   2272	  28832	   70a0	Test.elf
+ 
+15:59:13 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26512	     56	   2272	  28840	   70a8	Test.elf
+ 
+15:59:50 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26512	     56	   2272	  28840	   70a8	Test.elf
+ 
+16:00:15 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26504	     56	   2272	  28832	   70a0	Test.elf
+ 
+16:00:57 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26504	     56	   2272	  28832	   70a0	Test.elf
+ 
+16:02:18 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26504	     56	   2272	  28832	   70a0	Test.elf
+ 
+16:04:23 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26504	     56	   2272	  28832	   70a0	Test.elf
+ 
+16:05:03 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26504	     56	   2272	  28832	   70a0	Test.elf
+ 
+16:07:10 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26568	     56	   2272	  28896	   70e0	Test.elf
+ 
+16:07:53 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26568	     56	   2272	  28896	   70e0	Test.elf
+ 
+16:08:56 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26568	     56	   2272	  28896	   70e0	Test.elf
+ 
+16:09:10 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26568	     56	   2272	  28896	   70e0	Test.elf
+ 
+16:10:00 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26568	     56	   2272	  28896	   70e0	Test.elf
+ 
+16:10:37 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26568	     56	   2272	  28896	   70e0	Test.elf
+ 
+16:22:19 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:105:21: warning: unused variable 'timeout' [-Wunused-variable]
+   volatile uint32_t timeout;
+                     ^~~~~~~
+../Core/Src/main.c:104:10: warning: unused variable 'i' [-Wunused-variable]
+   size_t i;
+          ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26600	     56	   2272	  28928	   7100	Test.elf
  
