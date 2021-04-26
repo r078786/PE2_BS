@@ -150,6 +150,7 @@ int main(void)
 	  //ILI9341_TouchSelect();
 
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
 
 	  //int battery = "54.89%";
 	  //testcode voor lcd functies
@@ -189,6 +190,7 @@ int main(void)
 		  LCD_WriteString(247, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
 		  Test_slider_battery(test_battery);
 		  LCD_FillScreen(LCD_BLACK);
+		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
 	  }
 
 
