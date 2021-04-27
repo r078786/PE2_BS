@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="led_upda" key="selection"/>
+		<item value="HAL_ADC_St" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="hal_adc_st"/>
+			<item value="hal_adc_stop"/>
 			<item value="led_upda"/>
 		</list>
 		<list key="replacehistory">

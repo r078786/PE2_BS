@@ -1,100 +1,103 @@
-11:50:49 **** Incremental Build of configuration Debug for project Test ****
+15:10:58 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
 C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:151:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+../Core/Src/main.c:150:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
     ILI9341_TouchUnselect();
     ^~~~~~~~~~~~~~~~~~~~~
     ILI9341_Unselect
-../Core/Src/main.c:111:21: warning: unused variable 'timeout' [-Wunused-variable]
-   volatile uint32_t timeout;
-                     ^~~~~~~
-../Core/Src/main.c:110:10: warning: unused variable 'i' [-Wunused-variable]
-   size_t i;
-          ^
+../Core/Src/main.c:157:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+    int battery = "54.89%";
+                  ^~~~~~~~
+../Core/Src/main.c:158:13: warning: unused variable 'ad_res' [-Wunused-variable]
+    uint16_t ad_res = 0;
+             ^~~~~~
+../Core/Src/main.c:157:8: warning: unused variable 'battery' [-Wunused-variable]
+    int battery = "54.89%";
+        ^~~~~~~
 ../Core/Src/main.c: In function 'ledClearBuffer':
-../Core/Src/main.c:652:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+../Core/Src/main.c:600:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
   memset(ledBuffer, 0, NUM_BYTES);
   ^~~~~~
-../Core/Src/main.c:652:2: warning: incompatible implicit declaration of built-in function 'memset'
-../Core/Src/main.c:652:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:600:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:600:2: note: include '<string.h>' or provide a declaration of 'memset'
 ../Core/Src/main.c: In function 'Test_slider_battery':
-../Core/Src/main.c:701:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+../Core/Src/main.c:649:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
    if(LCD_TGetC(&x, &y)) {
       ^~~~~~~~~
-../Core/Src/main.c:702:8: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:650:8: warning: right shift count >= width of type [-Wshift-count-overflow]
     if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
         ^~
-../Core/Src/main.c:702:18: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:650:18: warning: left shift count >= width of type [-Wshift-count-overflow]
     if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
                   ^~
-../Core/Src/main.c:702:18: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:650:18: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
     if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
                  ~^~~~~
-../Core/Src/main.c:702:28: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:650:28: warning: right shift count >= width of type [-Wshift-count-overflow]
     if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
                             ^~
-../Core/Src/main.c:702:37: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:650:37: warning: left shift count >= width of type [-Wshift-count-overflow]
     if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
                                      ^~
-../Core/Src/main.c:702:37: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:650:37: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
     if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
                                     ~^~~~~
-../Core/Src/main.c:703:9: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:651:9: warning: left shift count >= width of type [-Wshift-count-overflow]
      if(x<<144 && x>>101 && y<<144 && y>>96){
          ^~
-../Core/Src/main.c:703:9: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:651:9: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
      if(x<<144 && x>>101 && y<<144 && y>>96){
         ~^~~~~
-../Core/Src/main.c:703:19: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:651:19: warning: right shift count >= width of type [-Wshift-count-overflow]
      if(x<<144 && x>>101 && y<<144 && y>>96){
                    ^~
-../Core/Src/main.c:703:29: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:651:29: warning: left shift count >= width of type [-Wshift-count-overflow]
      if(x<<144 && x>>101 && y<<144 && y>>96){
                              ^~
-../Core/Src/main.c:703:29: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:651:29: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
      if(x<<144 && x>>101 && y<<144 && y>>96){
                             ~^~~~~
-../Core/Src/main.c:703:39: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:651:39: warning: right shift count >= width of type [-Wshift-count-overflow]
      if(x<<144 && x>>101 && y<<144 && y>>96){
                                        ^~
-../Core/Src/main.c:706:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:654:14: warning: left shift count >= width of type [-Wshift-count-overflow]
      else if(x<<187 && x>>144 && y<<144 && y>>96){
               ^~
-../Core/Src/main.c:706:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:654:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
      else if(x<<187 && x>>144 && y<<144 && y>>96){
              ~^~~~~
-../Core/Src/main.c:706:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:654:24: warning: right shift count >= width of type [-Wshift-count-overflow]
      else if(x<<187 && x>>144 && y<<144 && y>>96){
                         ^~
-../Core/Src/main.c:706:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:654:34: warning: left shift count >= width of type [-Wshift-count-overflow]
      else if(x<<187 && x>>144 && y<<144 && y>>96){
                                   ^~
-../Core/Src/main.c:706:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:654:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
      else if(x<<187 && x>>144 && y<<144 && y>>96){
                                  ~^~~~~
-../Core/Src/main.c:706:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:654:44: warning: right shift count >= width of type [-Wshift-count-overflow]
      else if(x<<187 && x>>144 && y<<144 && y>>96){
                                             ^~
-../Core/Src/main.c:709:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:657:14: warning: left shift count >= width of type [-Wshift-count-overflow]
      else if(x<<228 && x>>187 && y<<144 && y>>96){
               ^~
-../Core/Src/main.c:709:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:657:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
      else if(x<<228 && x>>187 && y<<144 && y>>96){
              ~^~~~~
-../Core/Src/main.c:709:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:657:24: warning: right shift count >= width of type [-Wshift-count-overflow]
      else if(x<<228 && x>>187 && y<<144 && y>>96){
                         ^~
-../Core/Src/main.c:709:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:657:34: warning: left shift count >= width of type [-Wshift-count-overflow]
      else if(x<<228 && x>>187 && y<<144 && y>>96){
                                   ^~
-../Core/Src/main.c:709:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+../Core/Src/main.c:657:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
      else if(x<<228 && x>>187 && y<<144 && y>>96){
                                  ~^~~~~
-../Core/Src/main.c:709:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+../Core/Src/main.c:657:44: warning: right shift count >= width of type [-Wshift-count-overflow]
      else if(x<<228 && x>>187 && y<<144 && y>>96){
                                             ^~
 Finished building: ../Core/Src/main.c
@@ -109,8 +112,8 @@ Generating hex and Printing size information:
 arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
 arm-none-eabi-size "Test.elf"
    text	   data	    bss	    dec	    hex	filename
-  14272	     32	   2176	  16480	   4060	Test.elf
+  26680	     56	   2176	  28912	   70f0	Test.elf
  
 
-11:50:50 Build Finished (took 1s.688ms)
+15:11:00 Build Finished (took 1s.692ms)
 
