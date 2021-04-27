@@ -42,11 +42,25 @@
 #define NUM_BPP (3)
 #define NUM_PIXELS (24)
 #define NUM_BYTES (NUM_BPP * NUM_PIXELS)
+
+//led timing calculated for 80MHz clock speed
+#define WSONEH	20
+#define WSONEL	11
+#define WSZEROH	10
+#define WSZEROL	21
+
+//led pins
+#define LEDPORT	GPIOB
+#define LEDPIN	GPIO_PIN_13
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#define SETHIGH(x,y) ((x)->BSRR = (uint32_t)(y))
+#define SETLOW(x,y) ((x)->BRR = (uint32_t)(y))
+#define WSONE 	do{ SETHIGH(LEDPORT,LEDPIN); waitCycles(WSONEH); SETLOW(LEDPORT,LEDPIN); waitCycles(WSONEL);}while (0);
+#define WSZERO 	do{ SETHIGH(LEDPORT,LEDPIN); waitCycles(WSZEROH); SETLOW(LEDPORT,LEDPIN); waitCycles(WSZEROL);}while (0);
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -55,40 +69,30 @@ ADC_HandleTypeDef hadc1;
 SPI_HandleTypeDef hspi1;
 
 TIM_HandleTypeDef htim1;
-DMA_HandleTypeDef hdma_tim1_ch1;
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-// LED color buffer
-uint8_t rgb_arr[NUM_BYTES];
-
-// LED write buffer
-// LED color buffer
-uint8_t rgb_arr[NUM_BYTES];
-
-// LED write buffer
-#define WRITE_BUF_LEN (NUM_BPP * 8)
-uint8_t wr_buf[WRITE_BUF_LEN];
-uint_fast8_t wr_buf_p = 0;
+//led buffer
+uint8_t ledBuffer[NUM_BYTES];
 uint16_t test_battery = LCD_ORANGE;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
-void led_set_RGBW(uint8_t index, uint8_t r, uint8_t g, uint8_t b, uint8_t w);
-void led_set_all_RGBW(uint8_t r, uint8_t g, uint8_t b, uint8_t w);
-void led_render();
+void __attribute__((naked)) waitCycles(unsigned long ulCount);
 void Test_slider_battery(uint16_t color);
+void ledClearBuffer( void );
+void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b);
+void updateLed( void );
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -125,14 +129,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   MX_ADC1_Init();
   MX_USART2_UART_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_ADC_Start( &hadc1 );
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -156,7 +159,20 @@ int main(void)
 	  //testcode voor lcd functies
 
 	  LCD_FillScreen(LCD_BLACK);
+	  ledClearBuffer( );
+	  setLedColor( 1, 0, 128, 0);
+	  setLedColor( 2, 128, 0, 0);
+	  setLedColor( 3, 0, 0, 128);
+	  updateLed( );
 	  while(1){
+		  HAL_ADC_PollForConversion( &hadc1, 1000);
+		  setLedColor(1, (uint8_t)HAL_ADC_GetValue(&hadc1)>>8,0,0);
+		  updateLed();
+		  /*led_set_all_RGBW( 255, 0, 0, 0 );
+		  	  led_render( );
+		  	  HAL_Delay(1000);*/
+
+		  /*HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
 		  for(int i = 0; i < ILI9341_WIDTH; i++) {
 			  LCD_DrawPixel(i, 0, LCD_YELLOW);
 			  LCD_DrawPixel(i, ILI9341_HEIGHT-1, LCD_YELLOW);
@@ -190,7 +206,7 @@ int main(void)
 		  LCD_WriteString(247, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
 		  Test_slider_battery(test_battery);
 		  LCD_FillScreen(LCD_BLACK);
-		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);*/
 	  }
 
 
@@ -295,10 +311,10 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 12;
+  RCC_OscInitStruct.PLL.PLLN = 10;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
-  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV4;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -312,7 +328,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -450,8 +466,6 @@ static void MX_TIM1_Init(void)
 
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
-  TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
 
   /* USER CODE BEGIN TIM1_Init 1 */
 
@@ -472,10 +486,6 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
@@ -483,36 +493,9 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
-  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
-  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_DISABLE;
-  sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
-  sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
-  sBreakDeadTimeConfig.DeadTime = 0;
-  sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
-  sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
-  sBreakDeadTimeConfig.BreakFilter = 0;
-  sBreakDeadTimeConfig.Break2State = TIM_BREAK2_DISABLE;
-  sBreakDeadTimeConfig.Break2Polarity = TIM_BREAK2POLARITY_HIGH;
-  sBreakDeadTimeConfig.Break2Filter = 0;
-  sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
-  if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
   /* USER CODE BEGIN TIM1_Init 2 */
 
   /* USER CODE END TIM1_Init 2 */
-  HAL_TIM_MspPostInit(&htim1);
 
 }
 
@@ -587,22 +570,6 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -619,7 +586,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LCD_RST_GPIO_Port, LCD_RST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, TOUCH_CS_Pin|BACKLIGHT_Pin|LCD_CS_Pin|LCD_DC_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, TOUCH_CS_Pin|BACKLIGHT_Pin|LCD_CS_Pin|LCD_DC_Pin
+                          |GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(WAKE_GPIO_Port, WAKE_Pin, GPIO_PIN_SET);
@@ -634,8 +602,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LCD_RST_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : TOUCH_CS_Pin BACKLIGHT_Pin LCD_CS_Pin LCD_DC_Pin */
-  GPIO_InitStruct.Pin = TOUCH_CS_Pin|BACKLIGHT_Pin|LCD_CS_Pin|LCD_DC_Pin;
+  /*Configure GPIO pins : TOUCH_CS_Pin BACKLIGHT_Pin LCD_CS_Pin LCD_DC_Pin
+                           PB13 */
+  GPIO_InitStruct.Pin = TOUCH_CS_Pin|BACKLIGHT_Pin|LCD_CS_Pin|LCD_DC_Pin
+                          |GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -670,58 +640,54 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void led_set_RGBW(uint8_t index, uint8_t r, uint8_t g, uint8_t b, uint8_t w) {
-  rgb_arr[4 * index    ] = g;
-  rgb_arr[4 * index + 1] = r;
-  rgb_arr[4 * index + 2] = b;
-  rgb_arr[4 * index + 3] = w;
+void __attribute__((naked)) waitCycles(unsigned long ulCount)
+{
+    __asm("    subs    r0, #1\n"
+          "    bne     waitCycles\n"
+          "    bx      lr");
 }
 
-void led_set_all_RGBW(uint8_t r, uint8_t g, uint8_t b, uint8_t w) {
-  for(uint_fast8_t i = 0; i < NUM_PIXELS; ++i) led_set_RGBW(i, r, g, b, w);
+void ledClearBuffer( void )
+{
+	memset(ledBuffer, 0, NUM_BYTES);
 }
 
-void led_render() {
-  if(wr_buf_p != 0 || hdma_tim1_ch1.State != HAL_DMA_STATE_READY) {
-    // Ongoing transfer, cancel!
-    for(uint8_t i = 0; i < WRITE_BUF_LEN; ++i) wr_buf[i] = 0;
-    wr_buf_p = 0;
-    HAL_TIM_PWM_Stop_DMA(&htim1, TIM_CHANNEL_1);
-    return;
-  }
-  // Ooh boi the first data buffer half (and the second!)
-  for(uint_fast8_t i = 0; i < 8; ++i) {
-    wr_buf[i     ] = PWM_LO << (((rgb_arr[0] << i) & 0x80) > 0);
-    wr_buf[i +  8] = PWM_LO << (((rgb_arr[1] << i) & 0x80) > 0);
-    wr_buf[i + 16] = PWM_LO << (((rgb_arr[2] << i) & 0x80) > 0);
-    wr_buf[i + 24] = PWM_LO << (((rgb_arr[3] << i) & 0x80) > 0);
-    wr_buf[i + 32] = PWM_LO << (((rgb_arr[4] << i) & 0x80) > 0);
-    wr_buf[i + 40] = PWM_LO << (((rgb_arr[5] << i) & 0x80) > 0);
-    wr_buf[i + 48] = PWM_LO << (((rgb_arr[6] << i) & 0x80) > 0);
-    wr_buf[i + 56] = PWM_LO << (((rgb_arr[7] << i) & 0x80) > 0);
-  }
-
-  HAL_TIM_PWM_Start_DMA(&htim1, TIM_CHANNEL_1, (uint32_t *)wr_buf, WRITE_BUF_LEN);
-  wr_buf_p = 2; // Since we're ready for the next buffer
+void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b)
+{
+	ledIndex--;	//for people who ignore 0 -> suckers
+	ledBuffer[ ledIndex * 3 ] = g;
+	ledBuffer[ (ledIndex * 3) + 1 ] = r;
+	ledBuffer[ (ledIndex * 3) + 2 ] = b;
 }
 
-void HAL_TIM_PWM_PulseFinishedHalfCpltCallback(TIM_HandleTypeDef *htim) {
-  // DMA buffer set from LED(wr_buf_p) to LED(wr_buf_p + 1)
-  if(wr_buf_p < NUM_PIXELS) {
-    // We're in. Fill the even buffer
-    for(uint_fast8_t i = 0; i < 8; ++i) {
-      wr_buf[i     ] = PWM_LO << (((rgb_arr[4 * wr_buf_p    ] << i) & 0x80) > 0);
-      wr_buf[i +  8] = PWM_LO << (((rgb_arr[4 * wr_buf_p + 1] << i) & 0x80) > 0);
-      wr_buf[i + 16] = PWM_LO << (((rgb_arr[4 * wr_buf_p + 2] << i) & 0x80) > 0);
-      wr_buf[i + 24] = PWM_LO << (((rgb_arr[4 * wr_buf_p + 3] << i) & 0x80) > 0);
-    }
-    wr_buf_p++;
-  } else if (wr_buf_p < NUM_PIXELS + 2) {
-    // Last two transfers are resets. 64 * 1.25 us = 80 us == good enough reset
-    // First half reset zero fill
-    for(uint8_t i = 0; i < WRITE_BUF_LEN / 2; ++i) wr_buf[i] = 0;
-    wr_buf_p++;
-  }
+void updateLed( void )
+{
+uint8_t tempByte = 0x00;
+//time sensitive code
+__disable_irq( );
+	//for every led
+	for( uint8_t i = 0; i < NUM_PIXELS; i++ )
+	{
+		//for every color
+		for( uint8_t j = 0; j < NUM_BPP; j++ )
+		{
+			tempByte = ledBuffer[ (i*3) + j ];
+			//for every bit
+			for( uint8_t q = 0; q < 8; q++ )
+			{
+				if( tempByte & (0x80 >>q) )
+				{
+					WSONE
+				}
+				else
+				{
+					WSZERO
+				}
+			}
+		}
+	}
+	__enable_irq( );
+	HAL_Delay( 1 );
 }
 
 void Test_slider_battery(uint16_t color){
