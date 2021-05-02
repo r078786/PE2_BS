@@ -165,7 +165,17 @@ int main(void)
 	  updateLed( ); //kleur op ledje(s) zetten
 
 	  while(1){
+		  int npoints = 0;
+		  while(npoints < 10000) {
+		      uint16_t x, y;
 
+		      if(LCD_TGetC(&x, &y)) {
+		    	  LCD_DrawPixel(y, x, LCD_YELLOW);
+		    	  LCD_WriteString(0, 20, &x, Font_11x18, LCD_WHITE, LCD_BLACK);
+		    	  LCD_WriteString(0, 50, &y, Font_11x18, LCD_WHITE, LCD_BLACK);
+		          npoints++;
+		      }
+		  }
 		  /*HAL_ADC_PollForConversion( &hadc1, 1000); //test voor adc
 		  setLedColor(1, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8,0,0);//lees pin in, adc, zet waarde op eerste led
 		  updateLed();
@@ -176,7 +186,7 @@ int main(void)
 
 
 		  LCD_WriteString(65, 6, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8, Font_11x18, LCD_WHITE, LCD_BLACK);
-		  HAL_Delay(2000);*/
+		  HAL_Delay(2000);
 		  for(uint8_t i = 1; i<25; i++)
 		  {
 			  setLedColor( i, 0, 0, 128);
@@ -234,7 +244,7 @@ int main(void)
 		  LCD_WriteString(247, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
 		  Test_slider_battery(test_battery);
 		  LCD_FillScreen(LCD_BLACK);
-		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);*/
 	  }
   }
   /* USER CODE END 3 */

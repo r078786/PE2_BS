@@ -1,250 +1,4 @@
-15:08:56 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:150:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:157:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:178:28: warning: passing argument 3 of 'LCD_WriteString' makes pointer from integer without a cast [-Wint-conversion]
-     LCD_WriteString(65, 6, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8, Font_11x18, LCD_WHITE, LCD_BLACK);
-                            ^
-In file included from ../Core/Src/main.c:25:0:
-C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'int'
- void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
-      ^~~~~~~~~~~~~~~
-../Core/Src/main.c:158:13: warning: unused variable 'ad_res' [-Wunused-variable]
-    uint16_t ad_res = 0;
-             ^~~~~~
-../Core/Src/main.c:157:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c: In function 'ledClearBuffer':
-../Core/Src/main.c:600:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
-  memset(ledBuffer, 0, NUM_BYTES);
-  ^~~~~~
-../Core/Src/main.c:600:2: warning: incompatible implicit declaration of built-in function 'memset'
-../Core/Src/main.c:600:2: note: include '<string.h>' or provide a declaration of 'memset'
-../Core/Src/main.c: In function 'Test_slider_battery':
-../Core/Src/main.c:649:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-   if(LCD_TGetC(&x, &y)) {
-      ^~~~~~~~~
-../Core/Src/main.c:650:8: warning: right shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-        ^~
-../Core/Src/main.c:650:18: warning: left shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                  ^~
-../Core/Src/main.c:650:18: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                 ~^~~~~
-../Core/Src/main.c:650:28: warning: right shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                            ^~
-../Core/Src/main.c:650:37: warning: left shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                                     ^~
-../Core/Src/main.c:650:37: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                                    ~^~~~~
-../Core/Src/main.c:651:9: warning: left shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-         ^~
-../Core/Src/main.c:651:9: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-        ~^~~~~
-../Core/Src/main.c:651:19: warning: right shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                   ^~
-../Core/Src/main.c:651:29: warning: left shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                             ^~
-../Core/Src/main.c:651:29: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                            ~^~~~~
-../Core/Src/main.c:651:39: warning: right shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                                       ^~
-../Core/Src/main.c:654:14: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-              ^~
-../Core/Src/main.c:654:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-             ~^~~~~
-../Core/Src/main.c:654:24: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                        ^~
-../Core/Src/main.c:654:34: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                                  ^~
-../Core/Src/main.c:654:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                                 ~^~~~~
-../Core/Src/main.c:654:44: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                                            ^~
-../Core/Src/main.c:657:14: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-              ^~
-../Core/Src/main.c:657:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-             ~^~~~~
-../Core/Src/main.c:657:24: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                        ^~
-../Core/Src/main.c:657:34: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                                  ^~
-../Core/Src/main.c:657:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                                 ~^~~~~
-../Core/Src/main.c:657:44: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                                            ^~
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
-  24824	     56	   2176	  27056	   69b0	Test.elf
- 
-15:09:00 **** Incremental Build of configuration Debug for project Test ****
-make -j16 all 
-Building file: ../Core/Src/main.c
-Invoking: MCU GCC Compiler
-C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:150:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
-    ILI9341_TouchUnselect();
-    ^~~~~~~~~~~~~~~~~~~~~
-    ILI9341_Unselect
-../Core/Src/main.c:157:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
-    int battery = "54.89%";
-                  ^~~~~~~~
-../Core/Src/main.c:178:28: warning: passing argument 3 of 'LCD_WriteString' makes pointer from integer without a cast [-Wint-conversion]
-     LCD_WriteString(65, 6, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8, Font_11x18, LCD_WHITE, LCD_BLACK);
-                            ^
-In file included from ../Core/Src/main.c:25:0:
-C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'int'
- void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
-      ^~~~~~~~~~~~~~~
-../Core/Src/main.c:158:13: warning: unused variable 'ad_res' [-Wunused-variable]
-    uint16_t ad_res = 0;
-             ^~~~~~
-../Core/Src/main.c:157:8: warning: unused variable 'battery' [-Wunused-variable]
-    int battery = "54.89%";
-        ^~~~~~~
-../Core/Src/main.c: In function 'ledClearBuffer':
-../Core/Src/main.c:600:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
-  memset(ledBuffer, 0, NUM_BYTES);
-  ^~~~~~
-../Core/Src/main.c:600:2: warning: incompatible implicit declaration of built-in function 'memset'
-../Core/Src/main.c:600:2: note: include '<string.h>' or provide a declaration of 'memset'
-../Core/Src/main.c: In function 'Test_slider_battery':
-../Core/Src/main.c:649:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
-   if(LCD_TGetC(&x, &y)) {
-      ^~~~~~~~~
-../Core/Src/main.c:650:8: warning: right shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-        ^~
-../Core/Src/main.c:650:18: warning: left shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                  ^~
-../Core/Src/main.c:650:18: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                 ~^~~~~
-../Core/Src/main.c:650:28: warning: right shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                            ^~
-../Core/Src/main.c:650:37: warning: left shift count >= width of type [-Wshift-count-overflow]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                                     ^~
-../Core/Src/main.c:650:37: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
-                                    ~^~~~~
-../Core/Src/main.c:651:9: warning: left shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-         ^~
-../Core/Src/main.c:651:9: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-        ~^~~~~
-../Core/Src/main.c:651:19: warning: right shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                   ^~
-../Core/Src/main.c:651:29: warning: left shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                             ^~
-../Core/Src/main.c:651:29: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                            ~^~~~~
-../Core/Src/main.c:651:39: warning: right shift count >= width of type [-Wshift-count-overflow]
-     if(x<<144 && x>>101 && y<<144 && y>>96){
-                                       ^~
-../Core/Src/main.c:654:14: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-              ^~
-../Core/Src/main.c:654:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-             ~^~~~~
-../Core/Src/main.c:654:24: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                        ^~
-../Core/Src/main.c:654:34: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                                  ^~
-../Core/Src/main.c:654:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                                 ~^~~~~
-../Core/Src/main.c:654:44: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<187 && x>>144 && y<<144 && y>>96){
-                                            ^~
-../Core/Src/main.c:657:14: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-              ^~
-../Core/Src/main.c:657:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-             ~^~~~~
-../Core/Src/main.c:657:24: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                        ^~
-../Core/Src/main.c:657:34: warning: left shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                                  ^~
-../Core/Src/main.c:657:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                                 ~^~~~~
-../Core/Src/main.c:657:44: warning: right shift count >= width of type [-Wshift-count-overflow]
-     else if(x<<228 && x>>187 && y<<144 && y>>96){
-                                            ^~
-Finished building: ../Core/Src/main.c
- 
-Building target: Test.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
-Finished building target: Test.elf
- 
-make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
-arm-none-eabi-size "Test.elf"
-   text	   data	    bss	    dec	    hex	filename
-  24824	     56	   2176	  27056	   69b0	Test.elf
- 
-15:10:58 **** Incremental Build of configuration Debug for project Test ****
+11:49:17 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
@@ -359,4 +113,380 @@ arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
 arm-none-eabi-size "Test.elf"
    text	   data	    bss	    dec	    hex	filename
   26680	     56	   2176	  28912	   70f0	Test.elf
+ 
+11:49:48 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:157:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+    int battery = "54.89%";
+                  ^~~~~~~~
+../Core/Src/main.c:172:12: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+         if(LCD_TGetC(&x, &y)) {
+            ^~~~~~~~~
+../Core/Src/main.c:158:13: warning: unused variable 'ad_res' [-Wunused-variable]
+    uint16_t ad_res = 0;
+             ^~~~~~
+../Core/Src/main.c:157:8: warning: unused variable 'battery' [-Wunused-variable]
+    int battery = "54.89%";
+        ^~~~~~~
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:608:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:608:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:608:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Test_slider_battery':
+../Core/Src/main.c:658:8: warning: right shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+        ^~
+../Core/Src/main.c:658:18: warning: left shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                  ^~
+../Core/Src/main.c:658:18: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                 ~^~~~~
+../Core/Src/main.c:658:28: warning: right shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                            ^~
+../Core/Src/main.c:658:37: warning: left shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                                     ^~
+../Core/Src/main.c:658:37: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                                    ~^~~~~
+../Core/Src/main.c:659:9: warning: left shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+         ^~
+../Core/Src/main.c:659:9: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+        ~^~~~~
+../Core/Src/main.c:659:19: warning: right shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                   ^~
+../Core/Src/main.c:659:29: warning: left shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                             ^~
+../Core/Src/main.c:659:29: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                            ~^~~~~
+../Core/Src/main.c:659:39: warning: right shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                                       ^~
+../Core/Src/main.c:662:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+              ^~
+../Core/Src/main.c:662:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+             ~^~~~~
+../Core/Src/main.c:662:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                        ^~
+../Core/Src/main.c:662:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                  ^~
+../Core/Src/main.c:662:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                 ~^~~~~
+../Core/Src/main.c:662:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                            ^~
+../Core/Src/main.c:665:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+              ^~
+../Core/Src/main.c:665:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+             ~^~~~~
+../Core/Src/main.c:665:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                        ^~
+../Core/Src/main.c:665:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                  ^~
+../Core/Src/main.c:665:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                 ~^~~~~
+../Core/Src/main.c:665:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                            ^~
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25864	     56	   2176	  28096	   6dc0	Test.elf
+ 
+11:51:18 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:157:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+    int battery = "54.89%";
+                  ^~~~~~~~
+../Core/Src/main.c:172:12: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+         if(LCD_TGetC(&x, &y)) {
+            ^~~~~~~~~
+../Core/Src/main.c:174:33: warning: passing argument 3 of 'LCD_WriteString' makes pointer from integer without a cast [-Wint-conversion]
+          LCD_WriteString(0, 20, x, Font_11x18, LCD_WHITE, LCD_BLACK);
+                                 ^
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint16_t {aka short unsigned int}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:175:33: warning: passing argument 3 of 'LCD_WriteString' makes pointer from integer without a cast [-Wint-conversion]
+          LCD_WriteString(0, 50, y, Font_11x18, LCD_WHITE, LCD_BLACK);
+                                 ^
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint16_t {aka short unsigned int}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:158:13: warning: unused variable 'ad_res' [-Wunused-variable]
+    uint16_t ad_res = 0;
+             ^~~~~~
+../Core/Src/main.c:157:8: warning: unused variable 'battery' [-Wunused-variable]
+    int battery = "54.89%";
+        ^~~~~~~
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:610:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:610:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:610:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Test_slider_battery':
+../Core/Src/main.c:660:8: warning: right shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+        ^~
+../Core/Src/main.c:660:18: warning: left shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                  ^~
+../Core/Src/main.c:660:18: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                 ~^~~~~
+../Core/Src/main.c:660:28: warning: right shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                            ^~
+../Core/Src/main.c:660:37: warning: left shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                                     ^~
+../Core/Src/main.c:660:37: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                                    ~^~~~~
+../Core/Src/main.c:661:9: warning: left shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+         ^~
+../Core/Src/main.c:661:9: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+        ~^~~~~
+../Core/Src/main.c:661:19: warning: right shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                   ^~
+../Core/Src/main.c:661:29: warning: left shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                             ^~
+../Core/Src/main.c:661:29: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                            ~^~~~~
+../Core/Src/main.c:661:39: warning: right shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                                       ^~
+../Core/Src/main.c:664:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+              ^~
+../Core/Src/main.c:664:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+             ~^~~~~
+../Core/Src/main.c:664:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                        ^~
+../Core/Src/main.c:664:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                  ^~
+../Core/Src/main.c:664:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                 ~^~~~~
+../Core/Src/main.c:664:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                            ^~
+../Core/Src/main.c:667:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+              ^~
+../Core/Src/main.c:667:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+             ~^~~~~
+../Core/Src/main.c:667:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                        ^~
+../Core/Src/main.c:667:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                  ^~
+../Core/Src/main.c:667:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                 ~^~~~~
+../Core/Src/main.c:667:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                            ^~
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25800	     56	   2176	  28032	   6d80	Test.elf
+ 
+11:53:45 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c:157:18: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+    int battery = "54.89%";
+                  ^~~~~~~~
+../Core/Src/main.c:172:12: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+         if(LCD_TGetC(&x, &y)) {
+            ^~~~~~~~~
+../Core/Src/main.c:174:33: warning: passing argument 3 of 'LCD_WriteString' from incompatible pointer type [-Wincompatible-pointer-types]
+          LCD_WriteString(0, 20, &x, Font_11x18, LCD_WHITE, LCD_BLACK);
+                                 ^
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint16_t * {aka short unsigned int *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:175:33: warning: passing argument 3 of 'LCD_WriteString' from incompatible pointer type [-Wincompatible-pointer-types]
+          LCD_WriteString(0, 50, &y, Font_11x18, LCD_WHITE, LCD_BLACK);
+                                 ^
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint16_t * {aka short unsigned int *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:158:13: warning: unused variable 'ad_res' [-Wunused-variable]
+    uint16_t ad_res = 0;
+             ^~~~~~
+../Core/Src/main.c:157:8: warning: unused variable 'battery' [-Wunused-variable]
+    int battery = "54.89%";
+        ^~~~~~~
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:610:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:610:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:610:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Test_slider_battery':
+../Core/Src/main.c:660:8: warning: right shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+        ^~
+../Core/Src/main.c:660:18: warning: left shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                  ^~
+../Core/Src/main.c:660:18: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                 ~^~~~~
+../Core/Src/main.c:660:28: warning: right shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                            ^~
+../Core/Src/main.c:660:37: warning: left shift count >= width of type [-Wshift-count-overflow]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                                     ^~
+../Core/Src/main.c:660:37: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+    if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+                                    ~^~~~~
+../Core/Src/main.c:661:9: warning: left shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+         ^~
+../Core/Src/main.c:661:9: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+        ~^~~~~
+../Core/Src/main.c:661:19: warning: right shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                   ^~
+../Core/Src/main.c:661:29: warning: left shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                             ^~
+../Core/Src/main.c:661:29: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                            ~^~~~~
+../Core/Src/main.c:661:39: warning: right shift count >= width of type [-Wshift-count-overflow]
+     if(x<<144 && x>>101 && y<<144 && y>>96){
+                                       ^~
+../Core/Src/main.c:664:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+              ^~
+../Core/Src/main.c:664:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+             ~^~~~~
+../Core/Src/main.c:664:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                        ^~
+../Core/Src/main.c:664:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                  ^~
+../Core/Src/main.c:664:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                 ~^~~~~
+../Core/Src/main.c:664:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<187 && x>>144 && y<<144 && y>>96){
+                                            ^~
+../Core/Src/main.c:667:14: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+              ^~
+../Core/Src/main.c:667:14: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+             ~^~~~~
+../Core/Src/main.c:667:24: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                        ^~
+../Core/Src/main.c:667:34: warning: left shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                  ^~
+../Core/Src/main.c:667:34: warning: '<<' in boolean context, did you mean '<' ? [-Wint-in-bool-context]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                 ~^~~~~
+../Core/Src/main.c:667:44: warning: right shift count >= width of type [-Wshift-count-overflow]
+     else if(x<<228 && x>>187 && y<<144 && y>>96){
+                                            ^~
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  25800	     56	   2176	  28032	   6d80	Test.elf
  
