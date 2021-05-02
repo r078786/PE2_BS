@@ -483,12 +483,12 @@ NoConn ~ 5900 4850
 NoConn ~ 6000 4850
 Text Notes 4500 3350 0    50   ~ 0
 Normally Open
-Text HLabel 5400 3750 0    50   Input ~ 0
-Mode
 Wire Wire Line
 	5500 3750 5400 3750
 Text Notes 4250 3600 0    50   ~ 0
 Internally pulled-up
 Text Notes 1550 5600 0    50   ~ 0
 https://ww1.microchip.com/downloads/en/DeviceDoc/50002154A.pdf
+Text HLabel 5400 3750 0    50   Input ~ 0
+Mode
 $EndSCHEMATC

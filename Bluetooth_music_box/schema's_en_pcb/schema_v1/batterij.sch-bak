@@ -708,6 +708,4 @@ Text Notes 6100 5200 0    50   ~ 0
 Power ok LED
 Text HLabel 8775 1950 2    50   Output ~ 0
 BAT_ADC
-Text Notes 4475 2200 0    50   ~ 0
-https://www.batterijenhuis.nl/nitecore-18650-li-ion-nl1834-3400mah
 $EndSCHEMATC
