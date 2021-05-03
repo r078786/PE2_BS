@@ -76,6 +76,13 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
+//led enable, batterijbesparing
+uint8_t ENABLE_LEDS=1;
+//coordinates touch
+uint16_t x, y;
+char *x_string, y_string;
+//battery voltage
+char *Ubat;
 uint8_t ready=0;
 //max value voor ingelezen waarde
 uint16_t testValue=0;
@@ -198,17 +205,14 @@ int main(void)
 	  //ILI9341_TouchSelect();
 
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
-	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
 
 	  int battery = "54.89%";
 	  uint16_t ad_res = 0;
 
-	  LCD_FillScreen(LCD_RED); //"clear" screen
+	  LCD_FillScreen(LCD_BLACK); //"clear" screen
 	  ledClearBuffer( ); //inhoud buffer = 0
-	  //setLedColor( 4, 0, 128, 0); // (index, g, r, b)
-	  //setLedColor( 2, 128, 0, 0);
-	  //setLedColor( 1, 0, 0, 0);
-	  //updateLed( ); //kleur op ledje(s) zetten
+
 
 	  while(1){
 		  if(ready){
@@ -221,30 +225,42 @@ int main(void)
 
 			 //LCD_WriteString(0, 20, &testValue, Font_11x18, LCD_WHITE, LCD_BLACK);
 			  itoa(testValue, pointer, 10);// 10 = decimal
-			  setLedColor( 12, pointer, 0, 0);
-			  updateLed();
+			  if(ENABLE_LEDS){
+				  setLedColor( 2, 0, 0, pointer);
+				  updateLed();
+			  }
+
 			  //setLedColor(1, 0, 0, 0);
 			  //updateLed();
 			  //LCD_DrawVLine(101,95,101,144,LCD_YELLOW);
 
-			  LCD_WriteString(0, 20, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+			  LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
 			  ready=0;
 			  HAL_ADC_Start_DMA(&hadc1, (uint32_t*) &pointer[0], 80);
 
 		  }
-		  //LCD_WriteString(0, 20, "vis", Font_11x18, LCD_WHITE, LCD_BLACK);
-		  /*int npoints = 0;
-		  while(npoints < 10000) {
-		      uint16_t x, y;
+		  /*if(LCD_TGetC(&x, &y)) {
+		  				  itoa(&x, x_string, 10);// 10 = decimal
+		  				  itoa(&y, y_string, 10);// 10 = decimal
+		  				  LCD_WriteString(100, 190, &x_string, Font_11x18, LCD_WHITE, LCD_BLACK);
+		  				  LCD_WriteString(100, 205, &y_string, Font_11x18, LCD_WHITE, LCD_BLACK);
 
-		      if(LCD_TGetC(&x, &y)) {
-		    	  LCD_DrawPixel(y, x, LCD_YELLOW);
-		    	  LCD_WriteString(0, 20, &x, Font_11x18, LCD_WHITE, LCD_BLACK);
-		    	  LCD_WriteString(0, 50, &y, Font_11x18, LCD_WHITE, LCD_BLACK);
-		          npoints++;
-		      }
-		  }
-		  HAL_ADC_PollForConversion( &hadc1, 1000); //test voor adc
+		  			  }*/
+
+		  /*
+		  // Starten van de ADC Conversie
+		  HAL_ADC_Start(&hadc1);
+		  // Wachten tot de conversie gedaan is
+		  // timeout=1mS maar kijken we niet na
+		  HAL_ADC_PollForConversion(&hadc1, 1);
+		  // ADC waarde inlezen en printen
+		  uint16_t result = HAL_ADC_GetValue(&hadc1);
+		  itoa(result, Ubat, 10);// 10 = decimal
+		  LCD_WriteString(0, 40, Ubat, Font_11x18, LCD_WHITE, LCD_BLACK);
+		  //Even wachten
+		  HAL_Delay(100);*/
+
+		  /*HAL_ADC_PollForConversion( &hadc1, 1000); //test voor adc
 		  setLedColor(1, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8,0,0);//lees pin in, adc, zet waarde op eerste led
 		  updateLed();
 
@@ -277,16 +293,16 @@ int main(void)
 		  }
 		  HAL_Delay(2000);
 		  ledClearBuffer( ); //inhoud buffer = 0
-		  updateLed( ); //kleur op ledje(s) zetten
+		  updateLed( ); //kleur op ledje(s) zetten*/
 		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
-		  for(int i = 0; i < ILI9341_WIDTH; i++) {
+		  /*for(int i = 0; i < ILI9341_WIDTH; i++) {
 			  LCD_DrawPixel(i, 0, LCD_YELLOW);
 			  LCD_DrawPixel(i, ILI9341_HEIGHT-1, LCD_YELLOW);
 		  }
 		  for(int j = 0; j < ILI9341_HEIGHT; j++) {
 			  LCD_DrawPixel(0, j, LCD_YELLOW);
 			  LCD_DrawPixel(ILI9341_WIDTH-1, j, LCD_YELLOW);
-		  }
+		  }*/
 		  //LCD_FillRectangle(0,0,60,30,LCD_YELLOW);
 		  //LCD_FillRectangle(1,1,59,29,LCD_BLACK);
 		  LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
@@ -304,15 +320,36 @@ int main(void)
 
 		  LCD_DrawVLine(244,80,244,160,LCD_YELLOW);
 		  LCD_DrawHLine(0,160,320,160,LCD_YELLOW);
-		  LCD_WriteString(35, 105, "+", Font_16x26, LCD_WHITE, LCD_BLACK);
-		  //LCD_WriteString(95, 105, "Battery", Font_16x26, LCD_WHITE, LCD_BLACK);
-		  LCD_WriteString(273, 108, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
-		  LCD_WriteString(40, 190, "<<", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(18, 105, "LED", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(247, 105, "!LED", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(35, 190, "+", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(80, 190, "<<", Font_16x26, LCD_WHITE, LCD_BLACK);
 		  LCD_WriteString(143, 190, "||", Font_16x26, LCD_WHITE, LCD_BLACK);
-		  LCD_WriteString(247, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
-		  Test_slider_battery(test_battery);
-		  LCD_FillScreen(LCD_BLACK);
-		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);*/
+		  LCD_WriteString(207, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(273, 190, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  //Test_slider_battery(test_battery);
+		  //LCD_FillScreen(LCD_BLACK);
+		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+
+
+
+			  //LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
+			  if(LCD_TGetC(&x, &y)) {
+				  if(x>95 && x<145 && y>101 && y<240){
+					  //HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_RESET);
+					  ENABLE_LEDS=0;
+					  HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port,BACKLIGHT_Pin);
+				  }
+				  else{
+					  ENABLE_LEDS=1;
+				  }
+
+			  }
+			  else{
+
+			  }
+
+
 	  }
   }
   /* USER CODE END 3 */
