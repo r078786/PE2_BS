@@ -113,34 +113,7 @@ void updateLed( void );
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#include <errno.h>
-#include <sys/stat.h>
-#include <sys/times.h>
-#include <sys/unistd.h>
 
-int _write(int file, char *ptr, int len) {
-    HAL_StatusTypeDef xStatus;
-    switch (file) {
-    case STDOUT_FILENO: /*stdout*/
-		xStatus = HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, HAL_MAX_DELAY);
-		if (xStatus != HAL_OK) {
-			errno = EIO;
-			return -1;
-		}
-        break;
-    case STDERR_FILENO: /* stderr */
-		xStatus = HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, HAL_MAX_DELAY);
-		if (xStatus != HAL_OK) {
-			errno = EIO;
-			return -1;
-		}
-        break;
-    default:
-        errno = EBADF;
-        return -1;
-    }
-    return len;
-}
 //volatile uint8_t ready = 0;
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
@@ -232,19 +205,13 @@ int main(void)
 	  //ILI9341_TouchSelect();
 
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
-	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
 
 	  int battery = "54.89%";
 	  uint16_t ad_res = 0;
 
 	  LCD_FillScreen(LCD_BLACK); //"clear" screen
 	  ledClearBuffer( ); //inhoud buffer = 0
-	  //alle leds uit
-	  for(uint8_t i = 1; i<25; i++)
-	  {
-	  		setLedColor( i, 0, 0, 0);
-	  		updateLed();
-	  }
 
 
 	  while(1){
@@ -258,10 +225,10 @@ int main(void)
 
 			 //LCD_WriteString(0, 20, &testValue, Font_11x18, LCD_WHITE, LCD_BLACK);
 			  itoa(testValue, pointer, 10);// 10 = decimal
-			  /*if(ENABLE_LEDS){
+			  if(ENABLE_LEDS){
 				  setLedColor( 2, 0, 0, pointer);
 				  updateLed();
-			  }*/
+			  }
 
 			  //setLedColor(1, 0, 0, 0);
 			  //updateLed();
@@ -280,7 +247,7 @@ int main(void)
 
 		  			  }*/
 
-
+		  /*
 		  // Starten van de ADC Conversie
 		  HAL_ADC_Start(&hadc1);
 		  // Wachten tot de conversie gedaan is
@@ -288,26 +255,10 @@ int main(void)
 		  HAL_ADC_PollForConversion(&hadc1, 1);
 		  // ADC waarde inlezen en printen
 		  uint16_t result = HAL_ADC_GetValue(&hadc1);
-		  //printf("result = %d\r\n", result);
-		  setLedColor(5, result, 0, result);
-		  updateLed();
+		  itoa(result, Ubat, 10);// 10 = decimal
+		  LCD_WriteString(0, 40, Ubat, Font_11x18, LCD_WHITE, LCD_BLACK);
 		  //Even wachten
-		  HAL_Delay(100);
-
-
-
-		  /*printf("AV+\r");
-		  HAL_Delay(1000);
-		  printf("AV+\r");
-		  HAL_Delay(1000);
-		  printf("AV+\r");
-		  HAL_Delay(1000);
-		  printf("AV-\r");
-		  HAL_Delay(1000);
-		  printf("AV-\r");
-		  HAL_Delay(1000);
-		  printf("AV-\r");
-		  HAL_Delay(1000);*/
+		  HAL_Delay(100);*/
 
 		  /*HAL_ADC_PollForConversion( &hadc1, 1000); //test voor adc
 		  setLedColor(1, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8,0,0);//lees pin in, adc, zet waarde op eerste led
@@ -343,7 +294,7 @@ int main(void)
 		  HAL_Delay(2000);
 		  ledClearBuffer( ); //inhoud buffer = 0
 		  updateLed( ); //kleur op ledje(s) zetten*/
-		  //HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
 		  /*for(int i = 0; i < ILI9341_WIDTH; i++) {
 			  LCD_DrawPixel(i, 0, LCD_YELLOW);
 			  LCD_DrawPixel(i, ILI9341_HEIGHT-1, LCD_YELLOW);
@@ -378,7 +329,7 @@ int main(void)
 		  LCD_WriteString(273, 190, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
 		  //Test_slider_battery(test_battery);
 		  //LCD_FillScreen(LCD_BLACK);
-		  //HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
 
 
 
@@ -386,12 +337,7 @@ int main(void)
 			  if(LCD_TGetC(&x, &y)) {
 				  if(x>95 && x<145 && y>101 && y<240){
 					  //HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_RESET);
-					  //ENABLE_LEDS=0;
-					  for(uint8_t i = 1; i<25; i++)
-					  {
-					  		setLedColor( i, 0, 0, 0);
-					  		updateLed();
-					  }
+					  ENABLE_LEDS=0;
 					  HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port,BACKLIGHT_Pin);
 				  }
 				  else{
@@ -761,7 +707,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LCD_RST_Pin|MODE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LCD_RST_GPIO_Port, LCD_RST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, TOUCH_CS_Pin|BACKLIGHT_Pin|LCD_CS_Pin|LCD_DC_Pin
@@ -769,6 +715,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(WAKE_GPIO_Port, WAKE_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(MODE_GPIO_Port, MODE_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : LCD_RST_Pin */
   GPIO_InitStruct.Pin = LCD_RST_Pin;

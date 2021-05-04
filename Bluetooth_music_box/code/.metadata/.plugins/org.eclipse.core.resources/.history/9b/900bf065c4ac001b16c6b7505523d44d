@@ -289,12 +289,11 @@ int main(void)
 		  // ADC waarde inlezen en printen
 		  uint16_t result = HAL_ADC_GetValue(&hadc1);
 		  //printf("result = %d\r\n", result);
-		  setLedColor(5, result, 0, result);
+		  setLedColor(10, result, 0, result);
+		  setLedColor(5, 128, 128, 0);
 		  updateLed();
 		  //Even wachten
 		  HAL_Delay(100);
-
-
 
 		  /*printf("AV+\r");
 		  HAL_Delay(1000);
@@ -383,7 +382,7 @@ int main(void)
 
 
 			  //LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
-			  if(LCD_TGetC(&x, &y)) {
+			  /*if(LCD_TGetC(&x, &y)) {
 				  if(x>95 && x<145 && y>101 && y<240){
 					  //HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_RESET);
 					  //ENABLE_LEDS=0;
@@ -401,7 +400,7 @@ int main(void)
 			  }
 			  else{
 
-			  }
+			  }*/
 
 
 	  }

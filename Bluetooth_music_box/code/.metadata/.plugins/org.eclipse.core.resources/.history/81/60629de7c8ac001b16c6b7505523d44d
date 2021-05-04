@@ -289,7 +289,7 @@ int main(void)
 		  // ADC waarde inlezen en printen
 		  uint16_t result = HAL_ADC_GetValue(&hadc1);
 		  //printf("result = %d\r\n", result);
-		  setLedColor(5, result, 0, result);
+		  setLedColor(24, result, 0, result);
 		  updateLed();
 		  //Even wachten
 		  HAL_Delay(100);

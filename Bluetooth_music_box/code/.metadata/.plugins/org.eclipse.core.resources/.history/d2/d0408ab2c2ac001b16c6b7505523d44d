@@ -288,26 +288,18 @@ int main(void)
 		  HAL_ADC_PollForConversion(&hadc1, 1);
 		  // ADC waarde inlezen en printen
 		  uint16_t result = HAL_ADC_GetValue(&hadc1);
-		  //printf("result = %d\r\n", result);
-		  setLedColor(5, result, 0, result);
+		  printf("result = %d\r\n", result);
+		  setLedColor(24, result, 0, result);
 		  updateLed();
 		  //Even wachten
 		  HAL_Delay(100);
 
-
-
-		  /*printf("AV+\r");
-		  HAL_Delay(1000);
 		  printf("AV+\r");
-		  HAL_Delay(1000);
 		  printf("AV+\r");
-		  HAL_Delay(1000);
+		  printf("AV+\r");
 		  printf("AV-\r");
-		  HAL_Delay(1000);
 		  printf("AV-\r");
-		  HAL_Delay(1000);
 		  printf("AV-\r");
-		  HAL_Delay(1000);*/
 
 		  /*HAL_ADC_PollForConversion( &hadc1, 1000); //test voor adc
 		  setLedColor(1, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8,0,0);//lees pin in, adc, zet waarde op eerste led

@@ -9,13 +9,13 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="setLedColor"/>
+			<item value="MODE_GPIO_Port"/>
 			<item value="setLedColor( 1"/>
 			<item value="x"/>
 			<item value="setLedColor(1"/>
 			<item value="setLedColor("/>
 			<item value="ready"/>
 			<item value="hal_adc_st"/>
-			<item value="hal_adc_stop"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -24,7 +24,7 @@
 		<item value="336" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="1145" key="DIALOG_X_ORIGIN"/>
-		<item value="173" key="DIALOG_Y_ORIGIN"/>
+		<item value="1401" key="DIALOG_X_ORIGIN"/>
+		<item value="220" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
