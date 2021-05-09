@@ -206,8 +206,8 @@ int main(void)
   HAL_StatusTypeDef stat;
   stat = HAL_ADC_Start_DMA(&hadc1, (uint32_t*) &pointer[0], 80);
       if(stat != HAL_OK){
-    	  //setLedColor( 1, 0, 0, 0); // (index, r, g, b)
-    	  //updateLed( ); //kleur op ledje(s) zetten
+    	  setLedColor( 1, 0, 0, 0); // (index, r, g, b)
+    	  updateLed( ); //kleur op ledje(s) zetten
       }
 
       stat = HAL_TIM_Base_Start_IT(&htim2);
@@ -843,13 +843,13 @@ void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b)
 void updateLed( void )
 {
 uint8_t tempByte = 0x00;
-//time sensitive code
+//time sensitive code, disable incoming interrupt requests
 __disable_irq( );
 	//for every led
-	for( uint8_t i = 0; i < NUM_PIXELS; i++ )
+	for( uint8_t i = 0; i < NUM_PIXELS; i++ ) // 24 keer
 	{
 		//for every color
-		for( uint8_t j = 0; j < NUM_BPP; j++ )
+		for( uint8_t j = 0; j < NUM_BPP; j++ ) // 3 keer
 		{
 			tempByte = ledBuffer[ (i*3) + j ];
 			//for every bit

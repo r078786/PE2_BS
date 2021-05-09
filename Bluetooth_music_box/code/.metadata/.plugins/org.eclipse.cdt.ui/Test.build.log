@@ -1,4 +1,4 @@
-13:07:24 **** Incremental Build of configuration Debug for project Test ****
+15:59:08 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
@@ -125,5 +125,5 @@ arm-none-eabi-size "Test.elf"
   28968	     56	   2424	  31448	   7ad8	Test.elf
  
 
-13:07:26 Build Finished (took 1s.753ms)
+15:59:10 Build Finished (took 1s.792ms)
 
