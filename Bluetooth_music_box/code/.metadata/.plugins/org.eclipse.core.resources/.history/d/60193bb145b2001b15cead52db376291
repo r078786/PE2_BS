@@ -312,17 +312,8 @@ int main(void)
 		  //Even wachten
 		  HAL_Delay(100);
 		  if(ENABLE_LEDS==1){
-			  for(uint8_t i = 1; i<25; i++)
-			  {
-				  for(uint8_t j=1; j<255; j++)
-				  {
-					  setLedColor( i, 0, 0, 0);
-					  updateLed();
-				  }
-
-
-			  }
-
+		  	  setLedColor( 6, result, 0, 0);
+		  	  updateLed();
 		  }
 		  else{
 			  for(uint8_t i = 1; i<25; i++)
@@ -753,7 +744,7 @@ static void MX_USART2_UART_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;

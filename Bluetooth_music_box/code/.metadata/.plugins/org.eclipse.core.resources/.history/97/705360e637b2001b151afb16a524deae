@@ -207,8 +207,8 @@ int main(void)
   HAL_StatusTypeDef stat;
   stat = HAL_ADC_Start_DMA(&hadc1, (uint32_t*) &pointer[0], 80);
       if(stat != HAL_OK){
-    	  //setLedColor( 1, 0, 0, 0); // (index, r, g, b)
-    	  //updateLed( ); //kleur op ledje(s) zetten
+    	  setLedColor( 1, 0, 0, 0); // (index, r, g, b)
+    	  updateLed( ); //kleur op ledje(s) zetten
       }
 
       stat = HAL_TIM_Base_Start_IT(&htim2);
@@ -237,7 +237,6 @@ int main(void)
 
 	  int battery = "54.89%";
 	  uint16_t ad_res = 0;
-	  uint8_t test = 'B';
 
 	  LCD_FillScreen(LCD_BLACK); //"clear" screen
 	  ledClearBuffer( ); //inhoud buffer = 0
@@ -260,16 +259,9 @@ int main(void)
 
 			 //LCD_WriteString(0, 20, &testValue, Font_11x18, LCD_WHITE, LCD_BLACK);
 			  itoa(testValue, pointer, 10);// 10 = decimal
-			  /*if(ENABLE_LEDS==1){
+			  /*if(ENABLE_LEDS){
 				  setLedColor( 2, 0, 0, pointer);
 				  updateLed();
-			  }
-			  else{
-				  for(uint8_t i = 1; i<25; i++)
-				  	  {
-				  	  		setLedColor( i, 0, 0, 0);
-				  	  		updateLed();
-				  	  }
 			  }*/
 
 			  //setLedColor(1, 0, 0, 0);
@@ -289,7 +281,7 @@ int main(void)
 
 		  			  }*/
 
-
+/*
 		  // Starten van de ADC Conversie
 		  HAL_ADC_Start(&hadc1);
 		  // Wachten tot de conversie gedaan is
@@ -298,44 +290,13 @@ int main(void)
 		  // ADC waarde inlezen en printen
 		  uint16_t result = HAL_ADC_GetValue(&hadc1);
 		  //printf("result = %d\r\n", result);
-		  /*if(ENABLE_LEDS==1){
-		  				  setLedColor( 6, result, 0, 0);
-		  				  updateLed();
-		  			  }
-		  			  else{
-		  				  for(uint8_t i = 1; i<25; i++)
-		  				  	  {
-		  					  	  setLedColor(i, 0, 0, 0);
-		  						  updateLed();
-		  				  	  }
-		  			  }*/
+		  setLedColor(6, result, 0, 0);
+		  updateLed();
 		  //Even wachten
 		  HAL_Delay(100);
-		  if(ENABLE_LEDS==1){
-			  for(uint8_t i = 1; i<25; i++)
-			  {
-				  for(uint8_t j=1; j<255; j++)
-				  {
-					  setLedColor( i, 0, 0, 0);
-					  updateLed();
-				  }
+*/
 
 
-			  }
-
-		  }
-		  else{
-			  for(uint8_t i = 1; i<25; i++)
-			  {
-				  setLedColor(i, 0, 0, 0);
-		  		  updateLed();
-		  	  }
-		  }
-
-		  /*HAL_UART_Transmit(&huart1, &test, 1, HAL_MAX_DELAY);
-		  HAL_Delay(200);
-		  HAL_UART_Transmit(&huart2, "B", 1, HAL_MAX_DELAY);
-		  HAL_Delay(200);
 		  printf("AV+\r");
 		  HAL_Delay(1000);
 		  printf("AV+\r");
@@ -394,7 +355,7 @@ int main(void)
 		  }*/
 		  //LCD_FillRectangle(0,0,60,30,LCD_YELLOW);
 		  //LCD_FillRectangle(1,1,59,29,LCD_BLACK);
-		  LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
+/*		  LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
 		  LCD_DrawHLine(0,28,59,28,LCD_YELLOW);
 		  LCD_WriteString(4, 6, "Song:", Font_11x18, LCD_WHITE, LCD_BLACK);
 		  LCD_WriteString(65, 6, "Life is a Highway - Rascal Flatts", Font_11x18, LCD_WHITE, LCD_BLACK);
@@ -427,22 +388,21 @@ int main(void)
 				  if(x>95 && x<145 && y>101 && y<240){
 					  //HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_RESET);
 					  //ENABLE_LEDS=0;
-					  /*for(uint8_t i = 1; i<25; i++)
+					  for(uint8_t i = 1; i<25; i++)
 					  {
 					  		setLedColor( i, 0, 0, 0);
 					  		updateLed();
-					  }*/
+					  }
 					  HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port,BACKLIGHT_Pin);
-					  ENABLE_LEDS ^= 1UL << 1;
 				  }
 				  else{
-					  //ENABLE_LEDS=1;
+					  ENABLE_LEDS=1;
 				  }
 
 			  }
 			  else{
 
-			  }
+			  }*/
 
 
 	  }
@@ -718,7 +678,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 9600;
+  huart1.Init.BaudRate = 115200;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
@@ -798,7 +758,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
