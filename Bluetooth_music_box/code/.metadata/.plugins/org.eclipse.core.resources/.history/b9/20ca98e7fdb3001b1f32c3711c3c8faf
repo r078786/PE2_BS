@@ -78,7 +78,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 //variables for led effects
-uint8_t red=255, blue, green;
+uint8_t red=80, blue, green;
 
 //led enable, batterijbesparing
 uint8_t ENABLE_LEDS=1;
@@ -109,6 +109,7 @@ static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 void __attribute__((naked)) waitCycles(unsigned long ulCount);
+void Test_slider_battery(uint16_t color);
 void ledClearBuffer( void );
 void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b);
 void updateLed( void );
@@ -149,13 +150,19 @@ int _write(int file, char *ptr, int len) {
     return len;
 }
 //volatile uint8_t ready = 0;
-/*void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
     // Conversion Complete & DMA Transfer Complete As Well
     // So The AD_RES Is Now Updated & Let's Move IT To The PWM CCR1
     // Update The PWM Duty Cycle With Latest ADC Conversion Result
 
 	HAL_ADC_Stop_DMA(&hadc1);
+	/*for(uint8_t i = 1; i<25; i++)
+			  {
+				  setLedColor( i, 128, 128, 128);
+				  updateLed();
+				  HAL_Delay(100);
+			  }*/
 	//setLedColor(1, 0, 0, 0);
 	//updateLed();
 	ready = 1;
@@ -164,7 +171,7 @@ int _write(int file, char *ptr, int len) {
 //	}
 //	memset(pointer,'\0',20);
 //	HAL_ADC_Start_DMA(&hadc3, (uint32_t*)&pointer[0], 20);
-}*/
+}
 /* USER CODE END 0 */
 
 /**
@@ -226,6 +233,10 @@ int main(void)
 	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
 	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
 
+	  int battery = "54.89%";
+	  uint16_t ad_res = 0;
+	  uint8_t test = 'B';
+
 	  LCD_FillScreen(LCD_BLACK); //"clear" screen
 	  ledClearBuffer( ); //inhoud buffer = 0
 	  //alle leds uit
@@ -244,7 +255,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	//Check_ADC();
+	Check_ADC();
 	LCD_DrawMenu();
 	Check_Power();
 	Led_Effect_1();
@@ -721,7 +732,6 @@ void Check_ADC()
 {
 	if(ready)
 	{
-		Check_Power();
 		testValue = 0;
 		for(uint8_t i=0; i<80; i++){
 			testValue = testValue+pointer[i];
@@ -757,14 +767,13 @@ void Check_ADC()
 	// ADC waarde inlezen en printen
 	uint16_t result = HAL_ADC_GetValue(&hadc1);
 	//printf("result = %d\r\n", result);
-	Check_Power();
 }
 
 void Led_Effect_1()
 {
 	if(ENABLE_LEDS==1)
 	{
-		for(/*var already declared globally*/; red>=0, blue<255; red--, blue++)
+		for(/*var already declared globally*/; red>=0, blue<80; red--, blue++)
 		{
 			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 			{
@@ -790,7 +799,7 @@ void Led_Effect_1()
 		}
 		Check_Power();
 
-		for(/*var already declared globally*/; blue>=0, green<255; blue--, green++)
+		for(/*var already declared globally*/; blue>=0, green<80; blue--, green++)
 		{
 			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 			{
@@ -806,7 +815,6 @@ void Led_Effect_1()
 				}
 				else
 				{
-					Check_Power();
 					for(uint8_t i = 1; i<25; i++)
 					{
 						setLedColor(i, 0, 0, 0);
@@ -817,7 +825,7 @@ void Led_Effect_1()
 		}
 		Check_Power();
 
-		for(/*var already declared globally*/; green>=0, red<255; green--, red++)
+		for(/*var already declared globally*/; green>=0, red<80; green--, red++)
 		{
 			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 			{
@@ -833,7 +841,6 @@ void Led_Effect_1()
 				}
 				else
 				{
-					Check_Power();
 					for(uint8_t i = 1; i<25; i++)
 					{
 						setLedColor(i, 0, 0, 0);
@@ -847,7 +854,6 @@ void Led_Effect_1()
 	}
 	else
 	{
-		Check_Power();
 		for(uint8_t i = 1; i<25; i++)
 		{
 			setLedColor(i, 0, 0, 0);

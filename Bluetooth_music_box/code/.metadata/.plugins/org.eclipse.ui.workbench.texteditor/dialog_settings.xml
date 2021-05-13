@@ -9,13 +9,13 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="setLedColor"/>
+			<item value="Check_Power"/>
+			<item value="HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port"/>
 			<item value="MODE_GPIO_Port"/>
 			<item value="setLedColor( 1"/>
 			<item value="x"/>
 			<item value="setLedColor(1"/>
 			<item value="setLedColor("/>
-			<item value="ready"/>
-			<item value="hal_adc_st"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -78,7 +78,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 //variables for led effects
-uint8_t red=255, blue, green;
+uint8_t red=180, blue, green;
 
 //led enable, batterijbesparing
 uint8_t ENABLE_LEDS=1;
@@ -109,13 +109,10 @@ static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 void __attribute__((naked)) waitCycles(unsigned long ulCount);
+void Test_slider_battery(uint16_t color);
 void ledClearBuffer( void );
 void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b);
 void updateLed( void );
-void Check_ADC( void );
-void Led_Effect_1( void );
-void LCD_DrawMenu( void );
-void Check_Power( void );
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -149,13 +146,19 @@ int _write(int file, char *ptr, int len) {
     return len;
 }
 //volatile uint8_t ready = 0;
-/*void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
     // Conversion Complete & DMA Transfer Complete As Well
     // So The AD_RES Is Now Updated & Let's Move IT To The PWM CCR1
     // Update The PWM Duty Cycle With Latest ADC Conversion Result
 
 	HAL_ADC_Stop_DMA(&hadc1);
+	/*for(uint8_t i = 1; i<25; i++)
+			  {
+				  setLedColor( i, 128, 128, 128);
+				  updateLed();
+				  HAL_Delay(100);
+			  }*/
 	//setLedColor(1, 0, 0, 0);
 	//updateLed();
 	ready = 1;
@@ -164,7 +167,7 @@ int _write(int file, char *ptr, int len) {
 //	}
 //	memset(pointer,'\0',20);
 //	HAL_ADC_Start_DMA(&hadc3, (uint32_t*)&pointer[0], 20);
-}*/
+}
 /* USER CODE END 0 */
 
 /**
@@ -216,24 +219,6 @@ int main(void)
     	  //setLedColor( 1, 0, 0, 0); // (index, g, r, b)
     	  //updateLed( ); //kleur op ledje(s) zetten
       }
-
-	  //alles initialiseren
-	  ILI9341_Unselect();
-	  ILI9341_TouchUnselect();
-	  ILI9341_LCD_Init();
-	  //ILI9341_TouchSelect();
-
-	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
-	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
-
-	  LCD_FillScreen(LCD_BLACK); //"clear" screen
-	  ledClearBuffer( ); //inhoud buffer = 0
-	  //alle leds uit
-	  for(uint8_t i = 1; i<25; i++)
-	  {
-	  		setLedColor( i, 0, 0, 0);
-	  		updateLed();
-	  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -244,13 +229,244 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	//Check_ADC();
-	LCD_DrawMenu();
-	Check_Power();
-	Led_Effect_1();
+	  //alles initialiseren
+	  ILI9341_Unselect();
+	  ILI9341_TouchUnselect();
+	  ILI9341_LCD_Init();
+	  //ILI9341_TouchSelect();
 
-	//Even wachten
-	HAL_Delay(100);
+	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
+	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+
+	  int battery = "54.89%";
+	  uint16_t ad_res = 0;
+	  uint8_t test = 'B';
+
+	  LCD_FillScreen(LCD_BLACK); //"clear" screen
+	  ledClearBuffer( ); //inhoud buffer = 0
+	  //alle leds uit
+	  for(uint8_t i = 1; i<25; i++)
+	  {
+	  		setLedColor( i, 0, 0, 0);
+	  		updateLed();
+	  }
+
+
+	  while(1){
+		  if(ready){
+
+			  testValue = 0;
+			  for(uint8_t i=0; i<80; i++){
+				  testValue = testValue+pointer[i];
+			  }
+			  testValue=testValue/80;
+
+			 //LCD_WriteString(0, 20, &testValue, Font_11x18, LCD_WHITE, LCD_BLACK);
+			  itoa(testValue, pointer, 10);// 10 = decimal
+			  /*if(ENABLE_LEDS==1){
+				  setLedColor( 2, 0, 0, pointer);
+				  updateLed();
+			  }
+			  else{
+				  for(uint8_t i = 1; i<25; i++)
+				  	  {
+				  	  		setLedColor( i, 0, 0, 0);
+				  	  		updateLed();
+				  	  }
+			  }*/
+
+			  //setLedColor(1, 0, 0, 0);
+			  //updateLed();
+			  //LCD_DrawVLine(101,95,101,144,LCD_YELLOW);
+
+			  LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+			  ready=0;
+			  HAL_ADC_Start_DMA(&hadc1, (uint32_t*) &pointer[0], 80);
+
+		  }
+		  /*if(LCD_TGetC(&x, &y)) {
+		  				  itoa(&x, x_string, 10);// 10 = decimal
+		  				  itoa(&y, y_string, 10);// 10 = decimal
+		  				  LCD_WriteString(100, 190, &x_string, Font_11x18, LCD_WHITE, LCD_BLACK);
+		  				  LCD_WriteString(100, 205, &y_string, Font_11x18, LCD_WHITE, LCD_BLACK);
+
+		  			  }*/
+
+
+		  // Starten van de ADC Conversie
+		  HAL_ADC_Start(&hadc1);
+		  // Wachten tot de conversie gedaan is
+		  // timeout=1mS maar kijken we niet na
+		  HAL_ADC_PollForConversion(&hadc1, 1);
+		  // ADC waarde inlezen en printen
+		  uint16_t result = HAL_ADC_GetValue(&hadc1);
+		  //printf("result = %d\r\n", result);
+		  /*if(ENABLE_LEDS==1){
+		  				  setLedColor( 6, result, 0, 0);
+		  				  updateLed();
+		  			  }
+		  			  else{
+		  				  for(uint8_t i = 1; i<25; i++)
+		  				  	  {
+		  					  	  setLedColor(i, 0, 0, 0);
+		  						  updateLed();
+		  				  	  }
+		  			  }*/
+		  //Even wachten
+		  HAL_Delay(100);
+		  if(ENABLE_LEDS==1){
+			  for(uint8_t i = 1; i<7; i++)
+			  {
+				  for(/*var already declared globally*/; red>=0, blue<180; red--, blue++)
+				  {
+					  for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
+					  {
+					  setLedColor( led_row, red, 0, blue);
+					  setLedColor( led_row+1, red, 0, blue);
+					  setLedColor( led_row+12, red, 0, blue);
+					  setLedColor( led_row+13, red, 0, blue);
+					  updateLed();
+					  HAL_Delay(1);
+					  }
+				  }
+				  for(/*var already declared globally*/; blue>=0, green<180; blue--, green++)
+				  				  {
+				  					  setLedColor( i, 0, green, blue);
+				  					  updateLed();
+				  					HAL_Delay(1);
+				  				  }
+				  for(/*var already declared globally*/; green>=0, red<180; green--, red++)
+				  				  {
+				  					  setLedColor( i, red, green, 0);
+				  					  updateLed();
+				  					HAL_Delay(1);
+				  				  }
+
+			  }
+
+		  }
+		  else{
+			  for(uint8_t i = 1; i<25; i++)
+			  {
+				  setLedColor(i, 0, 0, 0);
+		  		  updateLed();
+		  	  }
+		  }
+
+		  /*HAL_UART_Transmit(&huart1, &test, 1, HAL_MAX_DELAY);
+		  HAL_Delay(200);
+		  HAL_UART_Transmit(&huart2, "B", 1, HAL_MAX_DELAY);
+		  HAL_Delay(200);
+		  printf("AV+\r");
+		  HAL_Delay(1000);
+		  printf("AV+\r");
+		  HAL_Delay(1000);
+		  printf("AV+\r");
+		  HAL_Delay(1000);
+		  printf("AV-\r");
+		  HAL_Delay(1000);
+		  printf("AV-\r");
+		  HAL_Delay(1000);
+		  printf("AV-\r");
+		  HAL_Delay(1000);
+
+		  /*HAL_ADC_PollForConversion( &hadc1, 1000); //test voor adc
+		  setLedColor(1, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8,0,0);//lees pin in, adc, zet waarde op eerste led
+		  updateLed();
+
+		  //HAL_ADC_PollForConversion( &hadc1, 1000);//test voor adc
+
+			  //ad_res=HAL_ADC_GetValue(&hadc1)>>8;
+
+
+		  LCD_WriteString(65, 6, (uint16_t)HAL_ADC_GetValue(&hadc1)>>8, Font_11x18, LCD_WHITE, LCD_BLACK);
+		  HAL_Delay(2000);
+		  for(uint8_t i = 1; i<25; i++)
+		  {
+			  setLedColor( i, 0, 0, 50);
+			  updateLed();
+			  HAL_Delay(100);
+		  }
+		  HAL_Delay(2000);
+		  for(uint8_t i = 1; i<25; i++)
+		  {
+		  	  setLedColor( i, 0, 128, 0);
+		  	  updateLed();
+		  	  HAL_Delay(100);
+		  }
+		  HAL_Delay(2000);
+		  for(uint8_t i = 1; i<25; i++)
+		  {
+		  	  setLedColor( i, 128, 0, 0);
+		   	  updateLed();
+		   	  HAL_Delay(100);
+		  }
+		  HAL_Delay(2000);
+		  ledClearBuffer( ); //inhoud buffer = 0
+		  updateLed( ); //kleur op ledje(s) zetten*/
+		  //HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_SET);
+		  /*for(int i = 0; i < ILI9341_WIDTH; i++) {
+			  LCD_DrawPixel(i, 0, LCD_YELLOW);
+			  LCD_DrawPixel(i, ILI9341_HEIGHT-1, LCD_YELLOW);
+		  }
+		  for(int j = 0; j < ILI9341_HEIGHT; j++) {
+			  LCD_DrawPixel(0, j, LCD_YELLOW);
+			  LCD_DrawPixel(ILI9341_WIDTH-1, j, LCD_YELLOW);
+		  }*/
+		  //LCD_FillRectangle(0,0,60,30,LCD_YELLOW);
+		  //LCD_FillRectangle(1,1,59,29,LCD_BLACK);
+		  LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
+		  LCD_DrawHLine(0,28,59,28,LCD_YELLOW);
+		  LCD_WriteString(4, 6, "Song:", Font_11x18, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(65, 6, "Life is a Highway - Rascal Flatts", Font_11x18, LCD_WHITE, LCD_BLACK);
+		  LCD_DrawHLine(0,80,320,80,LCD_YELLOW);
+		  LCD_DrawVLine(86,80,86,160,LCD_YELLOW);
+
+		  LCD_DrawHLine(101,95,228,95,LCD_YELLOW);
+		  LCD_DrawHLine(101,145,228,145,LCD_YELLOW);
+
+		  LCD_DrawVLine(101,95,101,144,LCD_YELLOW);
+		  LCD_DrawVLine(229,95,229,144,LCD_YELLOW);
+
+		  LCD_DrawVLine(244,80,244,160,LCD_YELLOW);
+		  LCD_DrawHLine(0,160,320,160,LCD_YELLOW);
+		  LCD_WriteString(18, 105, "LED", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(247, 105, "!LED", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(35, 190, "+", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(80, 190, "<<", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(143, 190, "||", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(207, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  LCD_WriteString(273, 190, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
+		  //Test_slider_battery(test_battery);
+		  //LCD_FillScreen(LCD_BLACK);
+		  //HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+
+
+
+			  //LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
+			  if(LCD_TGetC(&x, &y)) {
+				  if(x>95 && x<145 && y>101 && y<240){
+					  //HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_RESET);
+					  //ENABLE_LEDS=0;
+					  /*for(uint8_t i = 1; i<25; i++)
+					  {
+					  		setLedColor( i, 0, 0, 0);
+					  		updateLed();
+					  }*/
+					  HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port,BACKLIGHT_Pin);
+					  ENABLE_LEDS ^= 1UL << 1;
+				  }
+				  else{
+					  //ENABLE_LEDS=1;
+				  }
+
+			  }
+			  else{
+
+			  }
+
+
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -717,201 +933,64 @@ __disable_irq( );
 	HAL_Delay( 1 );
 }
 
-void Check_ADC()
-{
-	if(ready)
-	{
-		Check_Power();
-		testValue = 0;
-		for(uint8_t i=0; i<80; i++){
-			testValue = testValue+pointer[i];
-		}
-		testValue=testValue/80;
+void Test_slider_battery(uint16_t color){
+	//102,96,228,144
+	LCD_FillRectangle(102,96,64,49,color);
 
-		//LCD_WriteString(0, 20, &testValue, Font_11x18, LCD_WHITE, LCD_BLACK);
-		itoa(testValue, pointer, 10);// 10 = decimal
-		/*if(ENABLE_LEDS==1)
-		{
-			setLedColor( 2, 0, 0, pointer);
-			updateLed();
-		}
-		else
-		{
-			for(uint8_t i = 1; i<25; i++)
-			{
-				setLedColor( i, 0, 0, 0);
-				updateLed();
+	int npoints = 0;
+	while(npoints < 1000) {
+		uint16_t x, y;
+		//LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
+		if(LCD_TGetC(&x, &y)) {
+			if(x>>101 && x<<229 && y>>95 && y<<144){// in range?
+				if(x<<144 && x>>101 && y<<144 && y>>96){
+					LCD_FillRectangle(102,96,x-102,49,LCD_RED);
+				}
+				else if(x<<187 && x>>144 && y<<144 && y>>96){
+					LCD_FillRectangle(102,96,x-102,49,LCD_ORANGE);
+				}
+				else if(x<<228 && x>>187 && y<<144 && y>>96){
+					LCD_FillRectangle(102,96,x-102,49,LCD_GREEN);
+				}
+				else{
+
+				}
+				LCD_FillRectangle(102,96,y,49,LCD_GREEN);
+				npoints++;
 			}
-		}*/
-		LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
-		ready=0;
-		HAL_ADC_Start_DMA(&hadc1, (uint32_t*) &pointer[0], 80);
-	}
 
-
-	// Starten van de ADC Conversie
-	HAL_ADC_Start(&hadc1);
-	// Wachten tot de conversie gedaan is
-	// timeout=1mS maar kijken we niet na
-	HAL_ADC_PollForConversion(&hadc1, 1);
-	// ADC waarde inlezen en printen
-	uint16_t result = HAL_ADC_GetValue(&hadc1);
-	//printf("result = %d\r\n", result);
-	Check_Power();
-}
-
-void Led_Effect_1()
-{
-	if(ENABLE_LEDS==1)
-	{
-		for(/*var already declared globally*/; red>=0, blue<255; red--, blue++)
-		{
-			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
-			{
-				if(ENABLE_LEDS==1)
-				{
-					setLedColor( led_row, red, 0, blue);
-					setLedColor( led_row+1, red, 0, blue);
-					setLedColor( led_row+12, red, 0, blue);
-					setLedColor( led_row+13, red, 0, blue);
-					updateLed();
-					Check_Power();
-					HAL_Delay(1);
-				}
-				else
-				{
-					for(uint8_t i = 1; i<25; i++)
-					{
-						setLedColor(i, 0, 0, 0);
-						updateLed();
-					}
-				}
-			}
-		}
-		Check_Power();
-
-		for(/*var already declared globally*/; blue>=0, green<255; blue--, green++)
-		{
-			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
-			{
-				if(ENABLE_LEDS==1)
-				{
-					setLedColor( led_row, 0, green, blue);
-					setLedColor( led_row+1, 0, green, blue);
-					setLedColor( led_row+12, 0, green, blue);
-					setLedColor( led_row+13, 0, green, blue);
-					updateLed();
-					Check_Power();
-					HAL_Delay(1);
-				}
-				else
-				{
-					Check_Power();
-					for(uint8_t i = 1; i<25; i++)
-					{
-						setLedColor(i, 0, 0, 0);
-						updateLed();
-					}
-				}
-			}
-		}
-		Check_Power();
-
-		for(/*var already declared globally*/; green>=0, red<255; green--, red++)
-		{
-			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
-			{
-				if(ENABLE_LEDS==1)
-				{
-					setLedColor( led_row, red, green, 0);
-					setLedColor( led_row+1, red, green, 0);
-					setLedColor( led_row+12, red, green, 0);
-					setLedColor( led_row+13, red, green, 0);
-					updateLed();
-					Check_Power();
-					HAL_Delay(1);
-				}
-				else
-				{
-					Check_Power();
-					for(uint8_t i = 1; i<25; i++)
-					{
-						setLedColor(i, 0, 0, 0);
-						updateLed();
-					}
-				}
-			}
-		}
-		Check_Power();
-
-	}
-	else
-	{
-		Check_Power();
-		for(uint8_t i = 1; i<25; i++)
-		{
-			setLedColor(i, 0, 0, 0);
-			updateLed();
 		}
 	}
 }
 
-void LCD_DrawMenu()
-{
-	LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
-	LCD_DrawHLine(0,28,59,28,LCD_YELLOW);
-	LCD_WriteString(4, 6, "Song:", Font_11x18, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(65, 6, "Life is a Highway - Rascal Flatts", Font_11x18, LCD_WHITE, LCD_BLACK);
-	LCD_DrawHLine(0,80,320,80,LCD_YELLOW);
-	LCD_DrawVLine(86,80,86,160,LCD_YELLOW);
+//temp test code
+/*//fonts controleren
+// Check fonts
+LCD_FillScreen(LCD_BLACK);
+LCD_WriteString(200, 150, battery, Font_7x10, LCD_WHITE, LCD_BLACK);
+LCD_WriteString(0, 3*10, "Font_11x18, green, lorem ipsum dolor sit amet", Font_11x18, LCD_GREEN, LCD_BLACK);
+LCD_WriteString(0, 3*10+3*18, "Font_16x26, blue, lorem ipsum dolor sit amet", Font_16x26, LCD_BLUE, LCD_BLACK);
 
-	Check_Power();
+HAL_Delay(1000);
+LCD_InvertColors(true);
+HAL_Delay(1000);
+LCD_InvertColors(false);
 
-	LCD_DrawHLine(101,95,228,95,LCD_YELLOW);
-	LCD_DrawHLine(101,145,228,145,LCD_YELLOW);
+HAL_Delay(1000);
+//colors controleren
+LCD_FillScreen(LCD_WHITE);
+LCD_WriteString(0, 0, "WHITE", Font_11x18, LCD_BLACK, LCD_WHITE);
+HAL_Delay(500);
 
-	LCD_DrawVLine(101,95,101,144,LCD_YELLOW);
-	LCD_DrawVLine(229,95,229,144,LCD_YELLOW);
-
-	Check_Power();
-
-	LCD_DrawVLine(244,80,244,160,LCD_YELLOW);
-	LCD_DrawHLine(0,160,320,160,LCD_YELLOW);
-	LCD_WriteString(18, 105, "LED", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(247, 105, "!LED", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(35, 190, "+", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(80, 190, "<<", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(143, 190, "||", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(207, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(273, 190, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
-	Check_Power();
-}
-
-void Check_Power()
-{
-	if(LCD_TGetC(&x, &y))
-	{
-		if(x>80 && x<160 && y>0 && y<80)
-		{
-			//HAL_GPIO_WritePin(LEDPORT, LEDPIN, RESET);
-			ENABLE_LEDS ^= 1UL << 1;
-			HAL_Delay(200);
-		}
-
-		if(x>95 && x<145 && y>101 && y<240)
-		{
-			HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port,BACKLIGHT_Pin);
-			HAL_Delay(500);
-		}
-
-		if(x>80 && x<160 && y>244 && y<320)
-		{
-			//HAL_GPIO_WritePin(LEDPORT, LEDPIN, SET);
-			ENABLE_LEDS ^= 1UL << 1;
-			HAL_Delay(200);
-		}
-	}
-}
+int npoints = 0;
+while(npoints < 10000) {
+    uint16_t x, y;
+    //LCD_WriteString(0, 20, "In loop, maar eigenlijk werkt de touchfunctie nog niet en het kan men hol likken !", Font_11x18, LCD_WHITE, LCD_BLACK);
+    if(LCD_TGetC(&x, &y)) {
+  	  LCD_DrawPixel(y, x, LCD_YELLOW);
+        npoints++;
+    }
+}*/
 /* USER CODE END 4 */
 
 /**
