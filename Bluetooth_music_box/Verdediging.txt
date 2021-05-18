@@ -1,0 +1,74 @@
+Slide 1:
+Hallo allemaal,
+mijn naam is Robbe janssens en vandaag kom ik jullie vertellen wat ik voor 
+Practice Enterprise heb gemaakt en wat ik eruit heb geleerd.
+
+Slide 2:
+Een kleine inhoudstafel: Ik ga een kleine inhoud geven over hoe en wat juist,
+dan ga ik vertellen hoe ik het dan ook allemaal heb gerealiseerd. Om mee af te sluiten 
+heb ik een kort besluit gevormd.
+
+Slide 3:
+Dus, ik heb als project gekozen om een BlueTooth Speaker te maken. Waarom? Ik ben iemand
+die nogal graag naar muziek luistert. Ik heb al een speaker thuis, maar het leek me
+interessant om zelf eens een kijkje te nemen over hoe het allemaal ongeveer in zijn 
+werk gaat.
+Om dit project te realiseren, moest ik natuurlijk mijn programmeer-, mechanische en 
+electronische kennis bij elkaar nemen.
+
+Slide 4:
+Ik begon zoals iedereen met een duidelijk idee van "wat ik juist wil". Geen duidelijk idee
+betekent chaos... 
+
+Slide 5:
+Tegen dat ik een duidelijk idee had, moest ik natuurlijk opzoeken wat ik allemaal nodig 
+had voor dit idee te verwezenlijken. Voor mij was die mijn grootste opgave, want
+ik had nog nooit eerder gewerkt met batterijen, Bluetooth en audio. Na meerdere schema's
+tekenen en componenten vergelijken, ben ik gelukkig op het juiste pad beland.
+
+Slide 6:
+Nu heb ik mijn componenten, dus kon ik beginnen aan mijn schematic. Zoals ik net al zei
+ging het niet al te vlot. Na meerdere pogingen was mijn pcb dan ook tot stand gekomen.
+
+Slide 7:
+Bij een speaker hoort natuurlijk ook een behuizing, dus deze had ik dan ook gemaakt.
+
+Slide 8:
+Na de realisatie stond mij nog enkel de reflectie op mijn project te wachten, maar deze
+vertel ik straks als afsluiter.
+
+Slide 9:
+Hoe heb ik het gerealiseerd?
+(KORTE UITLEG OVER BLOKSCHEMA)
+
+Slide 10:
+Met mijn idee uitgewerkt en mijn componente opgezocht, heb ik dit schema ontworpen.
+(KORT UITLEG OVER SCHEMATIC)
+
+Slide 11:
+Mijn schematic is nu af, dus kan ik mijn pcb tekenen.
+(KORTE UITLEG VERSCHIL OUDE PCB VS NIEUWE PCB)
+
+Slide 12:
+(KORTE UITLEG OVER FLOW VAN PROGRAMMA)
+
+Slide 13:
+(AANHALING HOE BEHUIZING IN ELKAAR ZIT)
+
+Slide 14:
+Ja, mijn doelstelling is bereikt. Ik heb een BlueTooth speaker kunnen maken, 
+met een schermpje en lichteffecten erbij
+
+ADC werkt niet 	==> klok tunen? (leds werken niet)
+		==> Batterij: constante waarde, fout
+
+Volledige com met BT
+
+
+Veel geleerd, opnieuw: niet al te veel veranderen 
+(andere manier analoge spanningen inlezen, pcb in stukken voor betere montering)
+
+Ondanks de dingen die niet werken, ben ik van mezelf toch een beetje trots dat ik iets heb kunnen realiseren waar ik geen ervaring mee had.
+
+Slide 15:
+Vragen?

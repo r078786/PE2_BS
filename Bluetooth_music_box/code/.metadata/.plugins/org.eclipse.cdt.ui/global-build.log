@@ -3424,3 +3424,2185 @@ arm-none-eabi-size "Test.elf"
    text	   data	    bss	    dec	    hex	filename
   28296	     56	   2424	  30776	   7838	Test.elf
  
+14:37:07 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28352	     56	   2424	  30832	   7870	Test.elf
+ 
+14:37:35 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28352	     56	   2424	  30832	   7870	Test.elf
+ 
+14:38:04 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28360	     56	   2424	  30840	   7878	Test.elf
+ 
+14:38:36 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28360	     56	   2424	  30840	   7878	Test.elf
+ 
+14:38:54 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28360	     56	   2424	  30840	   7878	Test.elf
+ 
+14:39:19 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28360	     56	   2424	  30840	   7878	Test.elf
+ 
+14:42:00 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28480	     56	   2424	  30960	   78f0	Test.elf
+ 
+14:42:32 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28480	     56	   2424	  30960	   78f0	Test.elf
+ 
+14:46:42 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28680	     56	   2424	  31160	   79b8	Test.elf
+ 
+14:48:45 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28680	     56	   2424	  31160	   79b8	Test.elf
+ 
+14:50:24 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28680	     56	   2424	  31160	   79b8	Test.elf
+ 
+14:51:10 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28680	     56	   2424	  31160	   79b8	Test.elf
+ 
+14:51:45 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28680	     56	   2424	  31160	   79b8	Test.elf
+ 
+14:53:48 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28672	     56	   2424	  31152	   79b0	Test.elf
+ 
+14:55:06 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28672	     56	   2424	  31152	   79b0	Test.elf
+ 
+14:56:20 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+../Core/Src/main.c: In function 'LCD_DrawMenu':
+../Core/Src/main.c:917:2: error: too few arguments to function 'LCD_DrawHLine'
+  LCD_DrawHLine(258),80,298,80,LCD_YELLOW);
+  ^~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:79:6: note: declared here
+ void LCD_DrawHLine(uint16_t x, uint16_t y,uint16_t x_, uint16_t y_, uint16_t color);
+      ^~~~~~~~~~~~~
+../Core/Src/main.c:917:20: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  LCD_DrawHLine(258),80,298,80,LCD_YELLOW);
+                    ^
+../Core/Src/main.c:917:23: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  LCD_DrawHLine(258),80,298,80,LCD_YELLOW);
+                       ^
+../Core/Src/main.c:917:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  LCD_DrawHLine(258),80,298,80,LCD_YELLOW);
+                           ^
+../Core/Src/main.c:917:30: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  LCD_DrawHLine(258),80,298,80,LCD_YELLOW);
+                              ^
+../Core/Src/main.c:917:30: warning: statement with no effect [-Wunused-value]
+../Core/Src/main.c:917:41: error: expected ';' before ')' token
+  LCD_DrawHLine(258),80,298,80,LCD_YELLOW);
+                                         ^
+../Core/Src/main.c:917:41: error: expected statement before ')' token
+make: *** [Core/Src/main.o] Error 1
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/main.o' failed
+14:56:54 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c:776:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:802:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:829:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28688	     56	   2424	  31168	   79c0	Test.elf
+ 
+15:07:54 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:682:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:682:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:682:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:735:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:749:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:761:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:771:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:792:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:818:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:845:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:1074:1: error: expected declaration or statement at end of input
+ }
+ ^
+At top level:
+../Core/Src/main.c:1065:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+ void Error_Handler(void)
+      ^~~~~~~~~~~~~
+../Core/Src/main.c:1034:6: warning: 'Check_Power' defined but not used [-Wunused-function]
+ void Check_Power()
+      ^~~~~~~~~~~
+../Core/Src/main.c:981:6: warning: 'LCD_DrawMenu' defined but not used [-Wunused-function]
+ void LCD_DrawMenu()
+      ^~~~~~~~~~~~
+../Core/Src/main.c:976:6: warning: 'Effect3' defined but not used [-Wunused-function]
+ void Effect3( void )
+      ^~~~~~~
+../Core/Src/main.c:884:6: warning: 'Effect2' defined but not used [-Wunused-function]
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:788:6: warning: 'Effect1' defined but not used [-Wunused-function]
+ void Effect1( void )
+      ^~~~~~~
+make: *** [Core/Src/main.o] Error 1
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/main.o' failed
+15:08:44 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:682:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:682:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:682:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:735:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:749:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:761:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:791:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:812:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:838:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:865:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:1094:1: error: expected declaration or statement at end of input
+ }
+ ^
+At top level:
+../Core/Src/main.c:1085:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+ void Error_Handler(void)
+      ^~~~~~~~~~~~~
+../Core/Src/main.c:1054:6: warning: 'Check_Power' defined but not used [-Wunused-function]
+ void Check_Power()
+      ^~~~~~~~~~~
+../Core/Src/main.c:1001:6: warning: 'LCD_DrawMenu' defined but not used [-Wunused-function]
+ void LCD_DrawMenu()
+      ^~~~~~~~~~~~
+../Core/Src/main.c:996:6: warning: 'Effect3' defined but not used [-Wunused-function]
+ void Effect3( void )
+      ^~~~~~~
+../Core/Src/main.c:904:6: warning: 'Effect2' defined but not used [-Wunused-function]
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:808:6: warning: 'Effect1' defined but not used [-Wunused-function]
+ void Effect1( void )
+      ^~~~~~~
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/main.o' failed
+make: *** [Core/Src/main.o] Error 1
+15:09:14 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:682:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:682:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:682:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:735:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:749:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:761:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:791:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:812:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:838:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:865:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+../Core/Src/main.c: In function 'Effect2':
+../Core/Src/main.c:958:52: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                    ^
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:997:6: error: redefinition of 'Effect2'
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:904:6: note: previous definition of 'Effect2' was here
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:1095:1: error: expected declaration or statement at end of input
+ }
+ ^
+At top level:
+../Core/Src/main.c:1086:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+ void Error_Handler(void)
+      ^~~~~~~~~~~~~
+../Core/Src/main.c:1055:6: warning: 'Check_Power' defined but not used [-Wunused-function]
+ void Check_Power()
+      ^~~~~~~~~~~
+../Core/Src/main.c:1002:6: warning: 'LCD_DrawMenu' defined but not used [-Wunused-function]
+ void LCD_DrawMenu()
+      ^~~~~~~~~~~~
+../Core/Src/main.c:997:6: warning: 'Effect2' defined but not used [-Wunused-function]
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:904:6: warning: 'Effect2' defined but not used [-Wunused-function]
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:808:6: warning: 'Effect1' defined but not used [-Wunused-function]
+ void Effect1( void )
+      ^~~~~~~
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/main.o' failed
+make: *** [Core/Src/main.o] Error 1
+15:09:53 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:682:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:682:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:682:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:735:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:749:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:761:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:771:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:793:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:819:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:846:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29152	     56	   2424	  31632	   7b90	Test.elf
+ 
+15:15:02 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:682:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:682:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:682:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:735:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:749:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:761:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:771:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:796:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:822:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:849:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29264	     64	   2424	  31752	   7c08	Test.elf
+ 
+15:17:50 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:684:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:684:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:684:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:737:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:751:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:763:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:773:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:795:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:821:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:848:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29264	     64	   2424	  31752	   7c08	Test.elf
+ 
+15:19:45 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:806:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:832:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:859:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Command canceled
+15:19:54 **** Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:806:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:832:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:859:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29280	     64	   2424	  31768	   7c18	Test.elf
+ 
+15:21:17 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:806:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:832:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:859:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29264	     64	   2424	  31752	   7c08	Test.elf
+ 
+15:22:58 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:806:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:833:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:861:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29296	     64	   2424	  31784	   7c28	Test.elf
+ 
+15:24:38 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:806:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:833:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:861:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29296	     64	   2424	  31784	   7c28	Test.elf
+ 
+15:26:44 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:806:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:833:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:861:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29288	     64	   2424	  31776	   7c20	Test.elf
+ 
+15:32:26 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:807:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:834:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:862:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29296	     64	   2424	  31784	   7c28	Test.elf
+ 
+15:34:08 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:695:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:695:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:695:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:748:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:762:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:774:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:784:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:809:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:836:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:864:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29296	     64	   2424	  31784	   7c28	Test.elf
+ 
+15:35:22 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:696:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:696:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:696:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:749:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:763:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:775:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:785:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:810:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:837:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:865:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  29296	     64	   2424	  31784	   7c28	Test.elf
+ 
+15:38:37 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:225:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:682:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:682:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:682:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:735:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:749:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:761:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:791:6: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+   if(LCD_TGetC(&x, &y))
+      ^~~~~~~~~
+../Core/Src/main.c: In function 'Effect1':
+../Core/Src/main.c:812:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                 ^
+../Core/Src/main.c:838:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                  ^
+../Core/Src/main.c:865:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                   ^
+../Core/Src/main.c: In function 'Effect2':
+../Core/Src/main.c:932:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                   ^
+../Core/Src/main.c:959:52: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                    ^
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:998:6: error: redefinition of 'Effect2'
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:904:6: note: previous definition of 'Effect2' was here
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:1096:1: error: expected declaration or statement at end of input
+ }
+ ^
+At top level:
+../Core/Src/main.c:1087:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+ void Error_Handler(void)
+      ^~~~~~~~~~~~~
+../Core/Src/main.c:1056:6: warning: 'Check_Power' defined but not used [-Wunused-function]
+ void Check_Power()
+      ^~~~~~~~~~~
+../Core/Src/main.c:1003:6: warning: 'LCD_DrawMenu' defined but not used [-Wunused-function]
+ void LCD_DrawMenu()
+      ^~~~~~~~~~~~
+../Core/Src/main.c:998:6: warning: 'Effect2' defined but not used [-Wunused-function]
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:904:6: warning: 'Effect2' defined but not used [-Wunused-function]
+ void Effect2( void )
+      ^~~~~~~
+../Core/Src/main.c:808:6: warning: 'Effect1' defined but not used [-Wunused-function]
+ void Effect1( void )
+      ^~~~~~~
+make: *** [Core/Src/main.o] Error 1
+Core/Src/subdir.mk:39: recipe for target 'Core/Src/main.o' failed
+15:39:52 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                  ^
+../Core/Src/main.c:793:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                   ^
+../Core/Src/main.c:820:52: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                    ^
+../Core/Src/main.c: In function 'Check_Power':
+../Core/Src/main.c:914:5: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+  if(LCD_TGetC(&x, &y))
+     ^~~~~~~~~
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28624	     56	   2424	  31104	   7980	Test.elf
+ 
+15:40:05 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+make: Nothing to be done for 'all'.
+15:42:02 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                  ^
+../Core/Src/main.c:793:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                   ^
+../Core/Src/main.c:820:52: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                    ^
+../Core/Src/main.c: In function 'Check_Power':
+../Core/Src/main.c:915:5: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+  if(LCD_TGetC(&x, &y))
+     ^~~~~~~~~
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28296	     56	   2424	  30776	   7838	Test.elf
+ 
+15:42:38 **** Incremental Build of configuration Debug for project Test ****
+make -j16 all 
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                  ^
+../Core/Src/main.c:793:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                   ^
+../Core/Src/main.c:820:52: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                    ^
+../Core/Src/main.c: In function 'Check_Power':
+../Core/Src/main.c:915:5: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+  if(LCD_TGetC(&x, &y))
+     ^~~~~~~~~
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28296	     56	   2424	  30776	   7838	Test.elf
+ 

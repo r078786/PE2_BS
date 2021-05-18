@@ -219,8 +219,8 @@ Text Label 5000 3150 0    50   ~ 0
 FACT_RESET
 Wire Wire Line
 	5000 3150 5500 3150
-Text Notes 1650 3550 0    50   ~ 0
-*Factory reset:\n GPIO4 high on power on, then low 1s high 1s, low 1s high 1s\n*DFU\n Pull DFU pin high during boot\n*BT pin\n 1234\n*UART\n 115200bps,8N1\n*Mode\n high=data mode, low=command mode
+Text Notes 1525 3575 0    50   ~ 0
+*Mode\n high=data mode, low=command mode
 $Comp
 L Device:LED D26
 U 1 1 605C8CBC
@@ -487,8 +487,6 @@ Wire Wire Line
 	5500 3750 5400 3750
 Text Notes 4250 3600 0    50   ~ 0
 Internally pulled-up
-Text Notes 1550 5600 0    50   ~ 0
-https://ww1.microchip.com/downloads/en/DeviceDoc/50002154A.pdf
 Text HLabel 5400 3750 0    50   Input ~ 0
 Mode
 $EndSCHEMATC

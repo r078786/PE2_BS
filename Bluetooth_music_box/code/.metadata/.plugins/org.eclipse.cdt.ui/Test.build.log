@@ -1,4 +1,4 @@
-11:26:46 **** Incremental Build of configuration Debug for project Test ****
+15:42:38 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
 Building file: ../Core/Src/main.c
 Invoking: MCU GCC Compiler
@@ -29,18 +29,18 @@ C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/c
 ../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
   uint16_t result = HAL_ADC_GetValue(&hadc1);
            ^~~~~~
-../Core/Src/main.c: In function 'Led_Effect_1':
-../Core/Src/main.c:767:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
-   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
-                                                ^
-../Core/Src/main.c:793:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
-   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
-                                                 ^
-../Core/Src/main.c:820:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
-   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+../Core/Src/main.c: In function 'Led_Effect':
+../Core/Src/main.c:767:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
                                                   ^
+../Core/Src/main.c:793:51: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                   ^
+../Core/Src/main.c:820:52: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+     for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                    ^
 ../Core/Src/main.c: In function 'Check_Power':
-../Core/Src/main.c:892:5: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+../Core/Src/main.c:915:5: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
   if(LCD_TGetC(&x, &y))
      ^~~~~~~~~
 Finished building: ../Core/Src/main.c
@@ -58,5 +58,5 @@ arm-none-eabi-size "Test.elf"
   28296	     56	   2424	  30776	   7838	Test.elf
  
 
-11:26:48 Build Finished (took 1s.783ms)
+15:42:40 Build Finished (took 1s.899ms)
 

@@ -113,7 +113,7 @@ void ledClearBuffer( void );
 void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b);
 void updateLed( void );
 void Check_ADC( void );
-void Led_Effect_1( void );
+void Led_Effect( void );
 void LCD_DrawMenu( void );
 void Check_Power( void );
 /* USER CODE END PFP */
@@ -247,7 +247,7 @@ int main(void)
 	//Check_ADC();
 	LCD_DrawMenu();
 	Check_Power();
-	Led_Effect_1();
+	Led_Effect();
 
 	//Even wachten
 	HAL_Delay(100);
@@ -760,100 +760,100 @@ void Check_ADC()
 	Check_Power();
 }
 
-void Led_Effect_1()
+void Led_Effect()
 {
 	if(ENABLE_LEDS==1)
-	{
-		for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
-		{
-			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 			{
-				if(ENABLE_LEDS==1)
+				for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
 				{
-					setLedColor( led_row, red, 0, blue);
-					setLedColor( led_row+1, red, 0, blue);
-					setLedColor( led_row+12, red, 0, blue);
-					setLedColor( led_row+13, red, 0, blue);
-					updateLed();
-					Check_Power();
-					HAL_Delay(1);
-				}
-				else
-				{
-					for(uint8_t i = 1; i<25; i++)
+					for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 					{
-						setLedColor(i, 0, 0, 0);
-						updateLed();
+						if(ENABLE_LEDS==1)
+						{
+							setLedColor( led_row, red, 0, blue);
+							setLedColor( led_row+1, red, 0, blue);
+							setLedColor( led_row+12, red, 0, blue);
+							setLedColor( led_row+13, red, 0, blue);
+							updateLed();
+							Check_Power();
+							HAL_Delay(1);
+						}
+						else
+						{
+							for(uint8_t i = 1; i<25; i++)
+							{
+								setLedColor(i, 0, 0, 0);
+								updateLed();
+							}
+						}
 					}
 				}
-			}
-		}
-		Check_Power();
+				Check_Power();
 
-		for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
-		{
-			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
-			{
-				if(ENABLE_LEDS==1)
+				for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
 				{
-					setLedColor( led_row, 0, green, blue);
-					setLedColor( led_row+1, 0, green, blue);
-					setLedColor( led_row+12, 0, green, blue);
-					setLedColor( led_row+13, 0, green, blue);
-					updateLed();
-					Check_Power();
-					HAL_Delay(1);
-				}
-				else
-				{
-					Check_Power();
-					for(uint8_t i = 1; i<25; i++)
+					for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 					{
-						setLedColor(i, 0, 0, 0);
-						updateLed();
+						if(ENABLE_LEDS==1)
+						{
+							setLedColor( led_row, 0, green, blue);
+							setLedColor( led_row+1, 0, green, blue);
+							setLedColor( led_row+12, 0, green, blue);
+							setLedColor( led_row+13, 0, green, blue);
+							updateLed();
+							Check_Power();
+							HAL_Delay(1);
+						}
+						else
+						{
+							Check_Power();
+							for(uint8_t i = 1; i<25; i++)
+							{
+								setLedColor(i, 0, 0, 0);
+								updateLed();
+							}
+						}
 					}
 				}
-			}
-		}
-		Check_Power();
+				Check_Power();
 
-		for(/*var already declared globally*/; green>=0, red<130; green--, red++)
-		{
-			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
-			{
-				if(ENABLE_LEDS==1)
+				for(/*var already declared globally*/; green>=0, red<130; green--, red++)
 				{
-					setLedColor( led_row, red, green, 0);
-					setLedColor( led_row+1, red, green, 0);
-					setLedColor( led_row+12, red, green, 0);
-					setLedColor( led_row+13, red, green, 0);
-					updateLed();
-					Check_Power();
-					HAL_Delay(1);
-				}
-				else
-				{
-					Check_Power();
-					for(uint8_t i = 1; i<25; i++)
+					for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 					{
-						setLedColor(i, 0, 0, 0);
-						updateLed();
+						if(ENABLE_LEDS==1)
+						{
+							setLedColor( led_row, red, green, 0);
+							setLedColor( led_row+1, red, green, 0);
+							setLedColor( led_row+12, red, green, 0);
+							setLedColor( led_row+13, red, green, 0);
+							updateLed();
+							Check_Power();
+							HAL_Delay(1);
+						}
+						else
+						{
+							Check_Power();
+							for(uint8_t i = 1; i<25; i++)
+							{
+								setLedColor(i, 0, 0, 0);
+								updateLed();
+							}
+						}
 					}
 				}
-			}
-		}
-		Check_Power();
+				Check_Power();
 
-	}
-	else
-	{
-		Check_Power();
-		for(uint8_t i = 1; i<25; i++)
-		{
-			setLedColor(i, 0, 0, 0);
-			updateLed();
-		}
-	}
+			}
+			else
+			{
+				Check_Power();
+				for(uint8_t i = 1; i<25; i++)
+				{
+					setLedColor(i, 0, 0, 0);
+					updateLed();
+				}
+			}
 }
 
 void LCD_DrawMenu()
@@ -861,7 +861,7 @@ void LCD_DrawMenu()
 	LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
 	LCD_DrawHLine(0,28,59,28,LCD_YELLOW);
 	LCD_WriteString(4, 6, "Song:", Font_11x18, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(65, 6, "Life is a Highway - Rascal Flatts", Font_11x18, LCD_WHITE, LCD_BLACK);
+	LCD_WriteString(65, 11, "Life is a Highway - Rascal Flatts", Font_7x10, LCD_WHITE, LCD_BLACK);
 	LCD_DrawHLine(0,80,320,80,LCD_YELLOW);
 	LCD_DrawVLine(86,80,86,160,LCD_YELLOW);
 
@@ -881,10 +881,33 @@ void LCD_DrawMenu()
 	LCD_WriteString(247, 105, "!LED", Font_16x26, LCD_WHITE, LCD_BLACK);
 	LCD_WriteString(35, 190, "+", Font_16x26, LCD_WHITE, LCD_BLACK);
 	LCD_WriteString(80, 190, "<<", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(143, 190, "||", Font_16x26, LCD_WHITE, LCD_BLACK);
+	LCD_WriteString(143, 190, "PP", Font_16x26, LCD_WHITE, LCD_BLACK);
 	LCD_WriteString(207, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
 	LCD_WriteString(273, 190, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
+
+	/*
 	Check_Power();
+	LCD_WriteString(4, 165, "Effect:", Font_11x18, LCD_WHITE, LCD_BLACK);
+
+	LCD_DrawHLine(19,190,60,190,LCD_YELLOW);
+	LCD_DrawVLine(20,190,20,225,LCD_YELLOW);
+	LCD_WriteString(35, 200, "1", Font_11x18, LCD_WHITE, LCD_BLACK);
+	LCD_DrawHLine(20,225,60,225,LCD_YELLOW);
+	LCD_DrawVLine(60,190,60,225,LCD_YELLOW);
+
+	LCD_DrawHLine(134,190,175,190,LCD_YELLOW);
+	LCD_DrawVLine(135,190,175,225,LCD_YELLOW);
+	LCD_WriteString(150, 200, "2", Font_11x18, LCD_WHITE, LCD_BLACK);
+	LCD_DrawHLine(135,225,175,225,LCD_YELLOW);
+	LCD_DrawVLine(175,190,175,225,LCD_YELLOW);
+
+	Check_Power();
+
+	LCD_DrawHLine(257,190,298,190,LCD_YELLOW);
+	LCD_DrawVLine(258,190,298,225,LCD_YELLOW);
+	LCD_WriteString(273, 200, "3", Font_11x18, LCD_WHITE, LCD_BLACK);
+	LCD_DrawHLine(258,225,298,225,LCD_YELLOW);
+	LCD_DrawVLine(298,190,298,225,LCD_YELLOW);*/
 }
 
 void Check_Power()
