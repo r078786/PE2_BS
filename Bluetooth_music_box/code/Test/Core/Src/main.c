@@ -78,7 +78,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 //variables for led effects
-uint8_t red=255, blue, green;
+uint8_t red=130, blue, green;
 
 //led enable, batterijbesparing
 uint8_t ENABLE_LEDS=1;
@@ -764,7 +764,7 @@ void Led_Effect_1()
 {
 	if(ENABLE_LEDS==1)
 	{
-		for(/*var already declared globally*/; red>=0, blue<255; red--, blue++)
+		for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
 		{
 			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 			{
@@ -790,7 +790,7 @@ void Led_Effect_1()
 		}
 		Check_Power();
 
-		for(/*var already declared globally*/; blue>=0, green<255; blue--, green++)
+		for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
 		{
 			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 			{
@@ -817,7 +817,7 @@ void Led_Effect_1()
 		}
 		Check_Power();
 
-		for(/*var already declared globally*/; green>=0, red<255; green--, red++)
+		for(/*var already declared globally*/; green>=0, red<130; green--, red++)
 		{
 			for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
 			{

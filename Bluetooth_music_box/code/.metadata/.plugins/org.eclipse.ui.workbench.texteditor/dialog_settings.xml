@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="setLedColor" key="selection"/>
+		<item value="huart" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="huart"/>
 			<item value="setLedColor"/>
 			<item value="Check_Power"/>
 			<item value="HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port"/>
@@ -15,7 +16,6 @@
 			<item value="setLedColor( 1"/>
 			<item value="x"/>
 			<item value="setLedColor(1"/>
-			<item value="setLedColor("/>
 		</list>
 		<list key="replacehistory">
 		</list>

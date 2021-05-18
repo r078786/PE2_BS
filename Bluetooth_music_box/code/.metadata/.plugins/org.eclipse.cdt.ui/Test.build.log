@@ -1,6 +1,62 @@
-17:27:54 **** Incremental Build of configuration Debug for project Test ****
+11:26:46 **** Incremental Build of configuration Debug for project Test ****
 make -j16 all 
-make: Nothing to be done for 'all'.
+Building file: ../Core/Src/main.c
+Invoking: MCU GCC Compiler
+C:\School\Thomas_More_Hogeschool\Practice_Enterprise_2\PE2\Bluetooth_music_box\code\Test\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32L443xx -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Device/ST/STM32L4xx/Include" -I"C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" -o "Core/Src/main.o" "../Core/Src/main.c"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:222:4: warning: implicit declaration of function 'ILI9341_TouchUnselect'; did you mean 'ILI9341_Unselect'? [-Wimplicit-function-declaration]
+    ILI9341_TouchUnselect();
+    ^~~~~~~~~~~~~~~~~~~~~
+    ILI9341_Unselect
+../Core/Src/main.c: In function 'ledClearBuffer':
+../Core/Src/main.c:679:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  memset(ledBuffer, 0, NUM_BYTES);
+  ^~~~~~
+../Core/Src/main.c:679:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/main.c:679:2: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c: In function 'Check_ADC':
+../Core/Src/main.c:732:3: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+   itoa(testValue, pointer, 10);// 10 = decimal
+   ^~~~
+../Core/Src/main.c:746:29: warning: pointer targets in passing argument 3 of 'LCD_WriteString' differ in signedness [-Wpointer-sign]
+   LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
+                             ^~~~~~~
+In file included from ../Core/Src/main.c:25:0:
+C:/School/Thomas_More_Hogeschool/Practice_Enterprise_2/PE2/Bluetooth_music_box/code/Test/Core/Inc/ili9341.h:74:6: note: expected 'const char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ void LCD_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:758:11: warning: unused variable 'result' [-Wunused-variable]
+  uint16_t result = HAL_ADC_GetValue(&hadc1);
+           ^~~~~~
+../Core/Src/main.c: In function 'Led_Effect_1':
+../Core/Src/main.c:767:48: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+                                                ^
+../Core/Src/main.c:793:49: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+                                                 ^
+../Core/Src/main.c:820:50: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   for(/*var already declared globally*/; green>=0, red<130; green--, red++)
+                                                  ^
+../Core/Src/main.c: In function 'Check_Power':
+../Core/Src/main.c:892:5: warning: implicit declaration of function 'LCD_TGetC' [-Wimplicit-function-declaration]
+  if(LCD_TGetC(&x, &y))
+     ^~~~~~~~~
+Finished building: ../Core/Src/main.c
+ 
+Building target: Test.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32L443CCTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test.elf" @"objects.list"   -lm
+Finished building target: Test.elf
+ 
+make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Test.elf" "Test.hex"
+arm-none-eabi-size "Test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28296	     56	   2424	  30776	   7838	Test.elf
+ 
 
-17:27:55 Build Finished (took 305ms)
+11:26:48 Build Finished (took 1s.783ms)
 
