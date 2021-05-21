@@ -82,19 +82,22 @@ uint8_t red=130, blue, green;
 
 //led enable, batterijbesparing
 uint8_t ENABLE_LEDS=1;
+
 //coordinates touch
 uint16_t x, y;
-char *x_string, y_string;
+
 //battery voltage
 char *Ubat;
 uint8_t ready=0;
 //max value voor ingelezen waarde
 uint16_t testValue=0;
+
 //pointer voor adc
 uint8_t pointer[80];
+
 //led buffer
 uint8_t ledBuffer[NUM_BYTES];
-uint16_t test_battery = LCD_ORANGE;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,14 +111,14 @@ static void MX_USART2_UART_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
-void __attribute__((naked)) waitCycles(unsigned long ulCount);
-void ledClearBuffer( void );
-void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b);
-void updateLed( void );
-void Check_ADC( void );
-void Led_Effect( void );
-void LCD_DrawMenu( void );
-void Check_Power( void );
+void __attribute__((naked)) waitCycles ( unsigned long ulCount ) ;
+void ledClearBuffer ( void );
+void setLedColor ( uint8_t ledIndex , uint8_t r , uint8_t g , uint8_t b ) ;
+void updateLed ( void ) ;
+void Check_ADC ( void ) ;
+void Led_Effect ( void ) ;
+void LCD_DrawMenu ( void ) ;
+void Check_Power ( void ) ;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -125,37 +128,41 @@ void Check_Power( void );
 #include <sys/times.h>
 #include <sys/unistd.h>
 
-int _write(int file, char *ptr, int len) {
-    HAL_StatusTypeDef xStatus;
-    switch (file) {
-    case STDOUT_FILENO: /*stdout*/
-		xStatus = HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, HAL_MAX_DELAY);
-		if (xStatus != HAL_OK) {
-			errno = EIO;
-			return -1;
-		}
-        break;
-    case STDERR_FILENO: /* stderr */
-		xStatus = HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, HAL_MAX_DELAY);
-		if (xStatus != HAL_OK) {
-			errno = EIO;
-			return -1;
-		}
-        break;
-    default:
-        errno = EBADF;
-        return -1;
+int _write ( int file , char *ptr , int len )
+{
+    HAL_StatusTypeDef xStatus ;
+    switch ( file )
+    {
+    	case STDOUT_FILENO: /*stdout*/
+    		xStatus = HAL_UART_Transmit ( &huart1 , ( uint8_t* ) ptr , len , HAL_MAX_DELAY ) ;
+    		if ( xStatus != HAL_OK )
+    		{
+    			errno = EIO ;
+    			return -1 ;
+    		}
+        break ;
+    	case STDERR_FILENO: /* stderr */
+    		xStatus = HAL_UART_Transmit ( &huart1 , ( uint8_t* ) ptr , len , HAL_MAX_DELAY ) ;
+    		if ( xStatus != HAL_OK )
+    		{
+    			errno = EIO;
+    			return -1 ;
+    		}
+    	break ;
+    	default:
+    		errno = EBADF ;
+    		return -1 ;
     }
-    return len;
+    return len ;
 }
 //volatile uint8_t ready = 0;
-/*void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+/*void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) //functie wordt opgeroepen als conversie klaar is (callback)
 {
     // Conversion Complete & DMA Transfer Complete As Well
     // So The AD_RES Is Now Updated & Let's Move IT To The PWM CCR1
     // Update The PWM Duty Cycle With Latest ADC Conversion Result
 
-	HAL_ADC_Stop_DMA(&hadc1);
+	HAL_ADC_Stop_DMA(&hadc1); //adc stond op continuous ingesteld
 	//setLedColor(1, 0, 0, 0);
 	//updateLed();
 	ready = 1;
@@ -204,35 +211,37 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   //HAL_ADC_Start( &hadc1 );
-  HAL_StatusTypeDef stat;
-  stat = HAL_ADC_Start_DMA(&hadc1, (uint32_t*) &pointer[0], 80);
-      if(stat != HAL_OK){
-    	  //setLedColor( 1, 0, 0, 0); // (index, r, g, b)
-    	  //updateLed( ); //kleur op ledje(s) zetten
+  HAL_StatusTypeDef stat ;
+  stat = HAL_ADC_Start_DMA ( &hadc1 , ( uint32_t* ) &pointer[0] , 80 ) ;
+      if ( stat != HAL_OK )
+      {
+    	  //setLedColor ( 1 , 0 , 0 , 0 ) ; // (index, r, g, b)
+    	  //updateLed ( ) ; //kleur op ledje(s) zetten
       }
 
-      stat = HAL_TIM_Base_Start_IT(&htim2);
-      if(stat != HAL_OK){
-    	  //setLedColor( 1, 0, 0, 0); // (index, g, r, b)
-    	  //updateLed( ); //kleur op ledje(s) zetten
+      stat = HAL_TIM_Base_Start_IT ( &htim2 ) ;
+      if ( stat != HAL_OK )
+      {
+    	  //setLedColor ( 1 , 0 , 0 , 0 ) ; // (index, g, r, b)
+    	  //updateLed ( ) ; //kleur op ledje(s) zetten
       }
 
 	  //alles initialiseren
-	  ILI9341_Unselect();
-	  ILI9341_TouchUnselect();
-	  ILI9341_LCD_Init();
+	  ILI9341_Unselect ( ) ;
+	  ILI9341_TouchUnselect ( ) ;
+	  ILI9341_LCD_Init ( ) ;
 	  //ILI9341_TouchSelect();
 
-	  HAL_GPIO_WritePin(BACKLIGHT_GPIO_Port, BACKLIGHT_Pin, GPIO_PIN_SET);
-	  HAL_GPIO_WritePin(MODE_GPIO_Port,MODE_Pin,GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin ( BACKLIGHT_GPIO_Port , BACKLIGHT_Pin , GPIO_PIN_SET ) ;
+	  HAL_GPIO_WritePin ( MODE_GPIO_Port , MODE_Pin , GPIO_PIN_RESET ) ;
 
-	  LCD_FillScreen(LCD_BLACK); //"clear" screen
-	  ledClearBuffer( ); //inhoud buffer = 0
+	  LCD_FillScreen ( LCD_BLACK ) ; //"clear" screen
+	  ledClearBuffer ( ) ; //inhoud buffer = cleared
 	  //alle leds uit
-	  for(uint8_t i = 1; i<25; i++)
+	  for ( uint8_t i = 1 ; i<25 ; i++ )
 	  {
-	  		setLedColor( i, 0, 0, 0);
-	  		updateLed();
+	  		setLedColor ( i , 0 , 0 , 0 ) ;
+	  		updateLed ( ) ;
 	  }
   /* USER CODE END 2 */
 
@@ -245,12 +254,12 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	//Check_ADC();
-	LCD_DrawMenu();
-	Check_Power();
-	Led_Effect();
+	LCD_DrawMenu ( ) ;
+	Check_Power ( ) ;
+	Led_Effect ( ) ;
 
 	//Even wachten
-	HAL_Delay(100);
+	HAL_Delay ( 100 ) ;
   }
   /* USER CODE END 3 */
 }
@@ -667,42 +676,42 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void __attribute__((naked)) waitCycles(unsigned long ulCount)
+void __attribute__((naked)) waitCycles ( unsigned long ulCount )
 {
     __asm("    subs    r0, #1\n"
           "    bne     waitCycles\n"
           "    bx      lr");
 }
 
-void ledClearBuffer( void )
+void ledClearBuffer ( void )
 {
-	memset(ledBuffer, 0, NUM_BYTES);
+	memset ( ledBuffer , 0 , NUM_BYTES ) ;
 }
 
-void setLedColor(uint8_t ledIndex, uint8_t r, uint8_t g, uint8_t b)
+void setLedColor ( uint8_t ledIndex , uint8_t r , uint8_t g , uint8_t b )
 {
-	ledIndex--;	//for people who ignore 0 -> suckers
-	ledBuffer[ ledIndex * 3 ] = g;
-	ledBuffer[ (ledIndex * 3) + 1 ] = r;
-	ledBuffer[ (ledIndex * 3) + 2 ] = b;
+	ledIndex-- ;	//for people who ignore 0 -> suckers
+	ledBuffer [ ledIndex * 3 ] = g ;
+	ledBuffer [ (ledIndex * 3) + 1 ] = r ;
+	ledBuffer [ (ledIndex * 3) + 2 ] = b ;
 }
 
-void updateLed( void )
+void updateLed ( void )
 {
-uint8_t tempByte = 0x00;
-//time sensitive code, disable incoming interrupt requests
-__disable_irq( );
+	uint8_t tempByte = 0x00 ;
+	//time sensitive code, disable incoming interrupt requests
+	__disable_irq ( ) ;
 	//for every led
-	for( uint8_t i = 0; i < NUM_PIXELS; i++ ) // 24 keer
+	for ( uint8_t i = 0 ; i < NUM_PIXELS ; i++ ) // 24 keer
 	{
 		//for every color
-		for( uint8_t j = 0; j < NUM_BPP; j++ ) // 3 keer
+		for ( uint8_t j = 0 ; j < NUM_BPP ; j++ ) // 3 keer
 		{
-			tempByte = ledBuffer[ (i*3) + j ];
+			tempByte = ledBuffer [ ( i * 3 ) + j ] ;
 			//for every bit
-			for( uint8_t q = 0; q < 8; q++ )
+			for ( uint8_t q = 0 ; q < 8 ; q++ )
 			{
-				if( tempByte & (0x80 >>q) )
+				if ( tempByte & ( 0x80 >> q ) )
 				{
 					WSONE
 				}
@@ -713,23 +722,28 @@ __disable_irq( );
 			}
 		}
 	}
-	__enable_irq( );
-	HAL_Delay( 1 );
+	__enable_irq ( ) ;
+	HAL_Delay ( 1 ) ;
 }
 
 void Check_ADC()
 {
-	if(ready)
+	if ( ready )
 	{
-		Check_Power();
-		testValue = 0;
-		for(uint8_t i=0; i<80; i++){
-			testValue = testValue+pointer[i];
+		Check_Power ( ) ;
+		testValue = 0 ;
+		//40MHz is frequentie bass
+		//minstens het dubbele van gewenste frequentie gebruiken => 80
+		//80 samples tegen 80Hz => per seconde in deze loop komen
+		for ( uint8_t i = 0 ; i < 80 ; i++ )//80 waarden binnenlezen en gemiddelde berekenen
+		{
+			testValue = testValue + pointer [ i ] ;
 		}
-		testValue=testValue/80;
+		testValue = testValue / 80 ;
 
 		//LCD_WriteString(0, 20, &testValue, Font_11x18, LCD_WHITE, LCD_BLACK);
-		itoa(testValue, pointer, 10);// 10 = decimal
+		//waarde omzetten naar string (om op lcd te zetten)
+		itoa ( testValue , pointer , 10 ) ;// 10 = decimal
 		/*if(ENABLE_LEDS==1)
 		{
 			setLedColor( 2, 0, 0, pointer);
@@ -743,147 +757,147 @@ void Check_ADC()
 				updateLed();
 			}
 		}*/
-		LCD_WriteString(150, 110, pointer, Font_11x18, LCD_WHITE, LCD_BLACK);
-		ready=0;
-		HAL_ADC_Start_DMA(&hadc1, (uint32_t*) &pointer[0], 80);
+		LCD_WriteString (150 , 110 , pointer , Font_11x18 , LCD_WHITE , LCD_BLACK ) ;
+		ready = 0 ;
+		HAL_ADC_Start_DMA ( &hadc1 , ( uint32_t* ) &pointer [ 0 ] , 80 ) ;
 	}
 
 
 	// Starten van de ADC Conversie
-	HAL_ADC_Start(&hadc1);
+	HAL_ADC_Start ( &hadc1 ) ;
 	// Wachten tot de conversie gedaan is
 	// timeout=1mS maar kijken we niet na
-	HAL_ADC_PollForConversion(&hadc1, 1);
+	HAL_ADC_PollForConversion ( &hadc1 , 1 ) ;
 	// ADC waarde inlezen en printen
-	uint16_t result = HAL_ADC_GetValue(&hadc1);
+	uint16_t result = HAL_ADC_GetValue ( &hadc1 ) ;
 	//printf("result = %d\r\n", result);
-	Check_Power();
+	Check_Power ( ) ;
 }
 
 void Led_Effect()
 {
-	if(ENABLE_LEDS==1)
+	if ( ENABLE_LEDS == 1 )
+	{
+		for (/*var already declared globally*/; red >= 0 , blue < 130 ; red-- , blue++ )
+		{
+			for ( uint8_t led_row = 1 ; led_row <= 12 ; led_row = led_row + 2 )
 			{
-				for(/*var already declared globally*/; red>=0, blue<130; red--, blue++)
+				if ( ENABLE_LEDS == 1 )
 				{
-					for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
-					{
-						if(ENABLE_LEDS==1)
-						{
-							setLedColor( led_row, red, 0, blue);
-							setLedColor( led_row+1, red, 0, blue);
-							setLedColor( led_row+12, red, 0, blue);
-							setLedColor( led_row+13, red, 0, blue);
-							updateLed();
-							Check_Power();
-							HAL_Delay(1);
-						}
-						else
-						{
-							for(uint8_t i = 1; i<25; i++)
-							{
-								setLedColor(i, 0, 0, 0);
-								updateLed();
-							}
-						}
-					}
+					setLedColor ( led_row , red , 0 , blue ) ;
+					setLedColor ( led_row + 1 , red , 0 , blue ) ;
+					setLedColor ( led_row + 12, red , 0 , blue ) ;
+					setLedColor ( led_row + 13, red , 0 , blue ) ;
+					updateLed ( ) ;
+					Check_Power ( ) ;
+					HAL_Delay ( 1 ) ;
 				}
-				Check_Power();
-
-				for(/*var already declared globally*/; blue>=0, green<130; blue--, green++)
+				else
 				{
-					for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
+					for ( uint8_t i = 1 ; i < 25 ; i++ )
 					{
-						if(ENABLE_LEDS==1)
-						{
-							setLedColor( led_row, 0, green, blue);
-							setLedColor( led_row+1, 0, green, blue);
-							setLedColor( led_row+12, 0, green, blue);
-							setLedColor( led_row+13, 0, green, blue);
-							updateLed();
-							Check_Power();
-							HAL_Delay(1);
-						}
-						else
-						{
-							Check_Power();
-							for(uint8_t i = 1; i<25; i++)
-							{
-								setLedColor(i, 0, 0, 0);
-								updateLed();
-							}
-						}
+						setLedColor ( i , 0 , 0 , 0 ) ;
+						updateLed ( ) ;
 					}
-				}
-				Check_Power();
-
-				for(/*var already declared globally*/; green>=0, red<130; green--, red++)
-				{
-					for(uint8_t led_row=1;led_row<=12; led_row=led_row+2)
-					{
-						if(ENABLE_LEDS==1)
-						{
-							setLedColor( led_row, red, green, 0);
-							setLedColor( led_row+1, red, green, 0);
-							setLedColor( led_row+12, red, green, 0);
-							setLedColor( led_row+13, red, green, 0);
-							updateLed();
-							Check_Power();
-							HAL_Delay(1);
-						}
-						else
-						{
-							Check_Power();
-							for(uint8_t i = 1; i<25; i++)
-							{
-								setLedColor(i, 0, 0, 0);
-								updateLed();
-							}
-						}
-					}
-				}
-				Check_Power();
-
-			}
-			else
-			{
-				Check_Power();
-				for(uint8_t i = 1; i<25; i++)
-				{
-					setLedColor(i, 0, 0, 0);
-					updateLed();
 				}
 			}
+		}
+		Check_Power ( ) ;
+
+		for (/*var already declared globally*/; blue >= 0 , green < 130 ; blue-- , green++ )
+		{
+			for ( uint8_t led_row = 1 ; led_row <= 12 ; led_row = led_row + 2 )
+			{
+				if ( ENABLE_LEDS == 1 )
+				{
+					setLedColor ( led_row , 0 , green , blue ) ;
+					setLedColor ( led_row + 1 , 0 , green , blue ) ;
+					setLedColor ( led_row + 12 , 0 , green , blue ) ;
+					setLedColor ( led_row + 13 , 0 , green , blue ) ;
+					updateLed ( ) ;
+					Check_Power ( ) ;
+					HAL_Delay ( 1 ) ;
+				}
+				else
+				{
+					Check_Power ( ) ;
+					for ( uint8_t i = 1 ; i < 25 ; i++ )
+					{
+						setLedColor ( i , 0 , 0 , 0 ) ;
+						updateLed ( ) ;
+					}
+				}
+			}
+		}
+		Check_Power ( ) ;
+
+		for (/*var already declared globally*/; green >= 0 , red < 130 ; green-- , red++ )
+		{
+			for ( uint8_t led_row = 1 ; led_row <= 12 ; led_row = led_row + 2 )
+			{
+				if( ENABLE_LEDS == 1 )
+				{
+					setLedColor ( led_row , red , green , 0 ) ;
+					setLedColor ( led_row + 1 , red , green , 0 ) ;
+					setLedColor ( led_row + 12 , red , green , 0 ) ;
+					setLedColor ( led_row+13 , red , green , 0 ) ;
+					updateLed ( ) ;
+					Check_Power ( ) ;
+					HAL_Delay ( 1 ) ;
+				}
+				else
+				{
+					Check_Power ( ) ;
+					for ( uint8_t i = 1 ; i < 25 ; i++ )
+					{
+						setLedColor ( i , 0 , 0 , 0 ) ;
+						updateLed ( ) ;
+					}
+				}
+			}
+		}
+		Check_Power ( ) ;
+
+	}
+	else
+	{
+		Check_Power ( ) ;
+		for ( uint8_t i = 1 ; i < 25 ; i++ )
+		{
+			setLedColor ( i , 0 , 0 , 0 ) ;
+			updateLed ( ) ;
+		}
+	}
 }
 
 void LCD_DrawMenu()
 {
-	LCD_DrawVLine(59,0,59,28,LCD_YELLOW);
-	LCD_DrawHLine(0,28,59,28,LCD_YELLOW);
-	LCD_WriteString(4, 6, "Song:", Font_11x18, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(65, 11, "Life is a Highway - Rascal Flatts", Font_7x10, LCD_WHITE, LCD_BLACK);
-	LCD_DrawHLine(0,80,320,80,LCD_YELLOW);
-	LCD_DrawVLine(86,80,86,160,LCD_YELLOW);
+	LCD_DrawVLine ( 59 , 0 , 59 , 28 , LCD_YELLOW ) ;
+	LCD_DrawHLine ( 0 , 28 , 59 , 28 , LCD_YELLOW ) ;
+	LCD_WriteString ( 4 , 6 , "Song:" , Font_11x18 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_WriteString ( 65 , 11 , "Life is a Highway - Rascal Flatts" , Font_7x10 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_DrawHLine ( 0 , 80 , 320 , 80 , LCD_YELLOW ) ;
+	LCD_DrawVLine ( 86 , 80 , 86 , 160 , LCD_YELLOW ) ;
 
-	Check_Power();
+	Check_Power ( ) ;
 
-	LCD_DrawHLine(101,95,228,95,LCD_YELLOW);
-	LCD_DrawHLine(101,145,228,145,LCD_YELLOW);
+	LCD_DrawHLine ( 101 , 95 , 228 , 95 , LCD_YELLOW ) ;
+	LCD_DrawHLine ( 101 , 145 , 228 , 145 , LCD_YELLOW ) ;
 
-	LCD_DrawVLine(101,95,101,144,LCD_YELLOW);
-	LCD_DrawVLine(229,95,229,144,LCD_YELLOW);
+	LCD_DrawVLine ( 101 , 95 , 101 , 144 , LCD_YELLOW ) ;
+	LCD_DrawVLine ( 229 , 95 , 229 , 144 , LCD_YELLOW ) ;
 
-	Check_Power();
+	Check_Power ( ) ;
 
-	LCD_DrawVLine(244,80,244,160,LCD_YELLOW);
-	LCD_DrawHLine(0,160,320,160,LCD_YELLOW);
-	LCD_WriteString(18, 105, "LED", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(247, 105, "!LED", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(35, 190, "+", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(80, 190, "<<", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(143, 190, "PP", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(207, 190, ">>", Font_16x26, LCD_WHITE, LCD_BLACK);
-	LCD_WriteString(273, 190, "-", Font_16x26, LCD_WHITE, LCD_BLACK);
+	LCD_DrawVLine ( 244 , 80 , 244 , 160 , LCD_YELLOW ) ;
+	LCD_DrawHLine ( 0 , 160 , 320 , 160 , LCD_YELLOW ) ;
+	LCD_WriteString ( 18 , 105 , "LED" , Font_16x26 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_WriteString ( 247 , 105 , "!LED" , Font_16x26 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_WriteString ( 35 , 190 , "+" , Font_16x26 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_WriteString ( 80 , 190 , "<<" , Font_16x26 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_WriteString ( 143 , 190 , "PP" , Font_16x26 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_WriteString ( 207 , 190 , ">>" , Font_16x26 , LCD_WHITE , LCD_BLACK ) ;
+	LCD_WriteString ( 273 , 190 , "-" , Font_16x26 , LCD_WHITE , LCD_BLACK ) ;
 
 	/*
 	Check_Power();
@@ -912,26 +926,26 @@ void LCD_DrawMenu()
 
 void Check_Power()
 {
-	if(LCD_TGetC(&x, &y))
+	if ( LCD_TGetC ( &x , &y ) )
 	{
-		if(x>80 && x<160 && y>0 && y<80)
+		if ( x > 80 && x < 160 && y > 0 && y < 80 )
 		{
 			//HAL_GPIO_WritePin(LEDPORT, LEDPIN, RESET);
-			ENABLE_LEDS ^= 1UL << 1;
-			HAL_Delay(200);
+			ENABLE_LEDS ^= 1UL << 1 ;
+			HAL_Delay ( 200 ) ;
 		}
 
-		if(x>95 && x<145 && y>101 && y<240)
+		if ( x > 95 && x < 145 && y > 101 && y < 240 )
 		{
-			HAL_GPIO_TogglePin(BACKLIGHT_GPIO_Port,BACKLIGHT_Pin);
-			HAL_Delay(500);
+			HAL_GPIO_TogglePin ( BACKLIGHT_GPIO_Port , BACKLIGHT_Pin ) ;
+			HAL_Delay ( 500 ) ;
 		}
 
-		if(x>80 && x<160 && y>244 && y<320)
+		if ( x > 80 && x < 160 && y > 244 && y < 320 )
 		{
 			//HAL_GPIO_WritePin(LEDPORT, LEDPIN, SET);
-			ENABLE_LEDS ^= 1UL << 1;
-			HAL_Delay(200);
+			ENABLE_LEDS ^= 1UL << 1 ;
+			HAL_Delay ( 200 ) ;
 		}
 	}
 }
