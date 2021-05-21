@@ -1,3 +1,0 @@
-(sym_lib_table
-  (lib (name Bluetooth_Speaker-rescue)(type Legacy)(uri ${KIPRJMOD}/Bluetooth_Speaker-rescue.lib)(options "")(descr ""))
-)

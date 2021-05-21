@@ -734,6 +734,7 @@ void Check_ADC()
 		testValue = 0 ;
 		//40MHz is frequentie bass
 		//minstens het dubbele van gewenste frequentie gebruiken => 80
+		//80MHz clock / (10.000 (prescaler) * 100 (Counter Period)) = 80Hz
 		//80 samples tegen 80Hz => per seconde in deze loop komen
 		for ( uint8_t i = 0 ; i < 80 ; i++ )//80 waarden binnenlezen en gemiddelde berekenen
 		{
