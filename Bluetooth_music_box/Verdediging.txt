@@ -68,7 +68,8 @@ Volledige com met BT
 Veel geleerd, opnieuw: niet al te veel veranderen 
 (andere manier analoge spanningen inlezen, pcb in stukken voor betere montering)
 
-Ondanks de dingen die niet werken, ben ik van mezelf toch een beetje trots dat ik iets heb kunnen realiseren waar ik geen ervaring mee had.
+Ondanks de dingen die niet werken, ben ik van mezelf toch een beetje trots dat ik iets 
+heb kunnen realiseren waar ik geen ervaring mee had.
 
 Slide 15:
 Vragen?
